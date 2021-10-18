@@ -19,7 +19,7 @@ public class Applicant {
     private Rating rating;
     private ApplicantFilter applicantFilter;
 
-    public Apply(JobListing jobListing) {
+    public void Apply(JobListing jobListing) {
 
     }
 

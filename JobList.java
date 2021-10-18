@@ -26,7 +26,7 @@ public class JobList extends DataLoader {
      * @return refreshed list of jobs
      */
     public JobList getInstance() {
-
+        return null;
     }
 
     /**
@@ -35,6 +35,6 @@ public class JobList extends DataLoader {
      * @return list of matching jobs
      */
     public ArrayList<JobListing> getJob(String keyword) {
-
+        return null;
     }
 }

@@ -26,7 +26,7 @@ public class UserList extends DataLoader {
      * @return refreshed list of users
      */
     public UserList getInstance() {
-
+        return userList;
     }
 
     /**
@@ -35,6 +35,6 @@ public class UserList extends DataLoader {
      * @return matching user
      */
     public User getUser(String userName) {
-
+        return null;
     }
 }
