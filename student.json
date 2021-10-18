@@ -1,0 +1,14 @@
+[{
+	"id":"0",
+	"username": "bigBobby",
+	"password": "Bigballer123",
+	"firstName" : "Bobby",
+	"lastName" : "Bahama"
+},
+{
+    "id":"1",
+	"username": "kelly.francona",
+	"password": "Ilovesoftball89",
+	"firstName" : "Kelly",
+	"lastName" : "Francona"
+}]
