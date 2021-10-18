@@ -1,0 +1,20 @@
+[{
+	"id" : "0",
+	"username" : "Palmettorobots",
+	"password" : "robots4lyfe",
+	"companyName": "Palmetto Robots Inc",
+	"email" : "palmettorobots@gmail.com",
+	"employerFirstName" : "Frank",
+	"employerLastName" : "Simmons",
+	"location" : "Spartanburg, SC"
+},
+{
+    "id" : "1",
+    "username" : "CarolinasSoftware",
+    "password" : "goCocks2001",
+    "companyName" : "Carolina Software",
+    "email" : "carolinasoftware@outlook.com",
+    "employerFirstName" : "Jessica",
+    "employerLastName" : "Bermudez",
+    "location" : "Lexington, SC"
+}]
