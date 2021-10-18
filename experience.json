@@ -1,0 +1,15 @@
+[{  "id" : "1",
+    "company" : "Google",
+	"location" : "Mountain View, CA",
+	"position" : "Intern as a software engineer in security",
+	"description" : "Collaborate with team members to improve security and investigate and solve breaches",
+	"duration" : "6 months from April 2021 through September 2021."
+},
+{
+    "id" : "2",
+    "company" : "Microsoft",
+	"location" : "Reston, VA",
+	"position" : "Intern as a software engineer",
+	"description" : "Design, build, and improve network infrastructure",
+	"duration" : "4 months from May 2021 through August 2021."
+}]
