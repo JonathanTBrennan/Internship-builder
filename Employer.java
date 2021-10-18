@@ -7,7 +7,8 @@ public class Employer extends WorkforceMember{
     String location;
     String company;
 
-    public Employer(String username, String password, String email, String firstName, String lastName, String location, String company){
+    public Employer(String username, String password, String email, String firstName, String lastName, String location, String company) {
+        super(username, password, email, firstName, lastName);
         this.username = username;
         this.password = password;
         this.email = email;
