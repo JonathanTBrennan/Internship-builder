@@ -5,7 +5,8 @@ public class Student extends WorkforceMember {
     String firstName;
     String lastName;
 
-    public Student(String username, String password, String email, String firstName, String lastName){
+    public Student(String username, String password, String email, String firstName, String lastName) {
+        super(username, password, email, firstName, lastName);
         this.username = username;
         this.password = password;
         this.email = email;
