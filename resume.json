@@ -1,0 +1,14 @@
+[{
+    "id" : "1",
+    "skills" : ["Javascript", "Java", "C++", "Ruby"],
+    "experienceId" : "1",
+    "educationId" : "1",
+    "description" : "I am a current junior studying in computer science. I am willing to do what ever it takes to get the job done no matter the difficulty"
+},
+{
+    "id" : "2",
+    "skills" : ["Python", "Java", "C++", "html"],
+    "experienceId" : "2",
+    "educationId" : "2",
+    "description" : "I am a senior who is majoring in computer science. I have a lot of experience in coding and robotics. I like to get ahead of schedule and get things done fast"
+}]

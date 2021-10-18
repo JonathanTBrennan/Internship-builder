@@ -1,0 +1,12 @@
+[{
+    "id" : "1",
+    "studentId" : "0",
+    "resumeId" : "1",
+    "ratingId" : "1"
+},
+{
+    "id" : "2",
+    "studentId" : "1",
+    "resumeId" : "2",
+    "ratingId" : "3"
+}]

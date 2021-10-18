@@ -1,0 +1,16 @@
+[{
+    "id" : "1",
+    "employerId" : "0",
+    "pay" : "$25.00 per hour",
+    "length" : "3 months from June 2022 - August 2022",
+    "position" : "Software Developer",
+    "description" : "Create and update security software."
+},
+{
+    "id" : "2",
+    "employerId": "1",
+    "pay" : "$27.00 per hour",
+    "length" : "4 months from May 2022 - August 2022",
+    "position" : "Multimedia Programmer",
+    "description" : "Design, create and improve our website and apps."
+}]
