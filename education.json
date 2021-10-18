@@ -1,0 +1,18 @@
+[{
+    "id" : "1",
+    "university" : "University of South Carolina",
+    "location" : "Columbia, SC",
+    "degree" : "Bachelors of Science in Computer Science",
+    "graduationDate" : "May 2023",
+    "GPA" : "3.25",
+    "Awards" : ["Dean's list 5 times", "3rd in SCRAP(robotics competition)"]
+},
+{
+    "id" : "2",
+    "university" : "University of South Carolina",
+    "location" : "Aiken, SC",
+    "degree" : "Bachelors of Science in Computer Science",
+    "graduationDate" : "May 2022",
+    "GPA" : "4.00",
+    "Awards" : ["Dean's list 6 times", "Won Machtey Award", "1st in SCARP South Carolina"]
+}]
