@@ -13,13 +13,32 @@ public class Applicant {
 
     private String firstName;
     private String lastName;
-    private ArrayList<String> language;
+    private ArrayList<String> languages;
     private ArrayList<String> workExperience;
     private ArrayList<String> education;
     private Rating rating;
     private ApplicantFilter applicantFilter;
 
-    public Apply(JobListing jobListing) {
+    /**
+     * Constructor for an applicant of a job listing
+     * @param name of the applicant, first and last
+     * @param langs languages the applicant listed
+     * @param wExperience work experience the applicant listed
+     * @param edu education the applicant listed
+     * @param rate rating of the student's profile
+     * @param appFilter 1
+     */
+    public Applicant(String name, ArrayList<String> langs, ArrayList<String> wExperience, ArrayList<String> edu, Rating rate, ApplicantFilter appFilter) {
+        //this.firstName = getFirstName?
+        //this.lastName = getLastName?
+        this.languages = langs;
+        this.workExperience = wExperience;
+        this.education = edu;
+        this.rating = rate;
+        this.applicantFilter = appFilter;
+    }
+
+    public void Apply(JobListing jobListing) {
 
     }
 
@@ -32,7 +51,7 @@ public class Applicant {
     }
 
     public ArrayList<String> getLanguage() {
-        return this.language;
+        return this.languages;
     }
 
     public ArrayList<String> getWorkExperience() {

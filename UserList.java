@@ -18,7 +18,7 @@ public class UserList extends DataLoader {
      * Constructor for the list of users
      */
     private static void UserList() {
-
+      
     }
 
     /**
@@ -26,7 +26,7 @@ public class UserList extends DataLoader {
      * @return refreshed list of users
      */
     public UserList getInstance() {
-
+      return this.userList;
     }
 
     /**
@@ -35,6 +35,6 @@ public class UserList extends DataLoader {
      * @return matching user
      */
     public User getUser(String userName) {
-
+      return users[0];
     }
 }
