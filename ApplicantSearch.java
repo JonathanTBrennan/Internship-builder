@@ -20,7 +20,7 @@ public class ApplicantSearch {
      * @return list of filtered applicants
      */
     public ArrayList<Applicant> search(JobListing listingName, ArrayList<ApplicantFilter> applicantFilters) {
-
+        return null;
     }
 
     /**
@@ -28,7 +28,7 @@ public class ApplicantSearch {
      * @return requested filter for search
      */
     public ApplicantFilter getFilter() {
-        
+        return null;
     }
 
     /**
