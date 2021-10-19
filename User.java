@@ -1,10 +1,10 @@
 public class User {
-    String username;
-    String password;
-    String email;
-    String firstName;
-    String lastName;
-    int userType;
+    private String username;
+    private String password;
+    private String email;
+    private String firstName;
+    private String lastName;
+    private String id;
 
     public String getEmail() {
         return email;
@@ -17,8 +17,8 @@ public class User {
     public String getLastName(){
         return lastName;
     }
-
-    public int getUserType(){
-        return userType;
+    public String getID() {
+        return id;
     }
+
 }
