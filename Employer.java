@@ -6,9 +6,10 @@ public class Employer extends WorkforceMember{
     String lastName;
     String location;
     String company;
+    int userType;
 
-    public Employer(String username, String password, String email, String firstName, String lastName, String location, String company) {
-        super(username, password, email, firstName, lastName);
+    public Employer(String username, String password, String email, String firstName, String lastName, String location, String company, int userType) {
+        super(username, password, email, firstName, lastName, userType);
         this.username = username;
         this.password = password;
         this.email = email;
@@ -36,5 +37,9 @@ public class Employer extends WorkforceMember{
 
     public String getCompany(){
         return company;
+    }
+
+    public int getUserType(){
+        return userType;
     }
 }

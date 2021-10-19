@@ -4,6 +4,7 @@ public class User {
     String email;
     String firstName;
     String lastName;
+    int userType;
 
     public String getEmail() {
         return email;
@@ -15,5 +16,9 @@ public class User {
 
     public String getLastName(){
         return lastName;
+    }
+
+    public int getUserType(){
+        return userType;
     }
 }
