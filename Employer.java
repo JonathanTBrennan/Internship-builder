@@ -1,15 +1,17 @@
+import java.util.UUID;
 public class Employer extends WorkforceMember{
-    String username;
-    String password;
-    String email;
-    String firstName;
-    String lastName;
-    String location;
-    String company;
-    int userType;
+    private String username;
+    private String password;
+    private String email;
+    private String firstName;
+    private String lastName;
+    private String location;
+    private String company;
+    private int userType;
+    private UUID id;
 
-    public Employer(String username, String password, String email, String firstName, String lastName, String location, String company, int userType) {
-        super(username, password, email, firstName, lastName, userType);
+    public Employer(String username, String password, String email, String firstName, String lastName, String location, String company, int userType, UUID id) {
+        super(username, password, email, firstName, lastName, userType, id);
         this.username = username;
         this.password = password;
         this.email = email;
@@ -17,13 +19,21 @@ public class Employer extends WorkforceMember{
         this.lastName = lastName;
         this.location = location;
         this.company = company;
+        this.id = id;
     }
 
-    public String getEmail() {
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+    public String getEmail()  {
         return email;
     }
 
-    public String getFirstName(){
+    public String getFirstName() {
         return firstName;
     }
 
@@ -41,5 +51,9 @@ public class Employer extends WorkforceMember{
 
     public int getUserType(){
         return userType;
+    }
+
+    public UUID getID(){
+        return id;
     }
 }
