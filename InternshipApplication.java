@@ -6,7 +6,7 @@ public class InternshipApplication {
     User user;
 
     public InternshipApplication(){
-
+        
     }
 
     public ArrayList<JobListing> findJobs(){
@@ -35,7 +35,7 @@ public class InternshipApplication {
     }
 
     public Rating deleteRating(Rating rating){
-        return null;
+        return rating.getRatings().remove(rating.getNumRating());
     }
 
     public JobListing editListing(JobListing job, float pay, String length, String position, String jobDescription, ArrayList<String> skills){

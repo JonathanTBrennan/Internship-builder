@@ -8,5 +8,5 @@
   * List of coding languages to filter for finding applicants
   */
 public enum CodingFilter {
-
+  Java, C, Python, Ruby, JavaScript, HTML
 }
