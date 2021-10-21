@@ -1,16 +1,18 @@
 [{
-	"id":"0",
+	"id":"11df8865-ad68-45a3-80a4-e3a212085dfb",
 	"username": "bigBobby",
 	"password": "Bigballer123",
+	"email" : "bobbybahama123@gmail.com",
 	"firstName" : "Bobby",
 	"lastName" : "Bahama",
 	"resumeId" : "1",
     "ratingId" : "1"
 },
 {
-    "id":"1",
-	"username": "kelly.francona",
-	"password": "Ilovesoftball89",
+    "id":"c6eafa8a-47b7-4b6a-beb5-98b2ecd3e79f",
+	"username" : "kelly.francona",
+	"password" : "Ilovesoftball89",
+	"email" : "kellyfrancona89@gmail.com", 
 	"firstName" : "Kelly",
 	"lastName" : "Francona",
 	"resumeId" : "2",

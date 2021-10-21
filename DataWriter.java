@@ -8,4 +8,8 @@ public class DataWriter {
     public static void saveJobListing() {
         
     }
+
+    public static void saveRating() {
+        
+    }
 }
