@@ -21,15 +21,16 @@ public class InternshipApplication {
         return null;
     }
 
-    public JobListing addJobListing(float pay, String length, String position, String jobDescription, ArrayList<String> skills){
+    public JobListing addJobListing(String titl, float pay, String length, String position, String jobDescription, ArrayList<String> skills){
+        JobListing newJob = new JobListing(titl, pay, length, position, jobDescription, skills);
+        return newJob;
+    }
+
+    public Rating addRating(int numRating, String comment, User user){
         return null;
     }
 
-    public Rating addRating(int numRating, String comment, User member){
-        return null;
-    }
-
-    public Rating editRating(Rating rating, int numRating, String comment, User member){
+    public Rating editRating(Rating rating, int numRating, String comment, User user){
         return null;
     }
 
@@ -45,7 +46,7 @@ public class InternshipApplication {
         return null;
     }
 
-    public void Apply(JobListing job){
-        
+    public void Apply(JobListing job, Student stu) {
+        job.addApplicant(stu);
     }
 }

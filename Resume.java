@@ -3,12 +3,14 @@ import java.util.ArrayList;
 public class Resume {
     private ArrayList<String> skills;
     private ArrayList<String> description;
+    private ArrayList<String> languages;
     private ArrayList<Experience> workExperience;
     private ArrayList<Education> educationExperience;
 
     public Resume(){
         skills = new ArrayList<String>();
         description = new ArrayList<String>();
+        languages = new ArrayList<String>();
         workExperience = new ArrayList<Experience>();
         educationExperience = new ArrayList<Education>();
     }
@@ -27,6 +29,14 @@ public class Resume {
     }
     public ArrayList<String> getSkills(){
         return skills;
+    }
+
+    public ArrayList<String> getDescription(){
+        return description;
+    }
+
+    public ArrayList<String> getLanguages(){
+        return languages;
     }
 
     public ArrayList<Experience> getWorkExperience(){

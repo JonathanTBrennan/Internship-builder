@@ -11,7 +11,7 @@ import java.util.ArrayList;
   */
 public class ApplicantSearch {
 
-    private ArrayList<ApplicantFilter> filters;
+    private ArrayList<CodingFilter> filters;
 
     /**
      * Deals with the search of applicants
@@ -19,7 +19,7 @@ public class ApplicantSearch {
      * @param applicantFilters filters the company uses to sort a listing's applicants
      * @return list of filtered applicants
      */
-    public ArrayList<Student> search(JobListing listingName, ArrayList<ApplicantFilter> applicantFilters) {
+    public ArrayList<Student> search(JobListing listingName, ArrayList<CodingFilter> codingFilters) {
         return null;
     }
 
@@ -27,7 +27,7 @@ public class ApplicantSearch {
      * Gets the requested filter for search
      * @return requested filter for search
      */
-    public ApplicantFilter getFilter() {
+    public CodingFilter getFilter() {
         return null;
     }
 
@@ -35,7 +35,7 @@ public class ApplicantSearch {
      * Sets the requested filter for search as active
      * @param lFilter requested filter for search
      */
-    public void setFilter (ApplicantFilter aFilter) {
+    public void setFilter (CodingFilter aFilter) {
 
     }
 }
