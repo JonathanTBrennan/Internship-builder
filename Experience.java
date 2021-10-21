@@ -32,4 +32,20 @@ public class Experience {
     public String getDuration() {
         return duration;
     }
+
+    public void company() {
+        
+    }
+    public void location() {
+
+    }
+    public void position() {
+
+    }
+    public void description() {
+
+    }
+    public void duration(){
+        
+    }
 }

@@ -1,14 +1,16 @@
-public class Student extends WorkforceMember {
+import java.util.UUID;
+public class Student extends User {
     private String username;
     private String password;
     private String email;
     private String firstName;
     private String lastName;
-    private String id;
+    private int userType;
     private Resume resume;
+    private UUID id;
 
-    public Student(String username, String password, String email, String firstName, String lastName, String id, Resume resume) {
-        super(username, password, email, firstName, lastName, id);
+    public Student(String username, String password, String email, String firstName, String lastName,int userType, UUID id, Resume resume) {
+        super(username, password, email, firstName, lastName, userType, id);
         this.username = username;
         this.password = password;
         this.email = email;
@@ -18,16 +20,22 @@ public class Student extends WorkforceMember {
         this.resume = resume;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
     public String getEmail() {
-        
         return email;
     }
 
-    public String getFirstName(){
+    public String getFirstName() {
         return firstName;
     }
 
-    public String getLastName(){
+    public String getLastName() {
         return lastName;
     }
 
@@ -36,4 +44,11 @@ public class Student extends WorkforceMember {
         //add user to the jobListing list of applicants
 
     }
+    public int getUserType() {
+        return userType;
+    }
+    public UUID getID() {
+        return id;
+    }
+    
 }
