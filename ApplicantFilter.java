@@ -8,5 +8,5 @@
   * List of filters for finding applicants
   */
 public enum ApplicantFilter {
-
+          //maybe create enum method in Search class??
 }

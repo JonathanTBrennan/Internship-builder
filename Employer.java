@@ -1,5 +1,5 @@
 import java.util.UUID;
-public class Employer extends WorkforceMember{
+public class Employer extends User{
     private String username;
     private String password;
     private String email;
