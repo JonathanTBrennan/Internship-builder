@@ -21,8 +21,9 @@ public class InternshipApplication {
         return null;
     }
 
-    public JobListing addJobListing(float pay, String length, String position, String jobDescription, ArrayList<String> skills){
-        return null;
+    public JobListing addJobListing(String titl, float pay, String length, String position, String jobDescription, ArrayList<String> skills){
+        JobListing newJob = new JobListing(titl, pay, length, position, jobDescription, skills);
+        return newJob;
     }
 
     public Rating addRating(int numRating, String comment, WorkforceMember member){
@@ -45,7 +46,7 @@ public class InternshipApplication {
         return null;
     }
 
-    public void Apply(JobListing job){
-        
+    public void Apply(JobListing job, Student stu, Resume res){
+        job.addApplicant(stu.getFirstName(), stu.getLastName(), res.getLanguages(), res.getWorkExperience(), res.g, rating);
     }
 }

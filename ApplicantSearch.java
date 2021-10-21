@@ -19,7 +19,7 @@ public class ApplicantSearch {
      * @param applicantFilters filters the company uses to sort a listing's applicants
      * @return list of filtered applicants
      */
-    public ArrayList<Applicant> search(JobListing listingName, ArrayList<ApplicantFilter> applicantFilters) {
+    public ArrayList<Student> search(JobListing listingName, ArrayList<ApplicantFilter> applicantFilters) {
         return null;
     }
 
