@@ -14,7 +14,7 @@ public class JobListing {
     private float pay;
     private String length;
     private String position;
-    private ArrayList<Applicant> applicants;
+    private ArrayList<Student> applicants;
     private String jobDescription;
     private ArrayList<String> skills;
 
@@ -34,7 +34,7 @@ public class JobListing {
         return this.position;
     }
 
-    public ArrayList<Applicant> getApplicants() {
+    public ArrayList<Student> getApplicants() {
         return this.applicants;
     }
 
