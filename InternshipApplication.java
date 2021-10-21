@@ -25,11 +25,11 @@ public class InternshipApplication {
         return null;
     }
 
-    public Rating addRating(int numRating, String comment, WorkforceMember member){
+    public Rating addRating(int numRating, String comment, User member){
         return null;
     }
 
-    public Rating editRating(Rating rating, int numRating, String comment, WorkforceMember member){
+    public Rating editRating(Rating rating, int numRating, String comment, User member){
         return null;
     }
 

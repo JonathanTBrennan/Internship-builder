@@ -3,10 +3,10 @@ import java.util.ArrayList;
 public class Rating {
     private int numRating;
     private String comment;
-    private WorkforceMember member;
+    private User member;
     private ArrayList<Rating> rating;
 
-    public Rating(int numRating, String comment, WorkforceMember member) {
+    public Rating(int numRating, String comment, User member) {
 
     }
 
@@ -22,7 +22,7 @@ public class Rating {
         return 0;
     }
 
-    public WorkforceMember getMember() {
+    public User getMember() {
         return null;
     }
 }
