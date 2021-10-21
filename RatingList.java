@@ -19,7 +19,7 @@ public class RatingList extends DataLoader {
    * Constructor for the list of ratings
    */
   private RatingList() {
-    ratings = new ArrayList<Rating>(DataLoader.getRating());
+    ratings = new ArrayList<Rating>(DataLoader.getRatings());
   }
 
   /**

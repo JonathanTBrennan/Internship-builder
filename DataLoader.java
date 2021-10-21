@@ -19,11 +19,11 @@ public class DataLoader {
         return null;
     }
 
-    public static ArrayList<JobListing> getJobListing() {
+    public static ArrayList<JobListing> getJobListings() {
         return null;
     }
 
-    public static ArrayList<Rating> getRating() {
+    public static ArrayList<Rating> getRatings() {
         return null;
     }
 }
