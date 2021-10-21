@@ -25,11 +25,19 @@ public class InternshipApplication {
         return null;
     }
 
+<<<<<<< HEAD
     public Rating addRating(int numRating, String comment, User member){
         return null;
     }
 
     public Rating editRating(Rating rating, int numRating, String comment, User member){
+=======
+    public Rating addRating(int numRating, String comment, User user){
+        return null;
+    }
+
+    public Rating editRating(Rating rating, int numRating, String comment, User user){
+>>>>>>> 5c442cabce65b570e4bca4d90f97d4dea1322508
         return null;
     }
 
@@ -45,7 +53,12 @@ public class InternshipApplication {
         return null;
     }
 
+<<<<<<< HEAD
     public void Apply(JobListing job){
         
+=======
+    public void Apply(JobListing job, Student stu) {
+        job.addApplicant(stu);
+>>>>>>> 5c442cabce65b570e4bca4d90f97d4dea1322508
     }
 }

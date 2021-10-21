@@ -19,7 +19,11 @@ public class ListingSearch {
      * @param listingFilters filters applicant requests to limit job listings to
      * @return list of applicable job listings
      */
+<<<<<<< HEAD
     public ArrayList<JobListing> search(User applicant, ArrayList<ListingFilter> listingFilters) {
+=======
+    public ArrayList<JobListing> search(Student applicant, ArrayList<ListingFilter> listingFilters) {
+>>>>>>> 5c442cabce65b570e4bca4d90f97d4dea1322508
         return null;
     }
 
