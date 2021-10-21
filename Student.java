@@ -51,9 +51,4 @@ public class Student extends User {
         return resume;
     }
     
-    public void Apply(JobListing jobListing) {
-        //has job listing
-        //add user to the jobListing list of applicants
-
-    }
 }
