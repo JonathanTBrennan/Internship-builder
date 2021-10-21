@@ -5,8 +5,8 @@
  */
 
  /**
-  * List of filters for finding applicants
+  * List of coding languages to filter for finding applicants
   */
-public enum ApplicantFilter {
+public enum CodingFilter {
 
 }

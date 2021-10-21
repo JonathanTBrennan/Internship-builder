@@ -26,11 +26,11 @@ public class InternshipApplication {
         return newJob;
     }
 
-    public Rating addRating(int numRating, String comment, WorkforceMember member){
+    public Rating addRating(int numRating, String comment, User user){
         return null;
     }
 
-    public Rating editRating(Rating rating, int numRating, String comment, WorkforceMember member){
+    public Rating editRating(Rating rating, int numRating, String comment, User user){
         return null;
     }
 
@@ -46,7 +46,7 @@ public class InternshipApplication {
         return null;
     }
 
-    public void Apply(JobListing job, Student stu, Resume res){
-        job.addApplicant(stu.getFirstName(), stu.getLastName(), res.getLanguages(), res.getWorkExperience(), res.g, rating);
+    public void Apply(JobListing job, Student stu) {
+        job.addApplicant(stu);
     }
 }

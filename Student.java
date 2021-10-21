@@ -39,16 +39,21 @@ public class Student extends User {
         return lastName;
     }
 
+    public int getUserType() {
+        return userType;
+    }
+
+    public UUID getID() {
+        return id;
+    }
+    
+    public Resume getResume() {
+        return resume;
+    }
+    
     public void Apply(JobListing jobListing) {
         //has job listing
         //add user to the jobListing list of applicants
 
     }
-    public int getUserType() {
-        return userType;
-    }
-    public UUID getID() {
-        return id;
-    }
-    
 }
