@@ -1,18 +1,20 @@
 [{
-    "id" : "1",
-    "employerId" : "3e5aa886-cd3f-4fe8-b440-2a10f0e54b37",
-    "pay" : "$25.00 per hour",
+    "title" : "ZZZ Security",
+    "employerID" : "3e5aa886-cd3f-4fe8-b440-2a10f0e54b37",
+    "pay" : 25.00,
     "length" : "3 months from June 2022 - August 2022",
     "position" : "Software Developer",
     "description" : "Create and update security software.",
-    "studentIds" : ["11df8865-ad68-45a3-80a4-e3a212085dfb", "c6eafa8a-47b7-4b6a-beb5-98b2ecd3e79f"]
+    "skills" : ["Java", "Python", "C"],
+    "studentIDS" : ["11df8865-ad68-45a3-80a4-e3a212085dfb", "c6eafa8a-47b7-4b6a-beb5-98b2ecd3e79f"]
 },
 {
-    "id" : "2",
-    "employerId": "f74759d3-a92a-420f-a866-02bbb249573a",
-    "pay" : "$27.00 per hour",
+    "title" : "ARGO Films",
+    "employerID": "f74759d3-a92a-420f-a866-02bbb249573a",
+    "pay" : 27.00,
     "length" : "4 months from May 2022 - August 2022",
     "position" : "Multimedia Programmer",
     "description" : "Design, create and improve our website and apps.",
-    "studentIds" : ["c6eafa8a-47b7-4b6a-beb5-98b2ecd3e79f"]
+    "skills" : ["HTML", "JAVA"],
+    "studentIDS" : ["c6eafa8a-47b7-4b6a-beb5-98b2ecd3e79f"]
 }]
