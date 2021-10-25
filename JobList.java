@@ -18,7 +18,7 @@ public class JobList extends DataLoader {
     /**
      * Constructor for the list of jobs
      */
-    private void JobList() {
+    private JobList() {
         jobListings = new ArrayList<JobListing>(DataLoader.getJobListings());
     }
 
@@ -28,6 +28,9 @@ public class JobList extends DataLoader {
      * @return refreshed list of jobs
      */
     public static JobList getInstance() {
+        if(jobList == null) {
+            jobList = new JobList();
+        }
         return jobList = new JobList();
     }
 

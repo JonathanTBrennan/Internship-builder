@@ -28,6 +28,9 @@ public class UserList extends DataLoader {
    * @return refreshed list of users
    */
   public static UserList getInstance() {
+    if(userList == null) {
+      userList = new UserList();
+    }
     return userList = new UserList();
   }
 

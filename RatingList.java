@@ -27,7 +27,10 @@ public class RatingList extends DataLoader {
    * 
    * @return refreshed list of ratings
    */
-  public static RatingList getInstance() {
+  public RatingList getInstance() {
+    if (ratingList == null) {
+      ratingList = new RatingList();
+    }
     return ratingList = new RatingList();
   }
 
