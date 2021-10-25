@@ -5,15 +5,15 @@ public class Education {
     private String gradDate;
     private String location;
     private float gpa;
-    private ArrayList<String> awards;
+    private ArrayList<String> awardList;
 
-    public Education(String university, String degree, String gradDate, String location, float gpa, ArrayList<String> awards){
+    public Education(String university, String degree, String gradDate, String location, float gpa){
         this.university = university;
         this.degree = degree;
         this.gradDate = gradDate;
         this.location = location;
         this.gpa = gpa;
-        this.awards = awards;
+        awardList = new ArrayList<String>();
     }
     public String getUniversity() {
         return university;
@@ -36,6 +36,11 @@ public class Education {
     }
 
     public ArrayList<String> getAwards() {
-        return awards;
+        return awardList;
+    }
+    
+    
+    public void addAwards(String awards) {
+        awardList.add(awards);
     }
 }

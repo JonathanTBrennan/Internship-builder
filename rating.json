@@ -1,18 +1,18 @@
 [{
     "id" : "1",
     "studentId" : "0",
-    "numberRating" : "5",
+    "numberRating" : "10",
     "description" : "Very hard worker and was willing to do whatever he needed to help improve our company"
 },
 {
     "id" : "2",
     "employerId" : "0",
-    "numberRating" : "3",
+    "numberRating" : "6",
     "description" : "Very nice employer, however they give you way to much work that is due in little time."
 },
 {
     "id" : "3",
     "studentId" : "1",
-    "numberRating" : "5",
+    "numberRating" : "9",
     "description" : "Likes to work ahead of schedule. Also a great leader and role model for other programmers."
 }]

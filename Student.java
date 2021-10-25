@@ -1,15 +1,15 @@
 import java.util.UUID;
-
-public class Student extends WorkforceMember {
+public class Student extends User {
     private String username;
     private String password;
     private String email;
     private String firstName;
     private String lastName;
-    private UUID id;
     private int userType;
+    private Resume resume;
+    private UUID id;
 
-    public Student(String username, String password, String email, String firstName, String lastName, int userType, UUID id) {
+    public Student(String username, String password, String email, String firstName, String lastName,int userType, UUID id, Resume resume) {
         super(username, password, email, firstName, lastName, userType, id);
         this.username = username;
         this.password = password;
@@ -17,6 +17,7 @@ public class Student extends WorkforceMember {
         this.firstName = firstName;
         this.lastName = lastName;
         this.id = id;
+        this.resume = resume;
     }
 
     public String getUsername() {
@@ -26,7 +27,6 @@ public class Student extends WorkforceMember {
     public String getPassword() {
         return password;
     }
-
     public String getEmail() {
         return email;
     }
@@ -46,4 +46,9 @@ public class Student extends WorkforceMember {
     public UUID getID() {
         return id;
     }
+    
+    public Resume getResume() {
+        return resume;
+    }
+    
 }

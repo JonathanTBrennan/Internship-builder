@@ -1,9 +1,10 @@
 import java.util.Scanner;
+import java.util.UUID;
 public class InternshipUI {
     private Scanner scanner;
     private InternshipApplication application;
     public static void main(String[] args) {
-
+        System.out.println(UUID.randomUUID());
     }
 
     private void displayMainMenu() {

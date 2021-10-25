@@ -1,6 +1,5 @@
 import java.util.UUID;
-
-public class Employer extends WorkforceMember{
+public class Employer extends User{
     private String username;
     private String password;
     private String email;
@@ -20,7 +19,6 @@ public class Employer extends WorkforceMember{
         this.lastName = lastName;
         this.location = location;
         this.company = company;
-        this.userType = userType;
         this.id = id;
     }
 
@@ -31,12 +29,11 @@ public class Employer extends WorkforceMember{
     public String getPassword() {
         return password;
     }
-    
-    public String getEmail() {
+    public String getEmail()  {
         return email;
     }
 
-    public String getFirstName(){
+    public String getFirstName() {
         return firstName;
     }
 
@@ -56,7 +53,7 @@ public class Employer extends WorkforceMember{
         return userType;
     }
 
-    public UUID getID() {
+    public UUID getID(){
         return id;
     }
 }
