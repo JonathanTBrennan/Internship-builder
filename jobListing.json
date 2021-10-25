@@ -1,5 +1,6 @@
 [{
-    "title" : "ZZZ Security",
+    "companyname" : "Palmetto Robots Inc",
+    "location" : "Spartanburg, SC",
     "employerID" : "3e5aa886-cd3f-4fe8-b440-2a10f0e54b37",
     "pay" : 25.00,
     "length" : "3 months from June 2022 - August 2022",
@@ -9,7 +10,8 @@
     "studentIDS" : ["11df8865-ad68-45a3-80a4-e3a212085dfb", "c6eafa8a-47b7-4b6a-beb5-98b2ecd3e79f"]
 },
 {
-    "title" : "ARGO Films",
+    "companyname" : "Carolina Software",
+    "location" : "Lexington, SC",
     "employerID": "f74759d3-a92a-420f-a866-02bbb249573a",
     "pay" : 27.00,
     "length" : "4 months from May 2022 - August 2022",

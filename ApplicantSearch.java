@@ -11,7 +11,7 @@ import java.util.ArrayList;
   */
 public class ApplicantSearch {
 
-    private ArrayList<CodingFilter> filters;
+    private ArrayList<CodingFilter> codingFilters;
 
     /**
      * Deals with the search of applicants
