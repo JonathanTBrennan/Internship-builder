@@ -33,7 +33,8 @@ public class InternshipApplication {
     public Rating editRating(Rating rating, int numRating, String comment, User member){
 =======
     public Rating addRating(int numRating, String comment, User user){
-        return null;
+        Rating newRating = new Rating(numRating, comment, user);
+        return newRating;
     }
 
     public Rating editRating(Rating rating, int numRating, String comment, User user){
@@ -42,6 +43,7 @@ public class InternshipApplication {
     }
 
     public Rating deleteRating(Rating rating){
+        //fix rating ID
         return rating.getRatings().remove(rating.getNumRating());
     }
 

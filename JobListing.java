@@ -3,7 +3,7 @@
  * CSCE 240 - Portia Plante
  * @author Jonathan Brennan, LJ Todd, Patrick Burroughs, Tyler Madden
  */
-
+import java.util.UUID;
 import java.util.ArrayList;
 
  /**
@@ -12,23 +12,33 @@ import java.util.ArrayList;
 public class JobListing {
 
     private String title;
+    private UUID employerID;
     private float pay;
     private String length;
     private String position;
-    private ArrayList<Student> applicants;
+    private ArrayList<UUID> studentIDS;
     private String jobDescription;
     private ArrayList<String> skills;
 
-    public JobListing(String title, float pay, String length, String position, String jobDescrip, ArrayList<String> sklls) {
+    public JobListing(String title, UUID employerID, float pay, String length, String position, String jobDescrip, ArrayList<String> sklls, ArrayList<UUID> studentIDS) {
         this.title = title;
+        this.employerID = employerID;
         this.pay = pay;
         this.length = length;
         this.position = position;
-        this.applicants = new ArrayList<Student>();
+        this.studentIDS = new ArrayList<UUID>();
+        this.studentIDS = studentIDS;
         this.jobDescription = jobDescrip;
         this.skills = sklls;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public UUID getEmployerID() {
+        return employerID;
+    }
     public float getPay() {
         return this.pay;
     }
@@ -41,8 +51,8 @@ public class JobListing {
         return this.position;
     }
 
-    public ArrayList<Student> getApplicants() {
-        return this.applicants;
+    public ArrayList<UUID> getApplicants() {
+        return this.studentIDS;
     }
 
     public String getJobDescription() {
@@ -53,7 +63,7 @@ public class JobListing {
         return this.skills;
     }
 
-    public void addApplicant(Student stu) {
-        applicants.add(stu); 
+    public void addApplicant(UUID studentID) {
+        studentIDS.add(studentID); 
     }
 }
