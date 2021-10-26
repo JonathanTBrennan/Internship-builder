@@ -4,6 +4,7 @@
     "username" : "adminricky",
     "password" : "theGreat1",
     "email" : "rickybobby@gmail.com",
+    "phone" : "614-019-0321",
     "firstName" : "Ricky",
     "lastName" : "Bobby"
 },
@@ -13,6 +14,7 @@
     "username" : "adminsue",
     "password" : "SueintheHood11",
     "email" : "sueconnor@gmail.com",
+    "phone" : "832-134-7893",
     "firstName" : "Sue",
     "lastName" : "Connor"
 },
@@ -22,6 +24,7 @@
 	"username": "bigBobby",
 	"password": "Bigballer123",
 	"email" : "bobbybahama123@gmail.com",
+    "phone" : "803-837-1324",
 	"firstName" : "Bobby",
 	"lastName" : "Bahama"
 },
@@ -31,6 +34,7 @@
 	"username" : "kelly.francona",
 	"password" : "Ilovesoftball89",
 	"email" : "kellyfrancona89@gmail.com", 
+    "phone" : "803-132-9123",
 	"firstName" : "Kelly",
 	"lastName" : "Francona"
 },
@@ -40,6 +44,7 @@
 	"username" : "Palmettorobots",
 	"password" : "robots4lyfe",
 	"email" : "palmettorobots@gmail.com",
+    "phone" : "864-352-0931",
 	"firstName" : "Frank",
 	"lastName" : "Simmons"
 },
@@ -49,6 +54,7 @@
     "username" : "CarolinasSoftware",
     "password" : "goCocks2001",
     "email" : "carolinasoftware@outlook.com",
+    "phone" : "864-934-2345",
     "firstName" : "Jessica",
     "lastName" : "Bermudez"
 }

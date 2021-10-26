@@ -30,10 +30,20 @@ public class DataLoader {
             JSONArray userJSON = (JSONArray)new JSONParser().parse(reader);
             for(int i=0; i<userJSON.size(); i++) {
                 JSONObject userJson = (JSONObject)userJson.get(i);
-                UUID userUUID = UUID.fromString((String)userJSON.get("userID"));
-                
+                UUID userUUID = UUID.fromString((String)userJson.get("userUUID"));
+                String userType = (String)userJson.get("userType");
+                String username = (String)userJson.get("username");
+                String password = (String)userJson.get("password");
+                String email = (String)userJson.get("email");
+                String firstname = (String)userJson.get("firstname");
+                String lastname = (String)userJson.get("lastname");
+                UserList userList = new UserList(userUUID, userType, username, password, email, firstname, lastname);
+                users.add(userList);
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        return null;
     }
 
     public static ArrayList<JobListing> getJobListings() {
