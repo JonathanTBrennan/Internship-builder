@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class InternshipApplication {
     JobList jobListing;
@@ -21,8 +22,8 @@ public class InternshipApplication {
         return null;
     }
 
-    public JobListing addJobListing(String titl, float pay, String length, String position, String jobDescription, ArrayList<String> skills){
-        JobListing newJob = new JobListing(titl, pay, length, position, jobDescription, skills);
+    public JobListing addJobListing(String titl, UUID employerID, float pay, String length, String position, String jobDescription, ArrayList<String> skills){
+        JobListing newJob = new JobListing(titl, employerID, pay, length, position, jobDescription, skills);
         return newJob;
     }
 
@@ -48,7 +49,7 @@ public class InternshipApplication {
         return null;
     }
 
-    public void Apply(JobListing job, Student stu) {
-        job.addApplicant(stu);
+    public void Apply(JobListing job, UUID studentID) {
+        job.addApplicant(studentID);
     }
 }
