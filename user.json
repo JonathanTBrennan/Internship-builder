@@ -18,6 +18,7 @@
 },
 {
 	"id":"11df8865-ad68-45a3-80a4-e3a212085dfb",
+    "usertype" : "student",
 	"username": "bigBobby",
 	"password": "Bigballer123",
 	"email" : "bobbybahama123@gmail.com",
@@ -26,6 +27,7 @@
 },
 {
     "id":"c6eafa8a-47b7-4b6a-beb5-98b2ecd3e79f",
+    "usertype" : "student",
 	"username" : "kelly.francona",
 	"password" : "Ilovesoftball89",
 	"email" : "kellyfrancona89@gmail.com", 
@@ -34,6 +36,7 @@
 },
 {
 	"id" : "3e5aa886-cd3f-4fe8-b440-2a10f0e54b37",
+    "usertype" : "employer",
 	"username" : "Palmettorobots",
 	"password" : "robots4lyfe",
 	"email" : "palmettorobots@gmail.com",
@@ -42,6 +45,7 @@
 },
 {
     "id" : "f74759d3-a92a-420f-a866-02bbb249573a",
+    "usertype" : "employer",
     "username" : "CarolinasSoftware",
     "password" : "goCocks2001",
     "email" : "carolinasoftware@outlook.com",

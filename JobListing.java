@@ -13,6 +13,7 @@ public class JobListing {
 
     private String title;
     private UUID employerID;
+    private String location;
     private float pay;
     private String length;
     private String position;
@@ -20,9 +21,21 @@ public class JobListing {
     private String jobDescription;
     private ArrayList<String> skills;
 
-    public JobListing(String title, UUID employerID, float pay, String length, String position, String jobDescrip, ArrayList<String> sklls, ArrayList<UUID> studentIDS) {
+    public JobListing(String title, UUID employerID, String location, float pay, String length, String position, String jobDescrip, ArrayList<String> sklls) {
         this.title = title;
         this.employerID = employerID;
+        this.location = location;
+        this.pay = pay;
+        this.length = length;
+        this.position = position;
+        this.studentIDS = new ArrayList<UUID>();
+        this.jobDescription = jobDescrip;
+        this.skills = sklls;
+    }
+    public JobListing(String title, UUID employerID, String location, float pay, String length, String position, String jobDescrip, ArrayList<String> sklls, ArrayList<UUID> studentIDS) {
+        this.title = title;
+        this.employerID = employerID;
+        this.location = location;
         this.pay = pay;
         this.length = length;
         this.position = position;
@@ -39,6 +52,11 @@ public class JobListing {
     public UUID getEmployerID() {
         return employerID;
     }
+
+    public String getLocation() {
+        return location;
+    }
+    
     public float getPay() {
         return this.pay;
     }

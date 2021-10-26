@@ -93,11 +93,83 @@ public class InternshipUI {
     }
 
     private void displayViewApplicants(){
-        // Come back to this
+        while(true){
+            System.out.println("********* View Applicants *********");
+            System.out.println("");
+            System.out.println("Select which job posting to view Applicants from ---");
+            System.out.println("");
+            System.out.println("	1. Software Engineer Internship");
+            System.out.println("	2. Web Devlopment Internship");
+            System.out.println("	3. Go back");
+            System.out.println("");
+            System.out.println("Enter your selection: ");
+            System.out.println("");
+            System.out.println("--- Applicants ---");
+            System.out.println("< Applicant Names > ");
+            System.out.println("");
+            System.out.println("Enter your selection: ");
+        }
     }
 
     private void displayFilterApplicants(){
-        // Come back to this
+        while(true){
+            System.out.println("********* Filter Applicants *********");
+            System.out.println("What would you like to filter by?");
+            System.out.println("	1. Coding Languages");
+            System.out.println("	2. Length of Internship");
+            System.out.println("	3. Pay");
+            System.out.println("	4. Go back");
+            System.out.println("");
+            System.out.println("Enter Selection: ");
+        }
+    }
+
+    private void displayFilterLanguage(){
+        while(true){
+            System.out.println("--- What Language would you like to filter by? ---");
+            System.out.println("");
+            System.out.println("Enter Language: ");
+            System.out.println("");
+            System.out.println("--- These Applicants have <Language> listed as a skill --- ");
+            System.out.println("<Applicants>");
+            System.out.println("");
+            System.out.println("Select Applicant: ");
+        }
+    }
+
+    private void displayFilterLength(){
+        while(true){
+            
+        }
+    }
+
+    private void displayApplicant(){
+        while(true){
+            System.out.println("--- Name ---");
+            System.out.println("Email: <email>");
+            System.out.println("");
+            System.out.println("Skills: ");
+            System.out.println("<Skills>");
+            System.out.println("");
+            //for(int i = 0; i < variableofworkexp; i++){
+                System.out.println("Work Experience:");
+                System.out.println("");
+                System.out.println("Company: ");
+                System.out.println("Location: ");
+                System.out.println("Position: ");
+                System.out.println("Description: ");
+                System.out.println("Duration: ");
+            //}
+            //for(int i = 0; i < variableofcollege; i++){
+                System.out.println("");
+                System.out.println("University: ");
+                System.out.println("Degree: ");
+                System.out.println("Graduation Date: ");
+                System.out.println("Location: ");
+                System.out.println("GPA: ");
+                System.out.println("Awards / Accomplishments: ");
+            //}
+        }
     }
 
     private void displayRateStudent(){
