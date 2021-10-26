@@ -14,10 +14,27 @@ public class InternshipApplication {
         return null;
     }
 
-    public User createAccount(String username, String password, String email, String firstName, String lastName){
-        return null;
+    public User createAccount(String username, String password, String email, String firstName, String lastName, String location, String company, int userType, String phoneNum, UUID ID){
+        if (userType == 0) {
+            user = new Admin(username, password, email, firstName, lastName, userType, phoneNum, ID);
+        }
+        else if (userType == 1) {
+            user = new Student(username, password, email, firstName, lastName, userType, phoneNum, ID);
+        }
+        else if (userType == 2) {
+            user = new Employer(username, password, email, firstName, lastName, location, company, userType, phoneNum, ID);
+        }
+        UserList.getInstance().addUser(user);
+        return user;
     }
 
+    /**
+     * Deals with checking if user successfully logs in
+     * 
+     * @param userName
+     * @param password 
+     * @return true if user logs in, false if unable
+     */
     public boolean login(String userName, String password){
         user = UserList.getInstance().getUser(userName);
         if (user == null) {

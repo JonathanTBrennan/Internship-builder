@@ -6,17 +6,20 @@ public class Admin extends User{
     private String email;
     private String firstName;
     private String lastName;
-    private UUID id;
     private int userType;
+    private String phoneNum;
+    private UUID ID;
 
-    public Admin(String username, String password, String email, String firstName, String lastName, int userType, UUID id) {
-        super(username, password, email, firstName, lastName, userType, id);
+    public Admin(String username, String password, String email, String firstName, String lastName, int userType, String phoneNum, UUID ID) {
+        super(username, password, email, firstName, lastName, userType, phoneNum, ID);
         this.username = username;
         this.password = password;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
-
+        this.userType = userType;
+        this.phoneNum = phoneNum;
+        this.ID = ID;
     }
 
     public String getUsername() {
@@ -42,7 +45,11 @@ public class Admin extends User{
         return userType;
     }
 
+    public String getphoneNum() {
+        return phoneNum;
+    }
+    
     public UUID getID() {
-        return id;
+        return ID;
     }
 }

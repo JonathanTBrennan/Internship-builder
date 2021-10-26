@@ -6,18 +6,19 @@ public class Student extends User {
     private String firstName;
     private String lastName;
     private int userType;
-    private Resume resume;
+    private String phoneNum;
     private UUID id;
 
-    public Student(String username, String password, String email, String firstName, String lastName,int userType, UUID id, Resume resume) {
-        super(username, password, email, firstName, lastName, userType, id);
+    public Student(String username, String password, String email, String firstName, String lastName, int userType, String phoneNum, UUID id) {
+        super(username, password, email, firstName, lastName, userType, phoneNum, id);
         this.username = username;
         this.password = password;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.userType = userType;
+        this.phoneNum = phoneNum;
         this.id = id;
-        this.resume = resume;
     }
 
     public String getUsername() {
@@ -43,12 +44,12 @@ public class Student extends User {
         return userType;
     }
 
+    public String getPhoneNum() {
+        return phoneNum;
+    }
+
     public UUID getID() {
         return id;
-    }
-    
-    public Resume getResume() {
-        return resume;
     }
     
 }

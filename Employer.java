@@ -8,16 +8,21 @@ public class Employer extends User{
     private String location;
     private String company;
     private int userType;
-    private UUID id;
+    private String phoneNum;
+    private UUID ID;
 
-    public Employer(String username, String password, String email, String firstName, String lastName, int userType, UUID id) {
-        super(username, password, email, firstName, lastName, userType, id);
+    public Employer(String username, String password, String email, String firstName, String lastName, String location, String company, int userType, String phoneNum, UUID ID) {
+        super(username, password, email, firstName, lastName, userType, phoneNum, ID);
         this.username = username;
         this.password = password;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.id = id;
+        this.location = location;
+        this.company = company;
+        this.userType = userType;
+        this.phoneNum = phoneNum;
+        this.ID = ID;
     }
 
     public String getUsername() {
@@ -39,11 +44,23 @@ public class Employer extends User{
         return lastName;
     }
 
+    public String getLocation() {
+        return location;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
     public int getUserType(){
         return userType;
     }
 
+    public String phoneNum() {
+        return phoneNum;
+    }
+
     public UUID getID(){
-        return id;
+        return ID;
     }
 }
