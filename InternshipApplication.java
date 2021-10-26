@@ -30,14 +30,13 @@ public class InternshipApplication {
         return newRating;
     }
 
-    public Rating editRating(Rating rating, int numRating, String comment, User user){
-
-        return null;
+    public RatingList editRating(Rating rating, int numRating, String comment){
+        rating.editRating(rating, numRating, comment);
+        return RatingList.getInstance();
     }
 
-    public Rating deleteRating(Rating rating){
-        //fix rating ID
-        return rating.getRatings().remove(rating.getNumRating());
+    public RatingList deleteRating(Rating rating){
+        return RatingList.getInstance().deleteRating(rating.getID());
     }
 
     public JobListing editListing(JobListing job, float pay, String length, String position, String jobDescription, ArrayList<String> skills){
@@ -52,6 +51,6 @@ public class InternshipApplication {
         
     }
     public void Apply(JobListing job, Student stu) {
-        job.addApplicant(stu);
+        job.addApplicant(stu.getID());
     }
 }
