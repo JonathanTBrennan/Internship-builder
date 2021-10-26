@@ -40,7 +40,8 @@ public class JobList extends DataLoader {
      * @param keyword type of job to look for
      * @return list of matching jobs
      */
-    public ArrayList<JobListing> getJob(String keyword) {
+
+    public JobListing getJob(int i) {
         // NEED TO TALK ABOUT
         // gonna be a little complex bc need to see what filters are active
 
@@ -49,7 +50,12 @@ public class JobList extends DataLoader {
         // return users.get(i);
         // }
         // }
-
+        if(i <= jobListings.size()) {
+            return jobListings.get(i);
+        }
         return null;
+    }
+    public ArrayList<JobListing> getJobLists() {
+        return jobListings;
     }
 }

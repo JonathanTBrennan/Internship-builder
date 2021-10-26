@@ -19,8 +19,10 @@ public class DataLoader {
     private static final String RATING_FILE = "Internship-builder\\rating.json";
     private static final String RESUME_FILE = "Internship-builder\\resume.json";
     private static final String STUDENT_FILE = "Internship-builder\\student.json";
-    private static final String USER_FILE = "Internship-builder\\user.json";
 
+<<<<<<< HEAD
+    public static ArrayList<User> getUsers() {
+=======
     public static ArrayList<UserList> getUsers() {
         ArrayList<UserList> users = new ArrayList<UserList>();
 
@@ -43,6 +45,7 @@ public class DataLoader {
         } catch (Exception e) {
             e.printStackTrace();
         }
+>>>>>>> 5cb0dd99dc46f92033dec95d05dda9e545514a35
         return null;
     }
 

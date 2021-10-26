@@ -20,10 +20,9 @@ public class DataWriter {
 
     public static void saveJobListing() {
         JobList jobList = JobList.getInstance();
-        ArrayList<JobListing> jobListings = jobList.getJobListings();
         JSONArray jobListJSON = new JSONArray();
-        for(int i=0;i<jobListings.size(); i++) {
-            JobListing jobListing = jobListings.get(i);
+        for(int i=0; i<jobList.getJobLists().size(); i++) {
+            JobListing jobListing = jobList.getJob(i);
             JSONObject jobDetails = new JSONObject();
             jobDetails.put("title", jobListing.getTitle());
             jobDetails.put("employerID", jobListing.getEmployerID().toString());
@@ -31,6 +30,7 @@ public class DataWriter {
             jobDetails.put("length", jobListing.getLength());
             jobDetails.put("position", jobListing.getPosition());
             jobDetails.put("description", jobListing.getJobDescription());
+            jobListJSON.add(jobDetails);
         }
 
         try (FileWriter file = new FileWriter(JOBLISTING_FILE)) {
@@ -42,6 +42,26 @@ public class DataWriter {
     }
 
     public static void saveRating() {
+        RatingList ratingList = RatingList.getInstance();
+        ArrayList<Rating> ratings = ratingList.getRatingsList();
+        JSONArray ratingListJSON = new JSONArray();
+        for(int i=0; i<ratings.size(); i++) {
+            Rating rating = ratings.get(i);
+            JSONObject ratingDetails = new JSONObject();
+            ratingDetails.put("userName", rating.getUser().getUsername());
+            ratingDetails.put("numberRating", rating.getNumRating());
+            ratingDetails.put("description", rating.getComment());
+            ratingListJSON.add(ratingDetails);
+        }
+        try (FileWriter file = new FileWriter(RATING_FILE)) {
+            file.write(ratingListJSON.toJSONString());
+            file.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void saveResume() {
         
     }
 }
