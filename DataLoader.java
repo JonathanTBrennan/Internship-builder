@@ -109,7 +109,8 @@ public class DataLoader {
             }
             return ratings;
         } catch (Exception e) {
-            e.printStackTrace();t
+            e.printStackTrace();
         }
+        return null;
     }
 }
