@@ -34,8 +34,8 @@ public class UserList extends DataLoader {
     return userList = new UserList();
   }
 
-  public UserList addUser(User user) {
-    return users.getInstance().add(user);
+  public boolean addUser(User user) {
+    return UserList.getInstance().users.add(user);
   }
 
   /**
