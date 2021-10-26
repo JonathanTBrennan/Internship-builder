@@ -17,10 +17,9 @@ public class Rating {
         this.ID = RatingList.getRatings().size();
     }
 
-    public Rating editRating(Rating rating, int numRating, String comment) {
+    public void editRating(Rating rating, int numRating, String comment) {
         rating.setNumRating(numRating);
         rating.setComment(comment);
-        return null;
     }
 
     /**

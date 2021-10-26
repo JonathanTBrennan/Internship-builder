@@ -18,8 +18,17 @@ public class InternshipApplication {
         return null;
     }
 
-    public User login(String userName, String password){
-        return null;
+    public boolean login(String userName, String password){
+        user = UserList.getInstance().getUser(userName);
+        if (user == null) {
+            return false;
+        }
+        else {
+            if (user.getPassword() == password) {
+                return true;
+            }
+            return false;
+        }
     }
 
     public JobListing addJobListing(String titl, UUID employerID, float pay, String location, String length, String position, String jobDescription, ArrayList<String> skills){
@@ -32,15 +41,17 @@ public class InternshipApplication {
         return newRating;
     }
 
-<<<<<<< HEAD
+    /**
+     * Edits a current rating
+     * 
+     * @param rating the rating to be edited
+     * @param numRating new numerical value of the rating
+     * @param comment new comment on the rating
+     * @return a refreshed version of the rating list with the edited rating
+     */
     public RatingList editRating(Rating rating, int numRating, String comment){
         rating.editRating(rating, numRating, comment);
         return RatingList.getInstance();
-=======
-    public Rating editRating(Rating rating, int numRating, String comment, User user){
-       
-        return null;
->>>>>>> 0b72fe83bcf71a99de707407a0acf56b850dec26
     }
 
     public RatingList deleteRating(Rating rating){
@@ -58,12 +69,7 @@ public class InternshipApplication {
     public void Apply(JobListing job) {
         
     }
-<<<<<<< HEAD
     public void Apply(JobListing job, Student stu) {
         job.addApplicant(stu.getID());
-=======
-    public void Apply(JobListing job, UUID stu) {
-        job.addApplicant(stu);
->>>>>>> 0b72fe83bcf71a99de707407a0acf56b850dec26
     }
 }

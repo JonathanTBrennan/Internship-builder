@@ -52,4 +52,14 @@ public class RatingList extends DataLoader {
     ratings.remove(ID);
     return RatingList.getInstance();
   }
+
+  /**
+   * Adds a rating to the list
+   */
+  public RatingList addRating(int numRating, String comment, User user) {
+    Rating newRating = new Rating(numRating, comment, user);
+    RatingList.getInstance();
+    ratings.add(newRating);
+    return RatingList.getInstance();
+  }
 }
