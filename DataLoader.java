@@ -35,6 +35,7 @@ public class DataLoader {
                 JSONObject jobListingJSON = (JSONObject)jobListJSON.get(i);
                 String title = (String)jobListingJSON.get("title");
                 UUID employerID = UUID.fromString((String)jobListingJSON.get("employerID"));
+                String location = (String)jobListingJSON.get("location");
                 float pay = ((Long)jobListingJSON.get("pay")).floatValue();
                 String length = (String)jobListingJSON.get("length");
                 String position = (String)jobListingJSON.get("position");
@@ -49,7 +50,7 @@ public class DataLoader {
                 for (int j=0; j<studentIDSJSON.size(); j++) {
                     studentIDS.add(UUID.fromString((String)studentIDSJSON.get(j)));
                 }
-                JobListing jobListing = new JobListing(title, employerID, pay, length, position, description, skills, studentIDS);
+                JobListing jobListing = new JobListing(title, employerID, location, pay, length, position, description, skills, studentIDS);
                 jobListings.add(jobListing);
             }
             return jobListings;
