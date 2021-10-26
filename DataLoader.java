@@ -20,7 +20,32 @@ public class DataLoader {
     private static final String RESUME_FILE = "Internship-builder\\resume.json";
     private static final String STUDENT_FILE = "Internship-builder\\student.json";
 
+<<<<<<< HEAD
     public static ArrayList<User> getUsers() {
+=======
+    public static ArrayList<UserList> getUsers() {
+        ArrayList<UserList> users = new ArrayList<UserList>();
+
+        try {
+            FileReader reader = new FileReader(USER_FILE);
+            JSONParser parser = new JSONParser();
+            JSONArray userJSON = (JSONArray)new JSONParser().parse(reader);
+            for(int i=0; i<userJSON.size(); i++) {
+                JSONObject userJson = (JSONObject)userJson.get(i);
+                UUID userUUID = UUID.fromString((String)userJson.get("userUUID"));
+                String userType = (String)userJson.get("userType");
+                String username = (String)userJson.get("username");
+                String password = (String)userJson.get("password");
+                String email = (String)userJson.get("email");
+                String firstname = (String)userJson.get("firstname");
+                String lastname = (String)userJson.get("lastname");
+                UserList userList = new UserList(userUUID, userType, username, password, email, firstname, lastname);
+                users.add(userList);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+>>>>>>> 5cb0dd99dc46f92033dec95d05dda9e545514a35
         return null;
     }
 
