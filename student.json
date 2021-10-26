@@ -4,7 +4,9 @@
 	"password": "Bigballer123",
 	"email" : "bobbybahama123@gmail.com",
 	"firstName" : "Bobby",
-	"lastName" : "Bahama"
+	"lastName" : "Bahama",
+	"resumeId" : "1",
+    "ratingId" : "1"
 },
 {
     "id":"c6eafa8a-47b7-4b6a-beb5-98b2ecd3e79f",
@@ -12,5 +14,7 @@
 	"password" : "Ilovesoftball89",
 	"email" : "kellyfrancona89@gmail.com", 
 	"firstName" : "Kelly",
-	"lastName" : "Francona"
+	"lastName" : "Francona",
+	"resumeId" : "2",
+    "ratingId" : "3"
 }]

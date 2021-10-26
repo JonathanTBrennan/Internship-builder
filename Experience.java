@@ -33,19 +33,4 @@ public class Experience {
         return duration;
     }
 
-    public void company() {
-        
-    }
-    public void location() {
-
-    }
-    public void position() {
-
-    }
-    public void description() {
-
-    }
-    public void duration(){
-        
-    }
 }

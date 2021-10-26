@@ -33,6 +33,7 @@ public class InternshipApplication {
     }
 
     public Rating editRating(Rating rating, int numRating, String comment, User user){
+       
         return null;
     }
 
@@ -41,15 +42,18 @@ public class InternshipApplication {
         return rating.getRatings().remove(rating.getNumRating());
     }
 
-    public JobListing editListing(JobListing job, float pay, String length, String position, String jobDescription, ArrayList<String> skills){
+    public JobListing editListing(JobListing job, float pay, String length, String position, String jobDescription, ArrayList<String> skills) {
         return null;
     }
 
-    public JobListing deleteJobListing(JobListing job){
+    public JobListing deleteJobListing(JobListing job) {
         return null;
     }
 
-    public void Apply(JobListing job, UUID studentID) {
-        job.addApplicant(studentID);
+    public void Apply(JobListing job) {
+        
+    }
+    public void Apply(JobListing job, UUID stu) {
+        job.addApplicant(stu);
     }
 }
