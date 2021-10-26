@@ -43,7 +43,7 @@ public class DataWriter {
 
     public static void saveRating() {
         RatingList ratingList = RatingList.getInstance();
-        ArrayList<Rating> ratings = ratingList.getRatingsList();
+        ArrayList<Rating> ratings = ratingList.getRatings();
         JSONArray ratingListJSON = new JSONArray();
         for(int i=0; i<ratings.size(); i++) {
             Rating rating = ratings.get(i);
@@ -62,6 +62,6 @@ public class DataWriter {
     }
 
     public static void saveResume() {
-        
+
     }
 }
