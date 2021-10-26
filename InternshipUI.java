@@ -47,6 +47,8 @@ public class InternshipUI {
 
     private void displayLogin(int selectionType){
         while(true){
+            String username;
+            String password;
             if(selectionType == 0){
                 System.out.println("********* Admin Login *********");
             }
@@ -58,7 +60,10 @@ public class InternshipUI {
             }
             System.out.println("");
             System.out.println("Username: ");
+            username = scanner.nextLine();
             System.out.println("Password: ");
+            password = scanner.nextLine();
+            User hasAccount = InternshipApplication.login(username, password);
         }
     }
 
