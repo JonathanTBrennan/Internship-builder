@@ -1,14 +1,17 @@
 import java.util.Scanner;
 import java.util.UUID;
 public class InternshipUI {
-    private Scanner scanner;
+    private Scanner scanner = new Scanner(System.in);
     private InternshipApplication application;
     public static void main(String[] args) {
-        System.out.println(UUID.randomUUID());
+        //System.out.println(UUID.randomUUID());
+        InternshipUI driver = new InternshipUI();
+        driver.displayMainMenu();
     }
 
     private void displayMainMenu() {
         while(true){
+            int selection;
             System.out.println("---*****Welcome to the USC Internship App*****---");
             System.out.println("******************* Main Menu *******************");
             System.out.println("");
@@ -18,6 +21,27 @@ public class InternshipUI {
             System.out.println("	4. Create Student Account");
             System.out.println("	5. Create Business Account");
             System.out.println("	6. Exit Program");
+            System.out.println("");
+            System.out.println("Enter your selection: ");
+            selection = scanner.nextInt();
+            if(selection == 1){
+                displayLogin(1);
+            }
+            else if(selection == 2){
+                displayLogin(2);
+            }
+            else if(selection == 3){
+                displayLogin(0);
+            }
+            else if(selection == 4){
+                displayStudentAccountCreation();
+            }
+            else if(selection == 5){
+                displayEmployerAccountCreation();
+            }
+            else if(selection == 6){
+                System.exit(0);
+            }
         }
     }
 
@@ -289,9 +313,9 @@ public class InternshipUI {
 
     }
 
-    private void displayJobListingsStudentFilteredBy(){
+    private void displayJobListingsStudentFilteredByLanguage(){
         while(true){
-            System.out.println("--- Filter by <Coding Language> ---");
+            System.out.println("--- Filter by Coding Language ---");
             System.out.println("What language would you like to search for: ");
             System.out.println("");
             System.out.println("--- Filtered Listings ---");
@@ -300,7 +324,32 @@ public class InternshipUI {
             System.out.println("");
             System.out.println("Enter your selection: ");
         }
+    }
 
+    private void displayJobListingsStudentFilteredByLocation(){
+        while(true){
+            System.out.println("--- Filter by location ---");
+            System.out.println("What location would you like to search for: ");
+            System.out.println("");
+            System.out.println("--- Filtered Listings ---");
+            System.out.println("");
+            System.out.println("<the listings>");
+            System.out.println("");
+            System.out.println("Enter your selection: ");
+        }
+    }
+
+    private void displayJobListingsStudentFilteredByRating(){
+        while(true){
+            System.out.println("--- Filter by rating ---");
+            System.out.println("What rating would you like to search for: ");
+            System.out.println("");
+            System.out.println("--- Filtered Listings ---");
+            System.out.println("");
+            System.out.println("<the listings>");
+            System.out.println("");
+            System.out.println("Enter your selection: ");
+        }
     }
 
     private void displayRateEmployer(){
