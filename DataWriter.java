@@ -5,14 +5,10 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class DataWriter {
-    private static final String ADMIN_FILE = "Internship-builder\\admin.json";
-    private static final String EDUCATION_FILE = "Internship-builder\\education.json";
     private static final String EMPLOYER_FILE = "Internship-builder\\employer.json";
-    private static final String EXPERIENCE_FILE = "Internship-builder\\experience.json";
     private static final String JOBLISTING_FILE = "Internship-builder\\jobListing.json";
     private static final String RATING_FILE = "Internship-builder\\rating.json";
     private static final String RESUME_FILE = "Internship-builder\\resume.json";
-    private static final String STUDENT_FILE = "Internship-builder\\student.json";
 
     public static void saveUsers() {
 
