@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class InternshipApplication {
     JobList jobListing;
@@ -21,8 +22,9 @@ public class InternshipApplication {
         return null;
     }
 
-    public JobListing addJobListing(float pay, String length, String position, String jobDescription, ArrayList<String> skills){
-        return null;
+    public JobListing addJobListing(String titl, UUID employerID, float pay, String location, String length, String position, String jobDescription, ArrayList<String> skills){
+        JobListing newJob = new JobListing(titl, employerID, location, pay, length, position, jobDescription, skills);
+        return newJob;
     }
 
     public Rating addRating(int numRating, String comment, User user){
@@ -40,18 +42,18 @@ public class InternshipApplication {
         return rating.getRatings().remove(rating.getNumRating());
     }
 
-    public JobListing editListing(JobListing job, float pay, String length, String position, String jobDescription, ArrayList<String> skills){
+    public JobListing editListing(JobListing job, float pay, String length, String position, String jobDescription, ArrayList<String> skills) {
         return null;
     }
 
-    public JobListing deleteJobListing(JobListing job){
+    public JobListing deleteJobListing(JobListing job) {
         return null;
     }
 
-    public void Apply(JobListing job){
+    public void Apply(JobListing job) {
         
     }
-    public void Apply(JobListing job, Student stu) {
+    public void Apply(JobListing job, UUID stu) {
         job.addApplicant(stu);
     }
 }
