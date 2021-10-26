@@ -1,4 +1,3 @@
-
 /**
  * Internship Builder
  * CSCE 240 - Portia Plante
@@ -27,7 +26,7 @@ public class RatingList extends DataLoader {
    * 
    * @return refreshed list of ratings
    */
-  public RatingList getInstance() {
+  public static RatingList getInstance() {
     if (ratingList == null) {
       ratingList = new RatingList();
     }
@@ -41,6 +40,16 @@ public class RatingList extends DataLoader {
    * @return matching rating
    */
   public Rating getRating(int ID) {
+    RatingList.getInstance();
     return ratings.get(ID);
+  }
+
+  /**
+   * Deletes a rating from the list
+   */
+  public RatingList deleteRating(int ID) {
+    RatingList.getInstance();
+    ratings.remove(ID);
+    return RatingList.getInstance();
   }
 }
