@@ -22,8 +22,8 @@ public class InternshipApplication {
         return null;
     }
 
-    public JobListing addJobListing(String titl, UUID employerID, float pay, String length, String position, String jobDescription, ArrayList<String> skills){
-        JobListing newJob = new JobListing(titl, employerID, pay, length, position, jobDescription, skills);
+    public JobListing addJobListing(String titl, UUID employerID, float pay, String location, String length, String position, String jobDescription, ArrayList<String> skills){
+        JobListing newJob = new JobListing(titl, employerID, location, pay, length, position, jobDescription, skills);
         return newJob;
     }
 
