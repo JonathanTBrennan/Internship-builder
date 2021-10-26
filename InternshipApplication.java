@@ -14,6 +14,21 @@ public class InternshipApplication {
         return null;
     }
 
+    /**
+     * Creates an account based on information given by user
+     * 
+     * @param username username entered by user
+     * @param password password entered by user
+     * @param email email entered by user
+     * @param firstName first name entered by user
+     * @param lastName last name entered by user
+     * @param location location of company entered if user is employer
+     * @param company name of company entered if user is employer
+     * @param userType type of account being created
+     * @param phoneNum phone number entered by user
+     * @param ID random ID associated with account
+     * @return the user's created account
+     */
     public User createAccount(String username, String password, String email, String firstName, String lastName, String location, String company, int userType, String phoneNum, UUID ID){
         if (userType == 0) {
             user = new Admin(username, password, email, firstName, lastName, userType, phoneNum, ID);
@@ -31,8 +46,8 @@ public class InternshipApplication {
     /**
      * Deals with checking if user successfully logs in
      * 
-     * @param userName
-     * @param password 
+     * @param userName username entered by user
+     * @param password password entered by user
      * @return true if user logs in, false if unable
      */
     public boolean login(String userName, String password){
@@ -48,11 +63,32 @@ public class InternshipApplication {
         }
     }
 
-    public JobListing addJobListing(String titl, UUID employerID, float pay, String location, String length, String position, String jobDescription, ArrayList<String> skills){
-        JobListing newJob = new JobListing(titl, employerID, location, pay, length, position, jobDescription, skills);
+    /**
+     * Adds a job listing to the current list of jobs
+     * 
+     * @param title identifying name of the internship being listed
+     * @param employerID random ID tied to the employer's account
+     * @param pay what the internship would pay an applicant
+     * @param location location of the internship
+     * @param length length of the internship
+     * @param position what position the intern would hold
+     * @param jobDescription description of the internship being listed
+     * @param skills skills required for the internship
+     * @return the created job listing
+     */
+    public JobListing addJobListing(String title, UUID employerID, float pay, String location, String length, String position, String jobDescription, ArrayList<String> skills){
+        JobListing newJob = new JobListing(title, employerID, location, pay, length, position, jobDescription, skills);
         return newJob;
     }
 
+    /**
+     * Adds a new rating to a user's account
+     * 
+     * @param numRating numerical value of the rating
+     * @param comment comment attached to the rating
+     * @param user user who is recieving the rating
+     * @return the newly added rating
+     */
     public Rating addRating(int numRating, String comment, User user){
         Rating newRating = new Rating(numRating, comment, user);
         return newRating;
@@ -71,6 +107,12 @@ public class InternshipApplication {
         return RatingList.getInstance();
     }
 
+    /**
+     * Deletes a rating attached to a user's account
+     * 
+     * @param rating the rating to delete
+     * @return newly refreshed list of the ratings with the requested rating deleted
+     */
     public RatingList deleteRating(Rating rating){
         return RatingList.getInstance().deleteRating(rating.getID());
     }
