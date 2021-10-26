@@ -1,14 +1,32 @@
 [{
     "id" : "1",
     "skills" : ["Javascript", "Java", "C++", "Ruby"],
-    "experienceId" : "1",
-    "educationId" : "1",
-    "description" : "I am a current junior studying in computer science. I am willing to do what ever it takes to get the job done no matter the difficulty"
+    "selfdescription" : "I am a current junior studying in computer science. I am willing to do what ever it takes to get the job done no matter the difficulty",
+    "university" : "University of South Carolina",
+    "unilocation" : "Columbia, SC",
+    "degree" : "Bachelors of Science in Computer Science",
+    "graduationDate" : "May 2023",
+    "GPA" : "3.25",
+    "Awards" : ["Dean's list 5 times", "3rd in SCRAP(robotics competition)"],
+    "company" : "Google",
+	"companylocation" : "Mountain View, CA",
+	"position" : "Intern as a software engineer in security",
+	"jobdescription" : "Collaborate with team members to improve security and investigate and solve breaches",
+	"duration" : "6 months from April 2021 through September 2021."
 },
 {
     "id" : "2",
     "skills" : ["Python", "Java", "C++", "html"],
-    "experienceId" : "2",
-    "educationId" : "2",
-    "description" : "I am a senior who is majoring in computer science. I have a lot of experience in coding and robotics. I like to get ahead of schedule and get things done fast"
+    "selfdescription" : "I am a senior who is majoring in computer science. I have a lot of experience in coding and robotics. I like to get ahead of schedule and get things done fast",
+    "university" : "University of South Carolina",
+    "unilocation" : "Aiken, SC",
+    "degree" : "Bachelors of Science in Computer Science",
+    "graduationDate" : "May 2022",
+    "GPA" : "4.00",
+    "Awards" : ["Dean's list 6 times", "Won Machtey Award", "1st in SCARP South Carolina"],
+    "company" : "Microsoft",
+	"companylocation" : "Reston, VA",
+	"position" : "Intern as a software engineer",
+	"jobdescription" : "Design, build, and improve network infrastructure",
+	"duration" : "4 months from May 2021 through August 2021."
 }]

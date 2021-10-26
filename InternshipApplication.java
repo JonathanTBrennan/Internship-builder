@@ -31,7 +31,7 @@ public class InternshipApplication {
     }
 
     public Rating editRating(Rating rating, int numRating, String comment, User user){
-
+       
         return null;
     }
 
