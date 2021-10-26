@@ -14,14 +14,9 @@ import org.json.simple.parser.JSONParser;
 public class DataLoader {
 
     // relative path to the file, based on the directory you currently have open
-    private static final String ADMIN_FILE = "Internship-builder\\admin.json";
-    private static final String EDUCATION_FILE = "Internship-builder\\education.json";
-    private static final String EMPLOYER_FILE = "Internship-builder\\employer.json";
-    private static final String EXPERIENCE_FILE = "Internship-builder\\experience.json";
     private static final String JOBLISTING_FILE = "Internship-builder\\jobListing.json";
     private static final String RATING_FILE = "Internship-builder\\rating.json";
-    private static final String RESUME_FILE = "Internship-builder\\resume.json";
-    private static final String STUDENT_FILE = "Internship-builder\\student.json";
+    private static final String RESUME_FILE = "Internship-builder\\resume.json";;
     private static final String USER_FILE = "Internship-builder\\user.json";
 
     public static ArrayList<User> getUsers() {
@@ -98,6 +93,23 @@ public class DataLoader {
     }
 
     public static ArrayList<Rating> getRatings() {
-        return null;
+        ArrayList<Rating> ratings = new ArrayList<Rating>();
+        UserList users = UserList.getInstance();
+        try {
+            FileReader reader = new FileReader(RATING_FILE);
+            JSONParser parser = new JSONParser();
+            JSONArray ratingsJSON = (JSONArray)new JSONParser().parse(reader);
+            for(int i=0; i<ratingsJSON.size(); i++) {
+                JSONObject ratingJSON = (JSONObject)ratingsJSON.get(i);
+                String userName = (String)ratingJSON.get("userName");
+                int numberRating = ((Long)ratingJSON.get("numberRating")).intValue();
+                String description  = (String)ratingJSON.get("description");
+                User user = users.getUser(userName);
+                ratings.add(new Rating(numberRating, description, user));
+            }
+            return ratings;
+        } catch (Exception e) {
+            e.printStackTrace();t
+        }
     }
 }
