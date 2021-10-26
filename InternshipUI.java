@@ -63,7 +63,7 @@ public class InternshipUI {
             username = scanner.nextLine();
             System.out.println("Password: ");
             password = scanner.nextLine();
-            User hasAccount = InternshipApplication.login(username, password);
+            boolean hasAccount = InternshipApplication.login(username, password);
         }
     }
 

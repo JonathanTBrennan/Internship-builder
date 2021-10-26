@@ -19,21 +19,9 @@ public class DataLoader {
     private static final String RATING_FILE = "Internship-builder\\rating.json";
     private static final String RESUME_FILE = "Internship-builder\\resume.json";
     private static final String STUDENT_FILE = "Internship-builder\\student.json";
-    private static final String USER_FILE = "Internship-builder\\user.json";
 
-    public static ArrayList<UserList> getUsers() {
-        ArrayList<UserList> users = new ArrayList<UserList>();
-
-        try {
-            FileReader reader = new FileReader(USER_FILE);
-            JSONParser parser = new JSONParser();
-            JSONArray userJSON = (JSONArray)new JSONParser().parse(reader);
-            for(int i=0; i<userJSON.size(); i++) {
-                JSONObject userJson = (JSONObject)userJson.get(i);
-                UUID userUUID = UUID.fromString((String)userJSON.get("userID"));
-                
-            }
-        }
+    public static ArrayList<User> getUsers() {
+        return null;
     }
 
     public static ArrayList<JobListing> getJobListings() {
