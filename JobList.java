@@ -55,7 +55,20 @@ public class JobList extends DataLoader {
         }
         return null;
     }
+
     public ArrayList<JobListing> getJobLists() {
         return jobListings;
     }
+
+    /**
+   * Deletes a job listing from the list
+   */
+  public JobList deleteJob(int ID) {
+      /**
+       * NEED TO FIX ID
+       */
+    JobList.getInstance();
+    jobListings.remove(ID);
+    return JobList.getInstance();
+  }
 }
