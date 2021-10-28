@@ -27,4 +27,5 @@ public abstract class User {
     public abstract String getLastName();
     public abstract UUID getID();
     public abstract int getUserType();
+    public abstract String getPhone();
 }

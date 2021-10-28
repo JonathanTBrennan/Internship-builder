@@ -44,7 +44,7 @@ public class Student extends User {
         return userType;
     }
 
-    public String getPhoneNum() {
+    public String getPhone() {
         return phoneNum;
     }
 

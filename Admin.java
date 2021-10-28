@@ -45,7 +45,7 @@ public class Admin extends User{
         return userType;
     }
 
-    public String getphoneNum() {
+    public String getPhone() {
         return phoneNum;
     }
     
