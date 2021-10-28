@@ -19,6 +19,9 @@ public class ResumeList extends DataLoader {
         resumes.add(resume);
     }
 
+    public ArrayList<Resume> getResumes() {
+        return resumes;
+    }
     public Resume getResume(UUID ID) {
         for(int i = 0; i < resumes.size(); i++) {
             if(ID.equals(resumes.get(i).getStudentID())) {
