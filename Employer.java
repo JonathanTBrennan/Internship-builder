@@ -54,7 +54,7 @@ public class Employer extends User{
         return userType;
     }
 
-    public String phoneNum() {
+    public String getPhone() {
         return phoneNum;
     }
 
