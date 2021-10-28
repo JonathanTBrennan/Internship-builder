@@ -31,7 +31,7 @@ public class UserList extends DataLoader {
     if(userList == null) {
       userList = new UserList();
     }
-    return userList = new UserList();
+    return userList;
   }
 
   public boolean addUser(User user) {
