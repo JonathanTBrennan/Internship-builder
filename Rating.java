@@ -69,4 +69,12 @@ public class Rating {
     public int getID() {
         return ID;
     }
+
+    /**
+     * Setter for the new ID of a rating
+     * @param ID the new ID
+     */
+    public void setID(int ID) {
+        this.ID = ID;
+    }
 }

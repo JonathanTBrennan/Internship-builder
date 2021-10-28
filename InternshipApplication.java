@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class InternshipApplication {
-    JobList jobListing;
+    JobList jobListings;
     UserList userList;
     User user;
 
@@ -114,7 +114,10 @@ public class InternshipApplication {
      * @return newly refreshed list of the ratings with the requested rating deleted
      */
     public RatingList deleteRating(Rating rating){
-        return RatingList.getInstance().deleteRating(rating.getID());
+        int deletedID = rating.getID();
+        RatingList.getInstance().deleteRating(rating.getID());
+        RatingList.getInstance().fixIDs(deletedID);
+        return RatingList.getInstance();
     }
 
     /**
@@ -141,12 +144,12 @@ public class InternshipApplication {
      * @return refreshed list of jobs with the job deleted
      */
     public JobList deleteJobListing(JobListing job) {
-        return null;
+        int deletedID = job.getID();
+        JobList.getInstance().deleteJob(job.getID());
+        JobList.getInstance().fixIDs(deletedID);
+        return JobList.getInstance();
     }
 
-    public void Apply(JobListing job) {
-        
-    }
     public void Apply(JobListing job, Student stu) {
         job.addApplicant(stu.getID());
     }

@@ -22,6 +22,16 @@ public class RatingList extends DataLoader {
   }
 
   /**
+   * Getter for the size of the list of ratings
+   * @return size of list
+   */
+  public void fixIDs(int idFrom) {
+    for (int i = idFrom+1; i < ratings.size(); i++) {
+      ratings.get(i).setID(i-1);
+    }
+  }
+
+  /**
    * Getter for a refreshed list of ratings
    * 
    * @return refreshed list of ratings
