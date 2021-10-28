@@ -64,11 +64,18 @@ public class JobList extends DataLoader {
    * Deletes a job listing from the list
    */
   public JobList deleteJob(int ID) {
-      /**
-       * NEED TO FIX ID
-       */
     JobList.getInstance();
     jobListings.remove(ID);
     return JobList.getInstance();
+  }
+
+  /**
+   * Getter for the size of the list of jobs
+   * @return size of list
+   */
+  public void fixIDs(int idFrom) {
+    for (int i = idFrom+1; i < jobListings.size(); i++) {
+      jobListings.get(i).setID(i-1);
+    }
   }
 }

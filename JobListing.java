@@ -20,6 +20,7 @@ public class JobListing {
     private ArrayList<UUID> studentIDS;
     private String jobDescription;
     private ArrayList<String> skills;
+    private int ID;
 
     /**
      * Constructor for each new job listing
@@ -45,6 +46,7 @@ public class JobListing {
         this.studentIDS = studentIDS;
         this.jobDescription = jobDescrip;
         this.skills = sklls;
+        this.ID = JobList.getJobListings().size();
     }
 
     /**
@@ -117,6 +119,22 @@ public class JobListing {
      */
     public ArrayList<String> getSkills() {
         return this.skills;
+    }
+
+    /**
+     * Getter for the jobs's identifier
+     * @return jobs's identifier
+     */
+    public int getID() {
+        return ID;
+    }
+
+    /**
+     * Setter for the new ID of a job listing
+     * @param ID the new ID
+     */
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     /**
