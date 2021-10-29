@@ -104,8 +104,18 @@ public class DataWriter {
             resumeDetails.put("degree", resume.educationExperience().getDegree());
             resumeDetails.put("graduationDate", resume.educationExperience().getGradDate());
             for(int k=0; k<resume.getWorkExperience().size(); k++) {
-                
+                resumeDetails.put("company", resume.getWorkExperience().get(k).getCompany());
+                resumeDetails.put("position", resume.getWorkExperience().get(k).getPosition());
+                resumeDetails.put("jobdescription", resume.getWorkExperience().get(k).getDesciption());
+                resumeDetails.put("duration", resume.getWorkExperience().get(k).getDuration());
             }
+            resumeListJSON.add(resumeDetails);
+        }
+        try (FileWriter file = new FileWriter(RESUME_FILE)) {
+            file.write(resumeListJSON.toJSONString());
+            file.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
