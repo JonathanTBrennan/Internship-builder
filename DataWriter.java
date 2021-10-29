@@ -50,6 +50,12 @@ public class DataWriter {
             for(int j = 0; j<jobListing.getSkills().size(); j++) {
                 skills.add(jobListing.getSkills().get(j));
             }
+            jobDetails.put("skills", skills);
+            JSONArray studentIDS = new JSONArray();
+            for(int k = 0; k<jobListing.getApplicants().size(); k++) {
+                studentIDS.add(jobListing.getApplicants().get(k));
+            }
+            jobDetails.put("studentIDS", studentIDS);
             jobListJSON.add(jobDetails);
         }
 
@@ -89,7 +95,7 @@ public class DataWriter {
             Resume resume = resumes.get(i);
             JSONObject resumeDetails = new JSONObject();
             resumeDetails.put("id", resume.getStudentID());
-
+            
         }
     }
 }
