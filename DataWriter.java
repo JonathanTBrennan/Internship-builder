@@ -95,7 +95,17 @@ public class DataWriter {
             Resume resume = resumes.get(i);
             JSONObject resumeDetails = new JSONObject();
             resumeDetails.put("id", resume.getStudentID());
-            
+            JSONArray skills = new JSONArray();
+            for(int j=0; j<resume.getSkills().size(); j++) {
+                skills.add(resume.getSkills().get(j));
+            }
+            resumeDetails.put("skills", skills);
+            resumeDetails.put("university", resume.educationExperience().getUniversity());
+            resumeDetails.put("degree", resume.educationExperience().getDegree());
+            resumeDetails.put("graduationDate", resume.educationExperience().getGradDate());
+            for(int k=0; k<resume.getWorkExperience().size(); k++) {
+                
+            }
         }
     }
 }
