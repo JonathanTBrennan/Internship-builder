@@ -6,7 +6,7 @@
  */
 
 import java.util.ArrayList;
-
+import java.util.UUID;
 /**
  * Getting class for the list of all users
  */
@@ -50,7 +50,6 @@ public class UserList extends DataLoader {
         return users.get(i);
       }
     }
-
     return null;
   }
 }

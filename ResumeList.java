@@ -19,7 +19,7 @@ public class ResumeList extends DataLoader {
         resumes.add(resume);
     }
 
-    public ArrayList<Resume> getResumes() {
+    public ArrayList<Resume> getAllResumes() {
         return resumes;
     }
     public Resume getResume(UUID ID) {

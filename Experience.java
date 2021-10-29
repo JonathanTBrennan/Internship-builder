@@ -1,36 +1,47 @@
-public class Experience {
-    private String company;
-    private String location;
-    private String position;
-    private String description;
-    private String duration;
+import java.util.ArrayList;
 
-    public Experience(String company, String location, String position, String description, String duration) {
-        this.company = company;
-        this.location = location;
-        this.position = position;
-        this.description = description;
-        this.duration = duration;
+public class Experience {
+    private ArrayList<String> company;
+    private ArrayList<String> position;
+    private ArrayList<String> description;
+    private ArrayList<String> duration;
+
+    public Experience(ArrayList<String> company, ArrayList<String> position, ArrayList<String> description, ArrayList<String> duration) {
+        this.company = new ArrayList<String>();
+        this.position = new ArrayList<String>();
+        this.description = new ArrayList<String>();
+        this.duration = new ArrayList<String>();
     }
 
-    public String getCompany() {
+    public ArrayList<String> getCompany() {
         return company;
     }
 
-    public String getLocation() {
-        return location;
-    }
-
-    public String getPosition() {
+    public ArrayList<String> getPosition() {
         return position;
     }
 
-    public String getDesciption() {
+    public ArrayList<String> getDesciption() {
         return description;
     }
 
-    public String getDuration() {
+    public ArrayList<String> getDuration() {
         return duration;
     }
 
+    public void addCompany(String companies) {
+        company.add(companies);
+    }
+
+    public void addPosition(String positions) {
+        position.add(positions);
+    }
+
+    public void addDescription(String descriptions) {
+        description.add(descriptions);
+    }
+
+    public void addDuration(String durations) {
+        duration.add(durations);
+    }
 }
