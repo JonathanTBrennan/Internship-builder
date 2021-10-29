@@ -5,7 +5,7 @@
  */
 
 import java.util.ArrayList;
-
+import java.util.UUID;
 /**
  * Getting class for the list of all ratings
  */
@@ -13,7 +13,7 @@ public class RatingList extends DataLoader {
 
   private static RatingList ratingList;
   private ArrayList<Rating> ratings;
-
+  
   /**
    * Constructor for the list of ratings
    */
@@ -52,6 +52,25 @@ public class RatingList extends DataLoader {
   public Rating getRating(int ID) {
     RatingList.getInstance();
     return ratings.get(ID);
+  }
+
+  /**
+   * Gets the average user rating
+   * @param user User whose average rating is being found
+   * @return average rating of said user
+   */
+  public double getUsersRating(UUID userID) {
+    double userRating = 0.0;
+    int totalRate = 0;
+    int numRates = 0;
+    for (int i = 0; i < ratings.size(); i++) {
+      if (ratings.get(i).getUser().getID() == userID) {
+        totalRate += ratings.get(i).getNumRating();
+        numRates++;
+      }
+    }
+    userRating = totalRate / numRates;
+    return userRating;
   }
 
   /**

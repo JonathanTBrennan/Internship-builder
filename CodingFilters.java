@@ -7,6 +7,6 @@
  /**
   * List of coding languages to filter for finding applicants
   */
-public enum CodingFilter {
-  Java, C, Python, Ruby, JavaScript, HTML
+public enum CodingFilters {
+  JAVA, C, PYTHON, RUBY, JAVASCRIPT, HTML
 }

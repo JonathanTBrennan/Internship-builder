@@ -11,7 +11,7 @@ import java.util.ArrayList;
   */
 public class ListingSearch {
 
-    private ArrayList<CodingFilter> filters;
+    private ArrayList<CodingFilters> filters;
 
     /**
      * Deals with the search of job listings
@@ -19,7 +19,7 @@ public class ListingSearch {
      * @param listingFilters filters applicant requests to limit job listings to
      * @return list of applicable job listings
      */
-    public ArrayList<JobListing> search(User applicant, ArrayList<CodingFilter> listingFilters) {
+    public ArrayList<JobListing> search(User applicant, ArrayList<CodingFilters> listingFilters) {
         return null;
     }
 
@@ -27,7 +27,7 @@ public class ListingSearch {
      * Gets the requested filter for search
      * @return requested filter for search
      */
-    public CodingFilter getFilter() {
+    public CodingFilters getFilter() {
         return null;
     }
 
@@ -35,7 +35,7 @@ public class ListingSearch {
      * Sets the requested filter for search as active
      * @param lFilter requested filter for search
      */
-    public void setFilter (CodingFilter lFilter) {
+    public void setFilter (CodingFilters lFilter) {
 
     }
 }

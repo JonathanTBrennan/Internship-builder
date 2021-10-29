@@ -10,8 +10,10 @@ public class InternshipApplication {
         
     }
 
-    public ArrayList<JobListing> findJobs(){
-        return null;
+    public ArrayList<JobListing> findJobs(boolean code, int codingFilter, boolean loc, String location, boolean rate, Rating rating){
+        ArrayList<JobListing> filteredList = new ArrayList<JobListing>();
+        filteredList = JobList.getInstance().getJobLists(code, codingFilter, loc, location, rate, rating);
+        return filteredList;
     }
 
     /**
@@ -76,8 +78,8 @@ public class InternshipApplication {
      * @param skills skills required for the internship
      * @return the created job listing
      */
-    public JobListing addJobListing(String title, UUID employerID, float pay, String location, String length, String position, String jobDescription, ArrayList<String> skills, ArrayList<UUID> studentIDS){
-        JobListing newJob = new JobListing(title, employerID, location, pay, length, position, jobDescription, skills, studentIDS);
+    public JobListing addJobListing(String title, UUID employerID, float pay, String location, String length, String position, String jobDescription, ArrayList<String> skills, CodingFilters codeFilt, ArrayList<UUID> studentIDS){
+        JobListing newJob = new JobListing(title, employerID, location, pay, length, position, jobDescription, skills, codeFilt, studentIDS);
         return newJob;
     }
 
@@ -150,6 +152,11 @@ public class InternshipApplication {
         return JobList.getInstance();
     }
 
+    /**
+     * Method for applying a student to a job listing
+     * @param job Job student is applying to
+     * @param stu Student who is applying to the job
+     */
     public void Apply(JobListing job, Student stu) {
         job.addApplicant(stu.getID());
     }

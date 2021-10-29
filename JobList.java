@@ -35,29 +35,96 @@ public class JobList extends DataLoader {
     }
 
     /**
-     * Getter for a specific group of jobs
-     * 
-     * @param keyword type of job to look for
-     * @return list of matching jobs
+     * Gets the list of jobs that were specifically searched for
+     * @return List of the filtered jobs
      */
-
-    public JobListing getJob(int i) {
-        // NEED TO TALK ABOUT
-        // gonna be a little complex bc need to see what filters are active
-
-        // for (int i = 0; i < jobListings.size(); i++) {
-        // if (jobListings.get(i).get() == keyword) {
-        // return users.get(i);
-        // }
-        // }
-        if(i <= jobListings.size()) {
-            return jobListings.get(i);
+    public ArrayList<JobListing> getJobLists(boolean code, int codeFilt, boolean location, String locationSearch, boolean rate, Rating rateSearch) {
+        ArrayList<JobListing> filteredList = new ArrayList<JobListing>();
+        CodingFilters codingFilter = CodingFilters.JAVA;
+        if (code) {
+            switch (codeFilt) {
+                case 1:
+                    codingFilter = CodingFilters.JAVA;
+                    break;
+                case 2:
+                    codingFilter = CodingFilters.C;
+                    break;
+                case 3:
+                    codingFilter = CodingFilters.PYTHON;
+                    break;
+                case 4:
+                    codingFilter = CodingFilters.RUBY;
+                    break;
+                case 5:
+                    codingFilter = CodingFilters.JAVASCRIPT;
+                    break;
+                case 6:
+                    codingFilter = CodingFilters.HTML;
+                    break;
+                case 7:
+                    codingFilter = CodingFilters.JAVA;
+                    break;
+                default:
+                    codingFilter = CodingFilters.JAVA;
+                    break;
+            }
         }
-        return null;
-    }
-
-    public ArrayList<JobListing> getJobLists() {
-        return jobListings;
+        
+        if (code && location && rate) {
+            for (int i = 0; i < jobListings.size(); i++) {
+                if (jobListings.get(i).getCodeFilter() == codingFilter && jobListings.get(i).getLocation().equalsIgnoreCase(locationSearch) && RatingList.getInstance().getUsersRating(jobListings.get(i).getEmployerID()) >= rateSearch.getNumRating()) {
+                    filteredList.add(jobListings.get(i));
+                }
+            }
+        }
+        else if (code && location) {
+            for (int i = 0; i < jobListings.size(); i++) {
+                if (jobListings.get(i).getCodeFilter() == codingFilter && jobListings.get(i).getLocation().equalsIgnoreCase(locationSearch)) {
+                    filteredList.add(jobListings.get(i));
+                }
+            }
+        }
+        else if (code && rate) {
+            for (int i = 0; i < jobListings.size(); i++) {
+                if (jobListings.get(i).getCodeFilter() == codingFilter && RatingList.getInstance().getUsersRating(jobListings.get(i).getEmployerID()) >= rateSearch.getNumRating()) {
+                    filteredList.add(jobListings.get(i));
+                }
+            }
+        }
+        else if (location && rate) {
+            for (int i = 0; i < jobListings.size(); i++) {
+                if (jobListings.get(i).getLocation().equalsIgnoreCase(locationSearch) && RatingList.getInstance().getUsersRating(jobListings.get(i).getEmployerID()) >= rateSearch.getNumRating()) {
+                    filteredList.add(jobListings.get(i));
+                }
+            }
+        }
+        else if (code) {
+            for (int i = 0; i < jobListings.size(); i++) {
+                if (jobListings.get(i).getCodeFilter() == codingFilter) {
+                    filteredList.add(jobListings.get(i));
+                }
+            }
+        }
+        else if (location) {
+            for (int i = 0; i < jobListings.size(); i++) {
+                if (jobListings.get(i).getLocation().equalsIgnoreCase(locationSearch)) {
+                    filteredList.add(jobListings.get(i));
+                }
+            }
+        }
+        else if (rate) {
+            for (int i = 0; i < jobListings.size(); i++) {
+                if (RatingList.getInstance().getUsersRating(jobListings.get(i).getEmployerID()) >= rateSearch.getNumRating()) {
+                    filteredList.add(jobListings.get(i));
+                }
+            }
+        }
+        else {
+            for (int i = 0; i < jobListings.size(); i++) {
+                filteredList.add(jobListings.get(i));
+            }
+        }
+        return filteredList;
     }
 
     /**

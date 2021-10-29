@@ -21,6 +21,7 @@ public class JobListing {
     private String jobDescription;
     private ArrayList<String> skills;
     private int ID;
+    private CodingFilters codeFilter;
 
     /**
      * Constructor for each new job listing
@@ -33,9 +34,10 @@ public class JobListing {
      * @param position Position of the job listing
      * @param jobDescrip Description of the job listing
      * @param sklls Skills required for the job listing
+     * @param codeFilter Coding languages required for the job listing
      * @param studentIDS List of IDs of the applicants
      */
-    public JobListing(String title, UUID employerID, String location, float pay, String length, String position, String jobDescrip, ArrayList<String> sklls, ArrayList<UUID> studentIDS) {
+    public JobListing(String title, UUID employerID, String location, float pay, String length, String position, String jobDescrip, ArrayList<String> sklls, CodingFilters codeFilter, ArrayList<UUID> studentIDS) {
         this.title = title;
         this.employerID = employerID;
         this.location = location;
@@ -46,6 +48,7 @@ public class JobListing {
         this.studentIDS = studentIDS;
         this.jobDescription = jobDescrip;
         this.skills = sklls;
+        this.codeFilter = codeFilter;
         this.ID = JobList.getJobListings().size();
     }
 
@@ -126,7 +129,15 @@ public class JobListing {
      * @return jobs's identifier
      */
     public int getID() {
-        return ID;
+        return this.ID;
+    }
+
+    /**
+     * Getter for the 
+     * @return job's required coding languages
+     */
+    public CodingFilters getCodeFilter() {
+        return this.codeFilter;
     }
 
     /**
