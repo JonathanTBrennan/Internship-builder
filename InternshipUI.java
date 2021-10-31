@@ -64,7 +64,22 @@ public class InternshipUI {
             username = scanner.nextLine();
             System.out.println("Password: ");
             password = scanner.nextLine();
-            boolean hasAccount = InternshipApplication.login(username, password);
+            boolean hasAccount = application.login(username, password);
+            if(hasAccount){
+                User user = UserList.getInstance().getUser(username);
+                if(selectionType == 0){
+                    
+                }
+                else if(selectionType == 1){
+                    displayStudentPortal(user);
+                }
+                else{
+                    
+                }
+            }
+            else{
+                System.out.println("Account not found. Please try again.");
+            }
         }
     }
 
@@ -280,7 +295,7 @@ public class InternshipUI {
         }
     }
 
-    private void displayStudentPortal(){
+    private void displayStudentPortal(User user){
         while(true){
             System.out.println("********* Student Portal *********");
             System.out.println("");
@@ -298,10 +313,10 @@ public class InternshipUI {
                 System.out.println("Type \"1\" for all. Type \"2\" for filtered: ");
                 int choice = scanner.nextInt();
                 if(choice == 1){
-                    displayJobListingsStudentViewAll();
+                    displayJobListingsStudentViewAll(user);
                 }
                 else if(choice == 2){
-                    displayJobListingsStudentFiltered();
+                    displayJobListingsStudentFiltered(user);
                 }
             }
             else if(selection == 2){
@@ -316,7 +331,7 @@ public class InternshipUI {
         }
     }
 
-    private void displayJobListingsStudentViewAll(){
+    private void displayJobListingsStudentViewAll(User user){
         while(true){
             System.out.println("--- Job Listings ---");
             System.out.println("");
@@ -345,7 +360,7 @@ public class InternshipUI {
 
     }
 
-    private void displayJobListingsStudentFiltered(){
+    private void displayJobListingsStudentFiltered(User user){
         while(true){
             System.out.println("--- Filter Listings --- ");
             System.out.println("");
@@ -357,7 +372,7 @@ public class InternshipUI {
             System.out.println("Enter your selection: ");
             int choice = scanner.nextInt();
             if(choice == 1){
-                displayJobListingsStudentFilteredByLanguage();
+                displayJobListingsStudentFilteredByLanguage(user);
             }
             else if(choice == 2){
                 displayJobListingsStudentFilteredByLocation();
@@ -372,12 +387,19 @@ public class InternshipUI {
 
     }
 
-    private void displayJobListingsStudentFilteredByLanguage(){
+    private void displayJobListingsStudentFilteredByLanguage(User user){
         while(true){
             System.out.println("--- Filter by Coding Language ---");
             System.out.println("What language would you like to search for: ");
-            String lanChoice = scanner.nextLine();
+            System.out.println("    1. Java");
+            System.out.println("    2. C");
+            System.out.println("    3. Python");
+            System.out.println("    4. Ruby");
+            System.out.println("    5. Javascript");
+            System.out.println("    6. HTML");
+            int lanChoice = scanner.nextInt();
             System.out.println("");
+            ListingSearch.search(user, );
             System.out.println("--- Filtered Listings ---");
             System.out.println("");
             System.out.println("<the listings>");
