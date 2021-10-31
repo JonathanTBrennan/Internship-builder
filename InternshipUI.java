@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.UUID;
 public class InternshipUI {
@@ -240,25 +241,42 @@ public class InternshipUI {
     }
 
     private void displayResumeBuilder(){
+        ArrayList <String> ArraySkills = new ArrayList<>();
         while(true){
             System.out.println("*********** Resume Builder ***********");
             System.out.println("Coding Languages (Enter your languages, ");
             System.out.println("Click enter after typing each language.");
             System.out.println("Then when finished Please Enter \"0\"):");
+            while(true){
+                String tempInput = scanner.nextLine();
+                if(tempInput.equals("0")){
+                    break;
+                }
+                else{
+                    ArraySkills.add(tempInput);
+                }
+            }
             System.out.println("");
             System.out.println("Past Work Experience ---");
             System.out.println("");
             System.out.println("How many Jobs would you like to enter?: ");
+            int numberOfJobs = scanner.nextInt();
             System.out.println("");
             // for loop for how many times they choose
-            //for(int i = 0; i < numberOfJobs; i++){
-                System.out.println("Job #1");
+            for(int i = 0; i < numberOfJobs; i++){
+                System.out.println("Job #" + (i + 1));
                 System.out.println("Company Name: ");
-                System.out.println("Location of Job: ");
+                String companyName = scanner.nextLine();
+                //System.out.println("Location of Job: ");
+                //String location = scanner.nextLine();
                 System.out.println("Position at Company: ");
+                String position = scanner.nextLine();
                 System.out.println("Job Description: ");
+                String description = scanner.nextLine();
                 System.out.println("Duration of Employment: ");
-            //}
+                String duration = scanner.nextLine();
+                Experience exp = new Experience(companyName, position, description, duration);
+            }
         }
     }
 
@@ -272,6 +290,29 @@ public class InternshipUI {
             System.out.println("	4. Log out");
             System.out.println("");
             System.out.println("Enter your selection: ");
+            int selection = scanner.nextInt();
+
+            if(selection == 1){
+                System.out.println("");
+                System.out.println("Would you like to view all listings or filtered listings?");
+                System.out.println("Type \"1\" for all. Type \"2\" for filtered: ");
+                int choice = scanner.nextInt();
+                if(choice == 1){
+                    displayJobListingsStudentViewAll();
+                }
+                else if(choice == 2){
+                    displayJobListingsStudentFiltered();
+                }
+            }
+            else if(selection == 2){
+
+            }
+            else if(selection == 3){
+                
+            }
+            else if(selection == 4){
+                
+            }
         }
     }
 
@@ -314,6 +355,19 @@ public class InternshipUI {
             System.out.println("	4. Go back");
             System.out.println("");
             System.out.println("Enter your selection: ");
+            int choice = scanner.nextInt();
+            if(choice == 1){
+                displayJobListingsStudentFilteredByLanguage();
+            }
+            else if(choice == 2){
+                displayJobListingsStudentFilteredByLocation();
+            }
+            else if(choice == 3){
+                displayJobListingsStudentFilteredByRating();
+            }
+            else if(choice == 4){
+                
+            }
         }
 
     }
@@ -322,6 +376,7 @@ public class InternshipUI {
         while(true){
             System.out.println("--- Filter by Coding Language ---");
             System.out.println("What language would you like to search for: ");
+            String lanChoice = scanner.nextLine();
             System.out.println("");
             System.out.println("--- Filtered Listings ---");
             System.out.println("");
