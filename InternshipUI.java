@@ -39,15 +39,20 @@ public class InternshipUI {
                 displayLogin(0);
             }
             else if(selection == 4){
-                //STUDENT?? USER??
                 Student student = new Student();
-                student = displayStudentAccountCreation();
-                displayResumeBuilder(student);
+                Resume resume = new Resume();
+                student = displayStudentAccountCreation(student);
+                UserList.getInstance().addUser(student);
+                resume = displayResumeBuilder(student, resume);
+                ResumeList.getInstance().addResume(resume);
             }
             else if(selection == 5){
-                displayEmployerAccountCreation();
+                Employer employer = new Employer();
+                employer = displayEmployerAccountCreation(employer);
+                UserList.getInstance().addUser(employer);
             }
             else if(selection == 6){
+                System.out.println("Goodbye!");
                 System.exit(0);
             }
         }
@@ -90,17 +95,25 @@ public class InternshipUI {
         }
     }
 
-    private void displayEmployerAccountCreation(){
-        while(true){
+    private Employer displayEmployerAccountCreation(Employer theEmployer){
+            theEmployer.setID();    
             System.out.println("**** Employer Account Creation ****");
             System.out.println("");
             System.out.println("Company Name: ");
+            theEmployer.setCompany(scanner.nextLine());
             System.out.println("Username: ");
-            System.out.println("email: ");
+            theEmployer.setUsername(scanner.nextLine());
+            System.out.println("Email: ");
+            theEmployer.setEmail(scanner.nextLine());
+            System.out.println("Phone Number: ");
+            theEmployer.setPhone(scanner.nextLine());
             System.out.println("Manager First Name: ");
+            theEmployer.setFirstName(scanner.nextLine());
             System.out.println("Manager Last Name: ");
+            theEmployer.setLastName(scanner.nextLine());
             System.out.println("Company Location: ");
-        }
+            theEmployer.setLocation(scanner.nextLine());
+        return theEmployer;        
     }
 
     private void displayEmployerPortal(User user){
@@ -270,29 +283,31 @@ public class InternshipUI {
         }
     }
 
-    private Student displayStudentAccountCreation(){
-        Student theStudent = new Student();
-        
+    private Student displayStudentAccountCreation(Student theStudent) {
+            theStudent.setID();
+            System.out.println("");
             System.out.println("**** Student Account Creation ****");
             System.out.println("");
             System.out.println("First Name: ");
-            theStudent.setFirstName(scanner.nextLine());
+            theStudent.setFirstName(scanner.next());
+            System.out.println(theStudent.getFirstName());
             System.out.println("Last Name: ");
-            theStudent.setLastName(scanner.nextLine());
-            System.out.println("Username: ");
-            theStudent.setUsername(scanner.nextLine());
+            theStudent.setLastName(scanner.next());
             System.out.println("Email Address: ");
-            theStudent.setEmail(scanner.nextLine());
+            theStudent.setEmail(scanner.next());
+            System.out.println("Username: ");
+            theStudent.setUsername(scanner.next());
             System.out.println("Password: ");
-            theStudent.setPassword(scanner.nextLine());
-        
+            theStudent.setPassword(scanner.next());
+            System.out.println("Phone Number: ");
+            theStudent.setPhone(scanner.next());
         return theStudent;
     }
 
-    private void displayResumeBuilder(User user){
-        Resume resume = new Resume();
-        while(true){
+    private Resume displayResumeBuilder(User user, Resume resume){
+            System.out.println("");
             System.out.println("*********** Resume Builder ***********");
+            System.out.println("");
             System.out.println("Coding Languages (Enter your languages, ");
             System.out.println("Click enter after typing each language.");
             System.out.println("Then when finished Please Enter \"0\"):");
@@ -341,13 +356,13 @@ public class InternshipUI {
                 Experience exp = new Experience(companyName, position, description, duration);
                 resume.addWorkExperience(exp);
             }
-            ResumeList.getInstance().addResume(resume);
+            return resume;
         }
-    }
 
     private void displayStudentPortal(User user){
         while(true){
             System.out.println("********* Student Portal *********");
+            System.out.println("Welcome, " + user.getFirstName() + " " + user.getLastName() + ".");
             System.out.println("");
             System.out.println("	1. View Job Listings");
             System.out.println("	2. Edit Resume");
