@@ -304,7 +304,9 @@ public class InternshipUI {
     }
 
     private Resume displayResumeBuilder(User user, Resume resume){
+            System.out.println("");
             System.out.println("*********** Resume Builder ***********");
+            System.out.println("");
             System.out.println("Coding Languages (Enter your languages, ");
             System.out.println("Click enter after typing each language.");
             System.out.println("Then when finished Please Enter \"0\"):");
