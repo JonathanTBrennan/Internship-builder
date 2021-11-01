@@ -4,6 +4,7 @@ import java.util.UUID;
 public class InternshipUI {
     private Scanner scanner = new Scanner(System.in);
     private InternshipApplication application;
+    private JobList jobList;
     public static void main(String[] args) {
         //System.out.println(UUID.randomUUID());
         InternshipUI driver = new InternshipUI();
@@ -61,9 +62,9 @@ public class InternshipUI {
             }
             System.out.println("");
             System.out.println("Username: ");
-            username = scanner.nextLine();
+            username = scanner.next();
             System.out.println("Password: ");
-            password = scanner.nextLine();
+            password = scanner.next();
             boolean hasAccount = application.login(username, password);
             if(hasAccount){
                 User user = UserList.getInstance().getUser(username);
@@ -381,7 +382,7 @@ public class InternshipUI {
                 displayJobListingsStudentFilteredByRating();
             }
             else if(choice == 4){
-                
+                break;
             }
         }
 
@@ -399,10 +400,10 @@ public class InternshipUI {
             System.out.println("    6. HTML");
             int lanChoice = scanner.nextInt();
             System.out.println("");
-            ListingSearch.search(user, );
+            ArrayList<JobListing> jobs = jobList.getJobLists(true, lanChoice, false, "temp", false, null);
             System.out.println("--- Filtered Listings ---");
             System.out.println("");
-            System.out.println("<the listings>");
+            System.out.println(jobs);
             System.out.println("");
             System.out.println("Enter your selection: ");
         }
