@@ -137,14 +137,15 @@ public class DataLoader {
                 JSONArray positionArray = (JSONArray)resumeJSON.get("position");
                 JSONArray descriptionArray = (JSONArray)resumeJSON.get("jobdescription");
                 JSONArray durationArray = (JSONArray)resumeJSON.get("duration");
-                for(int k=0; k<skillsArray.size(); k++) {
+                /*for(int k=0; k<skillsArray.size(); k++) {
                     String company = (String)companyArray.get(k);
                     String position = (String)positionArray.get(k);
                     String description = (String)descriptionArray.get(k);
                     String duration = (String)durationArray.get(k);
                     experiences.add(new Experience(company, position, description, duration));
                 }
-                resumes.add(new Resume(studentID, skills, experiences, education));
+                */
+                resumes.add(new Resume(studentID, skills, null, education));
             }
             return resumes;
         } catch (Exception e) {
