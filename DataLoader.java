@@ -14,10 +14,10 @@ import org.json.simple.parser.JSONParser;
 public class DataLoader {
 
     // relative path to the file, based on the directory you currently have open
-    private static final String JOBLISTING_FILE = "Internship-builder\\jobListing.json";
-    private static final String RATING_FILE = "Internship-builder\\rating.json";
-    private static final String RESUME_FILE = "Internship-builder\\resume.json";;
-    private static final String USER_FILE = "Internship-builder\\user.json";
+    private static final String JOBLISTING_FILE = "jobListing.json";
+    private static final String RATING_FILE = "rating.json";
+    private static final String RESUME_FILE = "resume.json";
+    private static final String USER_FILE = "user.json";
 
     public static ArrayList<User> getUsers() {
         ArrayList<User> users = new ArrayList<User>();
