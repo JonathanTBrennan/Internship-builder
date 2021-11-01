@@ -95,14 +95,23 @@ public class InternshipUI {
     }
 
     private Employer displayEmployerAccountCreation(Employer theEmployer){
+            theEmployer.setID();    
             System.out.println("**** Employer Account Creation ****");
             System.out.println("");
             System.out.println("Company Name: ");
+            theEmployer.setCompany(scanner.nextLine());
             System.out.println("Username: ");
-            System.out.println("email: ");
+            theEmployer.setUsername(scanner.nextLine());
+            System.out.println("Email: ");
+            theEmployer.setEmail(scanner.nextLine());
+            System.out.println("Phone Number: ");
+            theEmployer.setPhone(scanner.nextLine());
             System.out.println("Manager First Name: ");
+            theEmployer.setFirstName(scanner.nextLine());
             System.out.println("Manager Last Name: ");
+            theEmployer.setLastName(scanner.nextLine());
             System.out.println("Company Location: ");
+            theEmployer.setLocation(scanner.nextLine());
         return theEmployer;        
     }
 
