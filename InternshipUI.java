@@ -26,6 +26,7 @@ public class InternshipUI {
             System.out.println("");
             System.out.println("Enter your selection: ");
             selection = scanner.nextInt();
+            scanner.nextLine();
             if(selection == 1){
                 displayLogin(1);
             }
