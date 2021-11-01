@@ -94,7 +94,7 @@ public class Student extends User {
      * Getter for the first name of a student's account
      */
     public String getFirstName() {
-        return firstName;
+        return this.firstName;
     }
 
     /**

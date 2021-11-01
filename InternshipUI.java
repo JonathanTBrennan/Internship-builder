@@ -282,22 +282,24 @@ public class InternshipUI {
         }
     }
 
-    private Student displayStudentAccountCreation(Student theStudent){
+    private Student displayStudentAccountCreation(Student theStudent) {
             theStudent.setID();
+            System.out.println("");
             System.out.println("**** Student Account Creation ****");
             System.out.println("");
             System.out.println("First Name: ");
-            theStudent.setFirstName(scanner.nextLine());
+            theStudent.setFirstName(scanner.next());
+            System.out.println(theStudent.getFirstName());
             System.out.println("Last Name: ");
-            theStudent.setLastName(scanner.nextLine());
+            theStudent.setLastName(scanner.next());
             System.out.println("Email Address: ");
-            theStudent.setEmail(scanner.nextLine());
+            theStudent.setEmail(scanner.next());
             System.out.println("Username: ");
-            theStudent.setUsername(scanner.nextLine());
+            theStudent.setUsername(scanner.next());
             System.out.println("Password: ");
-            theStudent.setPassword(scanner.nextLine());
+            theStudent.setPassword(scanner.next());
             System.out.println("Phone Number: ");
-            theStudent.setPhone(scanner.nextLine());
+            theStudent.setPhone(scanner.next());
         return theStudent;
     }
 
@@ -357,6 +359,7 @@ public class InternshipUI {
     private void displayStudentPortal(User user){
         while(true){
             System.out.println("********* Student Portal *********");
+            System.out.println("Welcome, " + user.getFirstName() + " " + user.getLastName() + ".");
             System.out.println("");
             System.out.println("	1. View Job Listings");
             System.out.println("	2. Edit Resume");
