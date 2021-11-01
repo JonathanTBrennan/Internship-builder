@@ -20,6 +20,10 @@ public abstract class User {
         this.id = id;
     }
 
+    public User() {
+        
+    }
+
     public abstract String getUsername();
     public abstract String getPassword();
     public abstract String getEmail();

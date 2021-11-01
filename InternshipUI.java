@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.UUID;
+
+import javax.naming.spi.DirStateFactory.Result;
 public class InternshipUI {
     private Scanner scanner = new Scanner(System.in);
     private InternshipApplication application;
@@ -36,7 +38,10 @@ public class InternshipUI {
                 displayLogin(0);
             }
             else if(selection == 4){
-                displayStudentAccountCreation();
+                //STUDENT?? USER??
+                Student student = new Student();
+                student = displayStudentAccountCreation();
+                displayResumeBuilder(student);
             }
             else if(selection == 5){
                 displayEmployerAccountCreation();
@@ -69,13 +74,13 @@ public class InternshipUI {
             if(hasAccount){
                 User user = UserList.getInstance().getUser(username);
                 if(selectionType == 0){
-                    
+                    displayAdminPortal();
                 }
                 else if(selectionType == 1){
                     displayStudentPortal(user);
                 }
                 else{
-                    
+                    displayEmployerPortal(user);
                 }
             }
             else{
@@ -97,7 +102,7 @@ public class InternshipUI {
         }
     }
 
-    private void displayEmployerPortal(){
+    private void displayEmployerPortal(User user){
         while(true){
             System.out.println("********* Employer Portal *********");
             System.out.println("");
@@ -106,6 +111,28 @@ public class InternshipUI {
             System.out.println("	3. View Applicants");
             System.out.println("	4. Rate a Student");
             System.out.println("	5. Log out");
+            System.out.println("");
+            System.out.println("Enter your selection: ");
+            int selection = scanner.nextInt();
+
+            if (selection == 1) {
+
+            }
+            else if (selection == 2) {
+
+            }
+            else if (selection == 3) {
+                
+            }
+            else if (selection == 4) {
+                
+            }
+            else if (selection == 5) {
+
+            }
+            else {
+
+            }
         }
     }
 
@@ -242,22 +269,27 @@ public class InternshipUI {
         }
     }
 
-    private void displayStudentAccountCreation(){
-        while(true){
+    private Student displayStudentAccountCreation(){
+        Student theStudent = new Student();
+        
             System.out.println("**** Student Account Creation ****");
             System.out.println("");
             System.out.println("First Name: ");
+            theStudent.setFirstName(scanner.nextLine());
             System.out.println("Last Name: ");
+            theStudent.setLastName(scanner.nextLine());
             System.out.println("Username: ");
-            System.out.println("Graduation Year: ");
+            theStudent.setUsername(scanner.nextLine());
             System.out.println("Email Address: ");
+            theStudent.setEmail(scanner.nextLine());
             System.out.println("Password: ");
-            System.out.println("Re-enter Password: ");
-        }
+            theStudent.setPassword(scanner.nextLine());
+        
+        return theStudent;
     }
 
-    private void displayResumeBuilder(){
-        ArrayList <String> ArraySkills = new ArrayList<>();
+    private void displayResumeBuilder(User user){
+        Resume resume = new Resume();
         while(true){
             System.out.println("*********** Resume Builder ***********");
             System.out.println("Coding Languages (Enter your languages, ");
@@ -269,9 +301,23 @@ public class InternshipUI {
                     break;
                 }
                 else{
-                    ArraySkills.add(tempInput);
+                    resume.addSkill(tempInput);
                 }
             }
+            System.out.println("");
+            System.out.println("Education ---");
+            System.out.println("");
+            System.out.println("What university are you attending / did you attend?");
+            Education newEducation = new Education();
+            String newUniversity = scanner.nextLine();
+            newEducation.setUniversity(newUniversity);
+            System.out.println("What degree did / will you recieve?");
+            String newDegree = scanner.nextLine();
+            newEducation.setDegree(newDegree);
+            System.out.println("When did / will you graduate?");
+            String newGradDate = scanner.nextLine();
+            newEducation.setGradDate(newGradDate);
+            ResumeList.getInstance().getResume(user.getID()).setEducation(newEducation);
             System.out.println("");
             System.out.println("Past Work Experience ---");
             System.out.println("");
@@ -292,7 +338,9 @@ public class InternshipUI {
                 System.out.println("Duration of Employment: ");
                 String duration = scanner.nextLine();
                 Experience exp = new Experience(companyName, position, description, duration);
+                resume.addWorkExperience(exp);
             }
+            ResumeList.getInstance().addResume(resume);
         }
     }
 
@@ -319,15 +367,64 @@ public class InternshipUI {
                 else if(choice == 2){
                     displayJobListingsStudentFiltered(user);
                 }
+                else {
+                    System.out.println("Invalid input. Please try again");
+                }
             }
             else if(selection == 2){
-
+                System.out.println("");
+                System.out.println("What aspect of the resume would you like to edit?");
+                System.out.println("Type \"1\" for skills. Type \"2\" for work experience. Type \"3\" for education: ");
+                int choice2 = scanner.nextInt();
+                if(choice2 == 1){
+                    System.out.println("");
+                    System.out.println("What skill would you like to add?");
+                    String newSkill = scanner.nextLine();
+                    ResumeList.getInstance().getResume(user.getID()).addSkill(newSkill);
+                }
+                else if(choice2 == 2){
+                    System.out.println("");
+                    System.out.println("What company did you work for?");
+                    Experience newExperience = new Experience();
+                    String newCompany = scanner.nextLine();
+                    newExperience.setCompany(newCompany);
+                    System.out.println("What position did you hold?");
+                    String newPosition = scanner.nextLine();
+                    newExperience.setCompany(newPosition);
+                    System.out.println("How would you describe this job?");
+                    String newDescription = scanner.nextLine();
+                    newExperience.setCompany(newDescription);
+                    System.out.println("How long did you hold this position?");
+                    String newDuration = scanner.nextLine();
+                    newExperience.setCompany(newDuration);
+                    ResumeList.getInstance().getResume(user.getID()).addWorkExperience(newExperience);
+                }
+                else if(choice2 == 3){
+                    System.out.println("");
+                    System.out.println("What university did you attend?");
+                    Education newEducation = new Education();
+                    String newUniversity = scanner.nextLine();
+                    newEducation.setUniversity(newUniversity);
+                    System.out.println("What degree did you recieve?");
+                    String newDegree = scanner.nextLine();
+                    newEducation.setDegree(newDegree);
+                    System.out.println("When did you graduate?");
+                    String newGradDate = scanner.nextLine();
+                    newEducation.setGradDate(newGradDate);
+                    ResumeList.getInstance().getResume(user.getID()).setEducation(newEducation);
+                }
+                else {
+                    System.out.println("Invalid input. Please try again");
+                }
             }
             else if(selection == 3){
-                
+                displayRateEmployer();
             }
             else if(selection == 4){
-                
+                displayMainMenu();
+            }
+            else {
+                System.out.println("Invalid input. Please try again");
             }
         }
     }
@@ -444,7 +541,15 @@ public class InternshipUI {
             System.out.println("");
             System.out.println("Enter your selection: ");
             System.out.println("");
-            System.out.println("--- Rate <company> ---");
+            Rating newRating = new Rating();
+                String newRatedEmployer = scanner.nextLine();
+                User newEmployer = new Employer();
+                for (int i = 0; i < UserList.getInstance().listSize(); i++) {
+                    if (newRatedEmployer == UserList.getInstance().getUsers().get(i).getEmail()) {
+                        newEmployer = UserList.getInstance().getUsers().get(i);
+                    }
+                }
+                newRating.setUser(newEmployer);
             System.out.println("");
             System.out.println("On a scale of (1-10) How do you rate <company>: ");
             System.out.println("Comments or Concerns: ");

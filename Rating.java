@@ -17,6 +17,10 @@ public class Rating {
         this.ID = RatingList.getRatings().size();
     }
 
+    public Rating() {
+
+    }
+
     public void editRating(Rating rating, int numRating, String comment) {
         rating.setNumRating(numRating);
         rating.setComment(comment);
@@ -76,5 +80,13 @@ public class Rating {
      */
     public void setID(int ID) {
         this.ID = ID;
+    }
+
+    /**
+     * Setter for the user being rated
+     * @param user the user being rated
+     */
+    public void setUser(User user) {
+        this.user = user;
     }
 }

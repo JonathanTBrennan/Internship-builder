@@ -23,6 +23,10 @@ public class Employer extends User{
         this.ID = ID;
     }
 
+    public Employer() {
+        super();
+    }
+
     public String getUsername() {
         return username;
     }

@@ -1,4 +1,8 @@
-import java.util.ArrayList;
+/**
+ * Internship Builder
+ * CSCE 240 - Portia Plante
+ * @author Jonathan Brennan, LJ Todd, Patrick Burroughs, Tyler Madden
+ */
 
 public class Experience {
     private String company;
@@ -11,6 +15,10 @@ public class Experience {
         this.position = position;
         this.description = description;
         this.duration = duration;
+    }
+    
+    public Experience() {
+
     }
 
     public String getCompany() {
@@ -27,5 +35,21 @@ public class Experience {
 
     public String getDuration() {
         return duration;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration;
     }
 }
