@@ -1,4 +1,3 @@
-
 /**
  * Internship Builder
  * CSCE 240 - Portia Plante

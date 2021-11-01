@@ -1,3 +1,8 @@
+/**
+ * Internship Builder
+ * CSCE 240 - Portia Plante
+ * @author Jonathan Brennan, LJ Todd, Patrick Burroughs, Tyler Madden
+ */
 import java.util.ArrayList;
 import java.util.UUID;
 

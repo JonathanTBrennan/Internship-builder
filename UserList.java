@@ -38,6 +38,10 @@ public class UserList extends DataLoader {
     return UserList.getInstance().users.add(user);
   }
 
+  public int listSize() {
+    return users.size();
+  }
+
   /**
    * Getter for a specific user
    * 
