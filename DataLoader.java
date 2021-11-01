@@ -82,7 +82,7 @@ public class DataLoader {
                 for (int j=0; j<studentIDSJSON.size(); j++) {
                     studentIDS.add(UUID.fromString((String)studentIDSJSON.get(j)));
                 }
-                JobListing jobListing = new JobListing(title, employerID, location, pay, length, position, description, skills, studentIDS);
+                JobListing jobListing = new JobListing(title, employerID, location, pay, length, position, description, skills, null, studentIDS);
                 jobListings.add(jobListing);
             }
             return jobListings;

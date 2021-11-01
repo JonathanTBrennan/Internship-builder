@@ -145,4 +145,12 @@ public class JobList extends DataLoader {
       jobListings.get(i).setID(i-1);
     }
   }
+
+  public ArrayList<JobListing> getJobLists() {
+      return jobListings;
+  }
+
+  public JobListing getJob(int i) {
+      return jobListings.get(i);
+  }
 }
