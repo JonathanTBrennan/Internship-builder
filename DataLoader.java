@@ -29,7 +29,7 @@ public class DataLoader {
             for(int i=1; i<userJSON.size(); i++) {
                 JSONObject userJson = (JSONObject)userJSON.get(i);
                 UUID userUUID = UUID.fromString((String)userJson.get("id"));
-                String userType = (String)userJson.get("userType");
+                String userType = (String)userJson.get("usertype");
                 String username = (String)userJson.get("username");
                 String password = (String)userJson.get("password");
                 String email = (String)userJson.get("email");
