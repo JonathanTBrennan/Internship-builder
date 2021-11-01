@@ -26,9 +26,9 @@ public class DataLoader {
             FileReader reader = new FileReader(USER_FILE);
             JSONParser parser = new JSONParser();
             JSONArray userJSON = (JSONArray)new JSONParser().parse(reader);
-            for(int i=0; i<userJSON.size(); i++) {
+            for(int i=1; i<userJSON.size(); i++) {
                 JSONObject userJson = (JSONObject)userJSON.get(i);
-                UUID userUUID = UUID.fromString((String)userJson.get("userUUID"));
+                UUID userUUID = UUID.fromString((String)userJson.get("id"));
                 String userType = (String)userJson.get("userType");
                 String username = (String)userJson.get("username");
                 String password = (String)userJson.get("password");
@@ -44,7 +44,7 @@ public class DataLoader {
                     User user = new Student(username, password, email, firstname, lastname, 1, phone, userUUID);
                     users.add(user);
                 }
-                else{
+                else {
                     User user = new Employer(username, password, email, firstname, lastname, 2, phone, userUUID);
                     users.add(user);
                 }
