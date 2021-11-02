@@ -4,6 +4,8 @@
  * @author Jonathan Brennan, LJ Todd, Patrick Burroughs, Tyler Madden
  */
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -50,5 +52,30 @@ public class Resume {
 
     public Education educationExperience(){
         return education;
+    }
+
+    public void ResumeToText() {
+        try {
+            FileWriter resumeWriter = new FileWriter("Internship-builder\\Resume.txt");
+            resumeWriter.write("Skills: ");
+            for (int i = 0; i<skills.size(); i++) {
+                resumeWriter.write(skills.get(i));
+            }
+            resumeWriter.write("Education: ");
+            resumeWriter.write("University: " + education.getUniversity());
+            resumeWriter.write("Degree: " + education.getDegree());
+            resumeWriter.write("Graduation Date: " + education.getGradDate());
+            resumeWriter.write("Work Experience: ");
+            for (int j = 0; j<workExperience.size(); j++) {
+                Experience exp = workExperience.get(j);
+                resumeWriter.write("Company: " +exp.getCompany());
+                resumeWriter.write("Position: " + exp.getPosition());
+                resumeWriter.write("Description: " + exp.getDesciption());
+                resumeWriter.write("Duration: " + exp.getDuration());
+            }
+            resumeWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
