@@ -88,7 +88,7 @@ public class InternshipApplication {
      * @param skills skills required for the internship
      * @return the created job listing
      */
-    public JobListing addJobListing(String title, UUID employerID, float pay, String location, String length, String position, String jobDescription, ArrayList<String> skills, CodingFilters codeFilt, ArrayList<UUID> studentIDS){
+    public JobListing addJobListing(String title, UUID employerID, int pay, String location, String length, String position, String jobDescription, ArrayList<String> skills, CodingFilters codeFilt, ArrayList<UUID> studentIDS){
         JobListing newJob = new JobListing(title, employerID, location, pay, length, position, jobDescription, skills, codeFilt, studentIDS);
         return newJob;
     }
@@ -145,7 +145,7 @@ public class InternshipApplication {
      * @param skills New skills required by the job listing
      * @return refreshed list of jobs with the edited listing
      */
-    public JobList editJobListing(JobListing job, String title, String location, float pay, String length, String position, String jobDescription, ArrayList<String> skills) {
+    public JobList editJobListing(JobListing job, String title, String location, int pay, String length, String position, String jobDescription, ArrayList<String> skills) {
         job.editJobListing(job, title, location, pay, length, position, jobDescription, skills);
         return JobList.getInstance();
     }

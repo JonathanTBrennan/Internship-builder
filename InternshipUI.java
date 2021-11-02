@@ -561,7 +561,7 @@ public class InternshipUI {
             System.out.println("");
             for(int i = 0; i<jobs.size(); i++) {
                 for(int j = 0; j<jobs.get(i).getSkills().size(); j++) {
-                    if(jobs.get(i).getSkills().get(j).equals(language)) {
+                    if(jobs.get(i).getSkills().get(j).equalsIgnoreCase(language)) {
                         filteredJobs.add(jobs.get(i));
                     }
                 }
@@ -574,12 +574,16 @@ public class InternshipUI {
             System.out.println("");
             System.out.println("Enter your selection to apply: (0 to exit)");
             int apply = scanner.nextInt();
-            scanner.nextLine();
             for(int i = 0; i< filteredJobs.size(); i++) {
                 if(apply == i+1) {
                     filteredJobs.get(i).addApplicant(user.getID());
+                    JobListing revisedJobListing = filteredJobs.get(i);
+                    jobs.remove(i);
+                    jobs.add(revisedJobListing);
+                    System.out.println(filteredJobs.get(i));
                 }
             }
+            DataWriter.saveJobListing();
             System.out.println("Do you want to continue? (1 to continue)");
             if(scanner.nextInt() != 1) {
                 tf = false;

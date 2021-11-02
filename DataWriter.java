@@ -10,10 +10,10 @@ import org.json.simple.JSONObject;
  */
 
 public class DataWriter {
-    private static final String JOBLISTING_FILE = "Internship-builder\\jobListing.json";
-    private static final String RATING_FILE = "Internship-builder\\rating.json";
-    private static final String RESUME_FILE = "Internship-builder\\resume.json";
-    private static final String USER_FILE = "internship-builder\\user.json";
+    private static final String JOBLISTING_FILE = "jobListing.json";
+    private static final String RATING_FILE = "rating.json";
+    private static final String RESUME_FILE = "resume.json";
+    private static final String USER_FILE = "user.json";
 
     /**
      * Saves a list of users to the user.json file
@@ -65,7 +65,7 @@ public class DataWriter {
             jobDetails.put("skills", skills);
             JSONArray studentIDS = new JSONArray();
             for(int k = 0; k<jobListing.getApplicants().size(); k++) {
-                studentIDS.add(jobListing.getApplicants().get(k));
+                studentIDS.add(jobListing.getApplicants().get(k).toString());
             }
             jobDetails.put("studentIDS", studentIDS);
             jobListJSON.add(jobDetails);
