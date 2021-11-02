@@ -16,8 +16,8 @@ public class DataLoader {
     // relative path to the file, based on the directory you currently have open
     private static final String JOBLISTING_FILE = "jobListing.json";
     private static final String RATING_FILE = "rating.json";
-    private static final String RESUME_FILE = "resume.json";
-    private static final String USER_FILE = "user.json";
+    private static final String RESUME_FILE = "Internship-builder\\resume.json";
+    private static final String USER_FILE = "Internship-builder\\user.json";
 
     public static ArrayList<User> getUsers() {
         ArrayList<User> users = new ArrayList<User>();
@@ -26,10 +26,10 @@ public class DataLoader {
             FileReader reader = new FileReader(USER_FILE);
             JSONParser parser = new JSONParser();
             JSONArray userJSON = (JSONArray)new JSONParser().parse(reader);
-            for(int i=1; i<userJSON.size(); i++) {
+            for(int i=0; i<userJSON.size(); i++) {
                 JSONObject userJson = (JSONObject)userJSON.get(i);
                 UUID userUUID = UUID.fromString((String)userJson.get("id"));
-                String userType = (String)userJson.get("userType");
+                String userType = (String)userJson.get("usertype");
                 String username = (String)userJson.get("username");
                 String password = (String)userJson.get("password");
                 String email = (String)userJson.get("email");
@@ -137,7 +137,7 @@ public class DataLoader {
                 JSONArray positionArray = (JSONArray)resumeJSON.get("position");
                 JSONArray descriptionArray = (JSONArray)resumeJSON.get("jobdescription");
                 JSONArray durationArray = (JSONArray)resumeJSON.get("duration");
-                for(int k=0; k<skillsArray.size(); k++) {
+                for(int k=0; k<companyArray.size(); k++) {
                     String company = (String)companyArray.get(k);
                     String position = (String)positionArray.get(k);
                     String description = (String)descriptionArray.get(k);

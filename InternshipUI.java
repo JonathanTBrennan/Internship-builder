@@ -333,7 +333,7 @@ public class InternshipUI {
             System.out.println("When did / will you graduate?");
             String newGradDate = scanner.nextLine();
             newEducation.setGradDate(newGradDate);
-            ResumeList.getInstance().getResume(user.getID()).setEducation(newEducation);
+            resume.setEducation(newEducation);
             System.out.println("");
             System.out.println("Past Work Experience ---");
             System.out.println("");
