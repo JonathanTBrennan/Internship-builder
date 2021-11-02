@@ -18,10 +18,10 @@ import org.json.simple.parser.JSONParser;
 public class DataLoader {
 
     // relative path to the file, based on the directory you currently have open
-    private static final String JOBLISTING_FILE = "jobListing.json";
-    private static final String RATING_FILE = "rating.json";
-    private static final String RESUME_FILE = "resume.json";
-    private static final String USER_FILE = "user.json";
+    private static final String JOBLISTING_FILE = "Internship-builder\\jobListing.json";
+    private static final String RATING_FILE = "Internship-builder\\rating.json";
+    private static final String RESUME_FILE = "Internship-builder\\resume.json";
+    private static final String USER_FILE = "Internship-builder\\user.json";
 
     /**
      * Loads a list of users from user.json file
@@ -37,18 +37,18 @@ public class DataLoader {
             for(int i=0; i<userJSON.size(); i++) {
                 JSONObject userJson = (JSONObject)userJSON.get(i);
                 UUID userUUID = UUID.fromString((String)userJson.get("id"));
-                String userType = (String)userJson.get("usertype");
+                int userType = (int)userJson.get("usertype");
                 String username = (String)userJson.get("username");
                 String password = (String)userJson.get("password");
                 String email = (String)userJson.get("email");
                 String phone = (String)userJson.get("phone");
                 String firstname = (String)userJson.get("firstname");
                 String lastname = (String)userJson.get("lastname");
-                if(userType.equals("admin")){
+                if(userType == 0){
                     User user = new Admin(username, password, email, firstname, lastname, 0, phone, userUUID);
                     users.add(user);
                 }
-                else if(userType.equals("student")){
+                else if(userType == 1){
                     User user = new Student(username, password, email, firstname, lastname, 1, phone, userUUID);
                     users.add(user);
                 }
