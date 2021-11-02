@@ -80,7 +80,13 @@ public class InternshipUI {
             password = scanner.next();
             boolean hasAccount = application.login(username, password);
             if(hasAccount){
-                User user = UserList.getInstance().getUser(username);
+                ArrayList<User> users = DataLoader.getUsers();
+                User user = null;
+                for(int j = 0; j< users.size(); j++) {
+                    if(users.get(j).getUsername().equals(username)) {
+                        user = users.get(j);
+                    }
+                }
                 if(selectionType == 0){
                     displayAdminPortal();
                 }

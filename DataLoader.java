@@ -37,18 +37,18 @@ public class DataLoader {
             for(int i=0; i<userJSON.size(); i++) {
                 JSONObject userJson = (JSONObject)userJSON.get(i);
                 UUID userUUID = UUID.fromString((String)userJson.get("id"));
-                String userType = (String)userJson.get("usertype");
+                int userType = ((Long)userJson.get("usertype")).intValue();
                 String username = (String)userJson.get("username");
                 String password = (String)userJson.get("password");
                 String email = (String)userJson.get("email");
                 String phone = (String)userJson.get("phone");
-                String firstname = (String)userJson.get("firstname");
-                String lastname = (String)userJson.get("lastname");
-                if(userType.equals("admin")){
+                String firstname = (String)userJson.get("firstName");
+                String lastname = (String)userJson.get("lastName");
+                if(userType == 0){
                     User user = new Admin(username, password, email, firstname, lastname, 0, phone, userUUID);
                     users.add(user);
                 }
-                else if(userType.equals("student")){
+                else if(userType == 1){
                     User user = new Student(username, password, email, firstname, lastname, 1, phone, userUUID);
                     users.add(user);
                 }

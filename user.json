@@ -1,6 +1,6 @@
 [{
     "id" : "d62c9639-1f61-4bb6-bdac-4a98c87e62c9",
-    "usertype" : "0",
+    "usertype" : 0,
     "username" : "adminricky",
     "password" : "theGreat1",
     "email" : "rickybobby@gmail.com",
@@ -10,7 +10,7 @@
 },
 {
     "id" : "e8a5e0f5-7b44-4f6a-b2be-56b1a66d4694",
-    "usertype" : "0",
+    "usertype" : 0,
     "username" : "adminsue",
     "password" : "SueintheHood11",
     "email" : "sueconnor@gmail.com",
@@ -20,7 +20,7 @@
 },
 {
 	"id":"11df8865-ad68-45a3-80a4-e3a212085dfb",
-    "usertype" : "1",
+    "usertype" : 1,
 	"username": "bigBobby",
 	"password": "Bigballer123",
 	"email" : "bobbybahama123@gmail.com",
@@ -30,7 +30,7 @@
 },
 {
     "id":"c6eafa8a-47b7-4b6a-beb5-98b2ecd3e79f",
-    "usertype" : "1",
+    "usertype" : 1,
 	"username" : "kelly.francona",
 	"password" : "Ilovesoftball89",
 	"email" : "kellyfrancona89@gmail.com", 
@@ -40,7 +40,7 @@
 },
 {
 	"id" : "3e5aa886-cd3f-4fe8-b440-2a10f0e54b37",
-    "usertype" : "2",
+    "usertype" : 2,
 	"username" : "Palmettorobots",
 	"password" : "robots4lyfe",
 	"email" : "palmettorobots@gmail.com",
@@ -50,7 +50,7 @@
 },
 {
     "id" : "f74759d3-a92a-420f-a866-02bbb249573a",
-    "usertype" : "2",
+    "usertype" : 2,
     "username" : "CarolinasSoftware",
     "password" : "goCocks2001",
     "email" : "carolinasoftware@outlook.com",
