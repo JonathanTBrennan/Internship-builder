@@ -9,7 +9,7 @@ public class InternshipUI {
     private JobList jobList;
     public static void main(String[] args) {
         //System.out.println(UUID.randomUUID());
-        InternshipUI driver = new InternshipUI();;
+        InternshipUI driver = new InternshipUI();
         driver.displayMainMenu();
     }
 
@@ -408,6 +408,7 @@ public class InternshipUI {
                 if(choice2 == 1){
                     System.out.println("");
                     System.out.println("What skill would you like to add?");
+                    String randomThing = scanner.nextLine();
                     String newSkill = scanner.nextLine();
                     ResumeList.getInstance().getResume(user.getID()).addSkill(newSkill);
                 }
