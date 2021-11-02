@@ -415,6 +415,7 @@ public class InternshipUI {
                 else if(choice2 == 2){
                     System.out.println("");
                     System.out.println("What company did you work for?");
+                    scanner.nextLine();
                     Experience newExperience = new Experience();
                     String newCompany = scanner.nextLine();
                     newExperience.setCompany(newCompany);
