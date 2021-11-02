@@ -119,7 +119,7 @@ public class DataLoader {
                 String userName = (String)ratingJSON.get("userName");
                 int numberRating = ((Long)ratingJSON.get("numberRating")).intValue();
                 String description  = (String)ratingJSON.get("description");
-                User user = users.getUser(userName);
+                User user = users.getUserByUsername(userName);
                 ratings.add(new Rating(numberRating, description, user));
             }
             return ratings;

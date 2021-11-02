@@ -191,11 +191,6 @@ public class JobListing {
             ret+= ", "+skills.get(i);
         }
         ret+= "]";
-        ret+= "\nApplicant IDs: ["+studentIDS.get(0);
-        for(int i = 1; i<studentIDS.size(); i++) {
-            ret+= ", "+studentIDS.get(i);
-        }
-        ret+= "]";
         return ret;
     }
 }
