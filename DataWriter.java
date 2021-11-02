@@ -79,6 +79,40 @@ public class DataWriter {
         }
     }
 
+    public static void saveJobListing(JobList jobList) {
+        JSONArray jobListJSON = new JSONArray();
+        for(int i=0; i<jobList.getJobLists().size(); i++) {
+            JobListing jobListing = jobList.getJob(i);
+            JSONObject jobDetails = new JSONObject();
+            jobDetails.put("title", jobListing.getTitle());
+            jobDetails.put("location", jobListing.getLocation());
+            jobDetails.put("employerID", jobListing.getEmployerID().toString());
+            jobDetails.put("pay", jobListing.getPay());
+            jobDetails.put("length", jobListing.getLength());
+            jobDetails.put("position", jobListing.getPosition());
+            jobDetails.put("description", jobListing.getJobDescription());
+            JSONArray skills = new JSONArray();
+            for(int j = 0; j<jobListing.getSkills().size(); j++) {
+                skills.add(jobListing.getSkills().get(j));
+            }
+            jobDetails.put("skills", skills);
+            JSONArray studentIDS = new JSONArray();
+            for(int k = 0; k<jobListing.getApplicants().size(); k++) {
+                studentIDS.add(jobListing.getApplicants().get(k).toString());
+            }
+            jobDetails.put("studentIDS", studentIDS);
+            jobListJSON.add(jobDetails);
+        }
+
+        try (FileWriter file = new FileWriter(JOBLISTING_FILE)) {
+            file.write(jobListJSON.toJSONString());
+            file.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     /**
      * Saves a list of ratings to rating.json
      */

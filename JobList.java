@@ -4,6 +4,7 @@
  * @author Jonathan Brennan, LJ Todd, Patrick Burroughs, Tyler Madden
  */
 
+ import java.util.UUID;
 import java.util.ArrayList;
 
 /**
@@ -151,5 +152,16 @@ public class JobList extends DataLoader {
 
   public JobListing getJob(int i) {
       return jobListings.get(i);
+  }
+  public void addApplicant(int i, UUID id) {
+      boolean contains = false;
+      for(int j = 0; j<jobListings.get(i).getApplicants().size(); j++) {
+        if(id.equals(jobListings.get(i).getApplicants().get(j))) {
+            contains = true;
+        }
+      }
+      if(!contains) {
+        jobListings.get(i).addApplicant(id);
+      }
   }
 }

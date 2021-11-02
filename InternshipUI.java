@@ -527,8 +527,7 @@ public class InternshipUI {
     }
 
     private void displayJobListingsStudentFilteredByLanguage(User user){
-        ArrayList<JobListing> jobs = DataLoader.getJobListings();
-        System.out.println(jobs.get(0));
+        JobList jobs = JobList.getInstance();
         boolean tf = true;
         while(tf){
             System.out.println("--- Filter by Coding Language ---");
@@ -559,10 +558,10 @@ public class InternshipUI {
             }
             ArrayList<JobListing> filteredJobs = new ArrayList<JobListing>();
             System.out.println("");
-            for(int i = 0; i<jobs.size(); i++) {
-                for(int j = 0; j<jobs.get(i).getSkills().size(); j++) {
-                    if(jobs.get(i).getSkills().get(j).equalsIgnoreCase(language)) {
-                        filteredJobs.add(jobs.get(i));
+            for(int i = 0; i<jobs.getJobLists().size(); i++) {
+                for(int j = 0; j<jobs.getJobLists().get(i).getSkills().size(); j++) {
+                    if(jobs.getJobLists().get(i).getSkills().get(j).equalsIgnoreCase(language)) {
+                        filteredJobs.add(jobs.getJobLists().get(i));
                     }
                 }
             }
@@ -574,16 +573,18 @@ public class InternshipUI {
             System.out.println("");
             System.out.println("Enter your selection to apply: (0 to exit)");
             int apply = scanner.nextInt();
+            int location = 0;
             for(int i = 0; i< filteredJobs.size(); i++) {
                 if(apply == i+1) {
-                    filteredJobs.get(i).addApplicant(user.getID());
-                    JobListing revisedJobListing = filteredJobs.get(i);
-                    jobs.remove(i);
-                    jobs.add(revisedJobListing);
-                    System.out.println(filteredJobs.get(i));
+                    location = i;
                 }
             }
-            DataWriter.saveJobListing();
+            for(int i=0; i<jobs.getJobLists().size(); i++) {
+                if(jobs.getJobLists().get(i).equals(filteredJobs.get(location))) {
+                    jobs.addApplicant(i, user.getID());
+                }
+            }
+            DataWriter.saveJobListing(jobs);
             System.out.println("Do you want to continue? (1 to continue)");
             if(scanner.nextInt() != 1) {
                 tf = false;
