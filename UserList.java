@@ -49,8 +49,9 @@ public class UserList extends DataLoader {
    * @return matching user
    */
   public User getUser(String userName) {
+    users = DataLoader.getUsers();
     for (int i = 0; i < users.size(); i++) {
-      if (users.get(i).getUsername() == userName) {
+      if (users.get(i).getUsername().equals(userName)) {
         return users.get(i);
       }
     }
