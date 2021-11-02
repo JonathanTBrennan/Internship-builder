@@ -1,0 +1,13 @@
+Skills: HTML, Java, Python
+
+  -- Education --  
+University: USC
+Degree: Comp Sci
+Graduation Date: 2024
+
+  -- Work Experience --  
+Company: Appler at Apple for 6 hours
+Description: Appled
+
+Company: Dev Lead Engineer at Microsoft for 2 years, 4 months
+Description: Lead a team of engineers

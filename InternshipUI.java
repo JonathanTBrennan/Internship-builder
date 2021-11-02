@@ -291,17 +291,17 @@ public class InternshipUI {
             System.out.println("**** Student Account Creation ****");
             System.out.println("");
             System.out.println("First Name: ");
-            theStudent.setFirstName(scanner.next());
+            theStudent.setFirstName(scanner.nextLine());
             System.out.println("Last Name: ");
-            theStudent.setLastName(scanner.next());
+            theStudent.setLastName(scanner.nextLine());
             System.out.println("Email Address: ");
-            theStudent.setEmail(scanner.next());
+            theStudent.setEmail(scanner.nextLine());
             System.out.println("Username: ");
-            theStudent.setUsername(scanner.next());
+            theStudent.setUsername(scanner.nextLine());
             System.out.println("Password: ");
-            theStudent.setPassword(scanner.next());
+            theStudent.setPassword(scanner.nextLine());
             System.out.println("Phone Number: ");
-            theStudent.setPhone(scanner.next());
+            theStudent.setPhone(scanner.nextLine());
         return theStudent;
     }
 
@@ -343,17 +343,18 @@ public class InternshipUI {
             int numberOfJobs = scanner.nextInt();
             System.out.println("");
             // for loop for how many times they choose
+            scanner.nextLine();
             for(int i = 0; i < numberOfJobs; i++){
-                scanner.nextLine();
+                //scanner.nextLine();
                 System.out.println("Job #" + (i + 1));
                 System.out.println("Company Name: ");
-                String companyName = scanner.next();
+                String companyName = scanner.nextLine();
                 System.out.println("Position at Company: ");
-                String position = scanner.next();
+                String position = scanner.nextLine();
                 System.out.println("Job Description: ");
-                String description = scanner.next();
+                String description = scanner.nextLine();
                 System.out.println("Duration of Employment: ");
-                String duration = scanner.next();
+                String duration = scanner.nextLine();
                 //scanner.nextLine();
                 System.out.println("");
                 //scanner.next();
@@ -375,7 +376,7 @@ public class InternshipUI {
             System.out.println("	5. Log out");
             System.out.println("");
             System.out.println("Enter your selection: ");
-            scanner.nextLine();
+            //scanner.nextLine();
             int selection = scanner.nextInt();
 
             if(selection == 1){
