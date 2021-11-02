@@ -58,13 +58,18 @@ public class InternshipApplication {
      * @return true if user logs in, false if unable
      */
     public boolean login(String userName, String password){
+        ArrayList<User> users = DataLoader.getUsers();
         user = UserList.getInstance().getUser(userName);
-        if (user == null) {
+        if (users == null) {
             return false;
         }
         else {
-            if (user.getPassword() == password) {
-                return true;
+            for (int i = 0; i<users.size(); i++) {
+                if(users.get(i).getUsername().equals(userName)) {
+                    if (users.get(i).getPassword().equals(password)) {
+                        return true;
+                    }
+                }
             }
             return false;
         }

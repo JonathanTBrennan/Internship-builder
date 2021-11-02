@@ -9,11 +9,12 @@ public class InternshipUI {
     private JobList jobList;
     public static void main(String[] args) {
         //System.out.println(UUID.randomUUID());
-        InternshipUI driver = new InternshipUI();
+        InternshipUI driver = new InternshipUI();;
         driver.displayMainMenu();
     }
 
     private void displayMainMenu() {
+        application = new InternshipApplication();
         while(true){
             int selection;
             System.out.println("---*****Welcome to the USC Internship App*****---");
