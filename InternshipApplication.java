@@ -59,7 +59,7 @@ public class InternshipApplication {
      */
     public boolean login(String userName, String password){
         ArrayList<User> users = DataLoader.getUsers();
-        user = UserList.getInstance().getUser(userName);
+        user = UserList.getInstance().getUserByUsername(userName);
         if (users == null) {
             return false;
         }

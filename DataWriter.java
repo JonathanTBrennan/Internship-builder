@@ -118,9 +118,9 @@ public class DataWriter {
                 skills.add(resume.getSkills().get(j));
             }
             resumeDetails.put("skills", skills);
-            resumeDetails.put("university", resume.educationExperience().getUniversity());
-            resumeDetails.put("degree", resume.educationExperience().getDegree());
-            resumeDetails.put("graduationDate", resume.educationExperience().getGradDate());
+            resumeDetails.put("university", resume.getEducation().getUniversity());
+            resumeDetails.put("degree", resume.getEducation().getDegree());
+            resumeDetails.put("graduationDate", resume.getEducation().getGradDate());
             for(int k=0; k<resume.getWorkExperience().size(); k++) {
                 resumeDetails.put("company", resume.getWorkExperience().get(k).getCompany());
                 resumeDetails.put("position", resume.getWorkExperience().get(k).getPosition());

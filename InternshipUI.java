@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.UUID;
 
+import javax.lang.model.util.ElementScanner6;
 import javax.naming.spi.DirStateFactory.Result;
 public class InternshipUI {
     private Scanner scanner = new Scanner(System.in);
@@ -52,6 +53,7 @@ public class InternshipUI {
                 Employer employer = new Employer();
                 employer = displayEmployerAccountCreation(employer);
                 UserList.getInstance().addUser(employer);
+                displayEmployerPortal(employer);
             }
             else if(selection == 6){
                 System.out.println("Goodbye!");
@@ -144,13 +146,13 @@ public class InternshipUI {
 
             }
             else if (selection == 3) {
-                
+                displayViewApplicants(user);
             }
             else if (selection == 4) {
                 
             }
             else if (selection == 5) {
-
+                displayMainMenu();
             }
             else {
 
@@ -187,22 +189,63 @@ public class InternshipUI {
         }
     }
 
-    private void displayViewApplicants(){
+    private void displayViewApplicants(User user){
         while(true){
             System.out.println("********* View Applicants *********");
             System.out.println("");
             System.out.println("Select which job posting to view Applicants from ---");
             System.out.println("");
-            System.out.println("	1. Software Engineer Internship");
-            System.out.println("	2. Web Devlopment Internship");
-            System.out.println("	3. Go back");
+            ArrayList<JobListing> employersJobList = new ArrayList<JobListing>();
+            for (int i = 0; i < JobList.getInstance().getJobListings().size(); i++) {
+                if (JobList.getInstance().getJob(i).getEmployerID().equals(user.getID())) {
+                    employersJobList.add(JobList.getInstance().getJob(i));
+                }
+            }
+            for (int i = 0; i < employersJobList.size(); i++) {
+                System.out.println("    " + (i+1) + ". " + employersJobList.get(i).getTitle());
+            }
+            System.out.println("    " + (employersJobList.size()+1) + ". Go back");
             System.out.println("");
             System.out.println("Enter your selection: ");
-            System.out.println("");
-            System.out.println("--- Applicants ---");
-            System.out.println("< Applicant Names > ");
-            System.out.println("");
-            System.out.println("Enter your selection: ");
+            int choice;
+            while(true) {
+                choice = scanner.nextInt();
+                if (choice > employersJobList.size()+1) {
+                    System.out.println("invalid selection, please try again");
+                }
+                else if (choice == employersJobList.size()+1) {
+                    displayEmployerPortal(user);
+                }
+                else {
+                    scanner.nextLine();
+                    System.out.println("");
+                    System.out.println(employersJobList.get(choice-1).toString());
+                    ArrayList<UUID> applicantIDs = new ArrayList<UUID>();
+                    applicantIDs = employersJobList.get(choice-1).getApplicants();
+                    ArrayList<User> applicants = new ArrayList<User>();
+                    System.out.println("");
+                    System.out.println("--- Applicants ---");
+                    System.out.println("");
+                        for (int i = 0; i < applicantIDs.size(); i++) {
+                            applicants.add(UserList.getInstance().getUserByID(applicantIDs.get(i)));
+                            System.out.println("    " + (i+1) + ". " + applicants.get(i).getFirstName() + " " + applicants.get(i).getLastName());
+                        }
+                    System.out.println("");
+                    System.out.println("Enter your selection: ");
+                    int selection = scanner.nextInt();
+                    while (true) {
+                        if (selection > applicants.size()+1) {
+                            System.out.println("Invalid selection, please try again");
+                        }
+                        else if (selection == applicants.size()+1) {
+                            displayEmployerPortal(user);
+                        }
+                        else {
+                            displayApplicant(applicants.get(selection-1));
+                        }
+                    }
+                }    
+            }
         }
     }
 
@@ -238,32 +281,43 @@ public class InternshipUI {
         }
     }
 
-    private void displayApplicant(){
+    private void displayApplicant(User user){
+        Resume userResume = new Resume();
+        userResume = ResumeList.getInstance().getResume(user.getID());
         while(true){
-            System.out.println("--- Name ---");
-            System.out.println("Email: <email>");
+            System.out.println("--- Applicant: " + user.getFirstName() + " " + user.getLastName() + " ---");
             System.out.println("");
-            System.out.println("Skills: ");
-            System.out.println("<Skills>");
+            System.out.println("Email: " + user.getEmail());
+            System.out.println("Phone Number: " + user.getPhone());
+            System.out.println("Skills: " + userResume.skillBuilder());
+            ArrayList<Experience> experiences = new ArrayList<Experience>();
+            experiences = userResume.getWorkExperience();
+                for(int i = 0; i < userResume.getWorkExperience().size(); i++){
+                    System.out.println("");
+                    System.out.println(" -- Work Experience #" + (i+1) + " --");
+                    System.out.println("");
+                    System.out.println("Company: " + experiences.get(i).getCompany());
+                    System.out.println("Position: " + experiences.get(i).getPosition());
+                    System.out.println("Description: " + experiences.get(i).getDesciption());
+                    System.out.println("Duration: " + experiences.get(i).getDuration());
+                }
             System.out.println("");
-            //for(int i = 0; i < variableofworkexp; i++){
-                System.out.println("Work Experience:");
-                System.out.println("");
-                System.out.println("Company: ");
-                System.out.println("Location: ");
-                System.out.println("Position: ");
-                System.out.println("Description: ");
-                System.out.println("Duration: ");
-            //}
-            //for(int i = 0; i < variableofcollege; i++){
-                System.out.println("");
-                System.out.println("University: ");
-                System.out.println("Degree: ");
-                System.out.println("Graduation Date: ");
-                System.out.println("Location: ");
-                System.out.println("GPA: ");
-                System.out.println("Awards / Accomplishments: ");
-            //}
+            System.out.println(" -- Education --");
+            System.out.println("");
+            System.out.println("University: " + userResume.getEducation().getUniversity());
+            System.out.println("Degree: " + userResume.getEducation().getDegree());
+            System.out.println("Graduation Date: " + userResume.getEducation().getGradDate());
+            System.out.println("");
+            System.out.println("Enter anything to return");
+            scanner.nextLine();
+            while (true) {
+                if (scanner.nextLine() != null) {
+                    displayEmployerPortal(user);
+                }
+                else {
+                    System.out.println("Invalid input, please try again");
+                }
+            }
         }
     }
 

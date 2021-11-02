@@ -54,8 +54,17 @@ public class Resume {
         return workExperience;
     }
 
-    public Education educationExperience(){
+    public Education getEducation(){
         return education;
+    }
+
+    public String skillBuilder() {
+        String skillsBuilt = "";
+            for (int i = 0; i < this.skills.size()-1; i++) {
+                skillsBuilt += this.skills.get(i) + ", ";
+            }
+            skillsBuilt += this.skills.get(this.skills.size()-1);
+        return skillsBuilt;
     }
 
     public void ResumeToText() {

@@ -17,10 +17,10 @@ import org.json.simple.parser.JSONParser;
 public class DataLoader {
 
     // relative path to the file, based on the directory you currently have open
-    private static final String JOBLISTING_FILE = "Internship-builder\\jobListing.json";
-    private static final String RATING_FILE = "Internship-builder\\rating.json";
-    private static final String RESUME_FILE = "Internship-builder\\resume.json";
-    private static final String USER_FILE = "Internship-builder\\user.json";
+    private static final String JOBLISTING_FILE = "jobListing.json";
+    private static final String RATING_FILE = "rating.json";
+    private static final String RESUME_FILE = "resume.json";
+    private static final String USER_FILE = "user.json";
 
     /**
      * Loads a list of users from user.json file
@@ -119,7 +119,7 @@ public class DataLoader {
                 String userName = (String)ratingJSON.get("userName");
                 int numberRating = ((Long)ratingJSON.get("numberRating")).intValue();
                 String description  = (String)ratingJSON.get("description");
-                User user = users.getUser(userName);
+                User user = users.getUserByUsername(userName);
                 ratings.add(new Rating(numberRating, description, user));
             }
             return ratings;

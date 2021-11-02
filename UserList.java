@@ -44,15 +44,31 @@ public class UserList extends DataLoader {
   }
 
   /**
-   * Getter for a specific user
+   * Getter for a specific user by username
    * 
    * @param keyword user to look for
    * @return matching user
    */
-  public User getUser(String userName) {
+  public User getUserByUsername(String userName) {
     users = DataLoader.getUsers();
     for (int i = 0; i < users.size(); i++) {
       if (users.get(i).getUsername().equals(userName)) {
+        return users.get(i);
+      }
+    }
+    return null;
+  }
+
+  /**
+   * Getter for a specific user by UUID
+   * 
+   * @param ID user to look for
+   * @return matching user
+   */
+  public User getUserByID(UUID ID) {
+    users = DataLoader.getUsers();
+    for (int i = 0; i < users.size(); i++) {
+      if (users.get(i).getID().equals(ID)) {
         return users.get(i);
       }
     }

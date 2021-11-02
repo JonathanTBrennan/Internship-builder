@@ -190,6 +190,7 @@ public class JobListing {
         for(int i = 1; i<skills.size(); i++) {
             ret+= " "+skills.get(i);
         }
+        ret+= "]";
         return ret;
     }
 }
