@@ -14,7 +14,7 @@ public class JobListing {
     private String title;
     private UUID employerID;
     private String location;
-    private float pay;
+    private double pay;
     private String length;
     private String position;
     private ArrayList<UUID> studentIDS;
@@ -37,7 +37,7 @@ public class JobListing {
      * @param codeFilter Coding languages required for the job listing
      * @param studentIDS List of IDs of the applicants
      */
-    public JobListing(String title, UUID employerID, String location, float pay, String length, String position, String jobDescrip, ArrayList<String> sklls, CodingFilters codeFilter, ArrayList<UUID> studentIDS) {
+    public JobListing(String title, UUID employerID, String location, double pay, String length, String position, String jobDescrip, ArrayList<String> sklls, CodingFilters codeFilter, ArrayList<UUID> studentIDS) {
         this.title = title;
         this.employerID = employerID;
         this.location = location;
@@ -49,7 +49,7 @@ public class JobListing {
         this.jobDescription = jobDescrip;
         this.skills = sklls;
         this.codeFilter = codeFilter;
-        this.ID = JobList.getJobListings().size();
+        //this.ID = JobList.getJobListings().size();
     }
 
     /**
@@ -80,7 +80,7 @@ public class JobListing {
      * Getter for the job's pay
      * @return pay
      */
-    public float getPay() {
+    public double getPay() {
         return this.pay;
     }
 
@@ -168,7 +168,7 @@ public class JobListing {
      * @param jobDescription New description of the job listing
      * @param skills New skills required by the job listing
      */
-    public void editJobListing(JobListing job, String title, String location, float pay, String length, String position, String jobDescription, ArrayList<String> skills) {
+    public void editJobListing(JobListing job, String title, String location, double pay, String length, String position, String jobDescription, ArrayList<String> skills) {
         job.title = title;
         job.location = location;
         job.pay = pay;
@@ -176,5 +176,20 @@ public class JobListing {
         job.position = position;
         job.jobDescription = jobDescription;
         job.skills = skills;
+    }
+
+    public String toString() {
+        String ret = "";
+        ret+= "Title: " +title;
+        ret+= "\nLocation: " +location;
+        ret+= "\nPay: " +pay;
+        ret+= "\nLength: " +length;
+        ret+= "\nPosition: " +position;
+        ret+= "\nDescription: " +jobDescription;
+        ret+= "\nSkills: ["+skills.get(0);
+        for(int i = 1; i<skills.size(); i++) {
+            ret+= " "+skills.get(i);
+        }
+        return ret;
     }
 }

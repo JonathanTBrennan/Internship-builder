@@ -401,21 +401,27 @@ public class InternshipUI {
                 }
             }
             else if(selection == 2){
+                ArrayList<Resume> resumes = DataLoader.getResumes();
+                Resume resume = null;
+                for(int i = 0; i<resumes.size();i++) {
+                    if(user.getID().equals(resumes.get(i).getStudentID())) {
+                        resume = resumes.get(i);
+                    }
+                }
                 System.out.println("");
                 System.out.println("What aspect of the resume would you like to edit?");
                 System.out.println("Type \"1\" for skills. Type \"2\" for work experience. Type \"3\" for education: ");
                 int choice2 = scanner.nextInt();
+                scanner.nextLine();
                 if(choice2 == 1){
                     System.out.println("");
                     System.out.println("What skill would you like to add?");
-                    String randomThing = scanner.nextLine();
                     String newSkill = scanner.nextLine();
-                    ResumeList.getInstance().getResume(user.getID()).addSkill(newSkill);
+                    resume.addSkill(newSkill);
                 }
-                else if(choice2 == 2){
+                else if(choice2 == 2) {
                     System.out.println("");
                     System.out.println("What company did you work for?");
-                    scanner.nextLine();
                     Experience newExperience = new Experience();
                     String newCompany = scanner.nextLine();
                     newExperience.setCompany(newCompany);
@@ -428,7 +434,7 @@ public class InternshipUI {
                     System.out.println("How long did you hold this position?");
                     String newDuration = scanner.nextLine();
                     newExperience.setCompany(newDuration);
-                    ResumeList.getInstance().getResume(user.getID()).addWorkExperience(newExperience);
+                    resume.addWorkExperience(newExperience);
                 }
                 else if(choice2 == 3){
                     System.out.println("");
@@ -442,7 +448,7 @@ public class InternshipUI {
                     System.out.println("When did you graduate?");
                     String newGradDate = scanner.nextLine();
                     newEducation.setGradDate(newGradDate);
-                    ResumeList.getInstance().getResume(user.getID()).setEducation(newEducation);
+                    resume.setEducation(newEducation);
                 }
                 else {
                     System.out.println("Invalid input. Please try again");
@@ -471,6 +477,7 @@ public class InternshipUI {
             System.out.println("	1. Software Engineering Intern: Microsoft");
             System.out.println("");
             System.out.println("Enter your selection: ");
+
         }
     }
 
@@ -520,7 +527,10 @@ public class InternshipUI {
     }
 
     private void displayJobListingsStudentFilteredByLanguage(User user){
-        while(true){
+        ArrayList<JobListing> jobs = DataLoader.getJobListings();
+        System.out.println(jobs.get(0));
+        boolean tf = true;
+        while(tf){
             System.out.println("--- Filter by Coding Language ---");
             System.out.println("What language would you like to search for: ");
             System.out.println("    1. Java");
@@ -530,14 +540,52 @@ public class InternshipUI {
             System.out.println("    5. Javascript");
             System.out.println("    6. HTML");
             int lanChoice = scanner.nextInt();
+            String language = null;
+            if(lanChoice == 1) {
+                language = "Java";
+            } else if(lanChoice == 2) {
+                language = "C";
+            } else if(lanChoice == 3) {
+                language = "Python";
+            } else if(lanChoice == 4) {
+                language = "Ruby";
+            } else if(lanChoice == 5) {
+                language = "Javascript";
+            } else if(lanChoice == 6) {
+                language = "HTML";
+            } else {
+                System.out.println("Incorrect input");
+                displayJobListingsStudentFilteredByLanguage(user);
+            }
+            ArrayList<JobListing> filteredJobs = new ArrayList<JobListing>();
             System.out.println("");
-            ArrayList<JobListing> jobs = jobList.getJobLists(true, lanChoice, false, "temp", false, null);
+            for(int i = 0; i<jobs.size(); i++) {
+                for(int j = 0; j<jobs.get(i).getSkills().size(); j++) {
+                    if(jobs.get(i).getSkills().get(j).equals(language)) {
+                        filteredJobs.add(jobs.get(i));
+                    }
+                }
+            }
             System.out.println("--- Filtered Listings ---");
             System.out.println("");
-            System.out.println(jobs);
+            for(int i = 0; i < filteredJobs.size(); i++) {
+                System.out.println(i+1 + ": " + filteredJobs.get(i));
+            }
             System.out.println("");
-            System.out.println("Enter your selection: ");
+            System.out.println("Enter your selection to apply: (0 to exit)");
+            int apply = scanner.nextInt();
+            scanner.nextLine();
+            for(int i = 0; i< filteredJobs.size(); i++) {
+                if(apply == i+1) {
+                    filteredJobs.get(i).addApplicant(user.getID());
+                }
+            }
+            System.out.println("Do you want to continue? (1 to continue)");
+            if(scanner.nextInt() != 1) {
+                tf = false;
+            }
         }
+        displayStudentPortal(user);
     }
 
     private void displayJobListingsStudentFilteredByLocation(){

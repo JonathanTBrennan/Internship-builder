@@ -4,7 +4,6 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.UUID;
-
 import javax.lang.model.util.ElementScanner6;
 
 import org.json.simple.JSONArray;
@@ -18,10 +17,10 @@ import org.json.simple.parser.JSONParser;
 public class DataLoader {
 
     // relative path to the file, based on the directory you currently have open
-    private static final String JOBLISTING_FILE = "jobListing.json";
-    private static final String RATING_FILE = "rating.json";
-    private static final String RESUME_FILE = "resume.json";
-    private static final String USER_FILE = "user.json";
+    private static final String JOBLISTING_FILE = "Internship-builder\\jobListing.json";
+    private static final String RATING_FILE = "Internship-builder\\rating.json";
+    private static final String RESUME_FILE = "Internship-builder\\resume.json";
+    private static final String USER_FILE = "Internship-builder\\user.json";
 
     /**
      * Loads a list of users from user.json file
@@ -78,19 +77,19 @@ public class DataLoader {
             for(int i=0; i<jobListJSON.size(); i++) {
                 JSONObject jobListingJSON = (JSONObject)jobListJSON.get(i);
                 String title = (String)jobListingJSON.get("title");
-                UUID employerID = UUID.fromString((String)jobListingJSON.get("employerID"));
                 String location = (String)jobListingJSON.get("location");
-                float pay = ((Long)jobListingJSON.get("pay")).floatValue();
+                UUID employerID = UUID.fromString((String)jobListingJSON.get("employerID"));
+                int pay = ((Long)jobListingJSON.get("pay")).intValue();
                 String length = (String)jobListingJSON.get("length");
                 String position = (String)jobListingJSON.get("position");
                 String description = (String)jobListingJSON.get("description");
                 ArrayList<String> skills = new ArrayList<String>();
-                JSONArray skillsJSON = (JSONArray)new JSONParser().parse("skills");
+                JSONArray skillsJSON = (JSONArray)jobListingJSON.get("skills");
                 for (int j=0; j<skillsJSON.size(); j++) {
                     skills.add((String)skillsJSON.get(j));
                 }
                 ArrayList<UUID> studentIDS = new ArrayList<UUID>();
-                JSONArray studentIDSJSON = (JSONArray)new JSONParser().parse("studentIDS");
+                JSONArray studentIDSJSON = (JSONArray)jobListingJSON.get("studentIDS");
                 for (int j=0; j<studentIDSJSON.size(); j++) {
                     studentIDS.add(UUID.fromString((String)studentIDSJSON.get(j)));
                 }
@@ -164,7 +163,7 @@ public class DataLoader {
                     String duration = (String)durationArray.get(k);
                     experiences.add(new Experience(company, position, description, duration));
                 }
-                resumes.add(new Resume(studentID, skills, null, education));
+                resumes.add(new Resume(studentID, skills, experiences, education));
             }
             return resumes;
         } catch (Exception e) {
