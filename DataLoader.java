@@ -11,14 +11,22 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+/**
+ * Written by team Portia Portia
+ * This class loads a list of joblistings, Ratings, resumes, and Users from their respective json files
+ */
 public class DataLoader {
 
     // relative path to the file, based on the directory you currently have open
     private static final String JOBLISTING_FILE = "jobListing.json";
     private static final String RATING_FILE = "rating.json";
-    private static final String RESUME_FILE = "resume.json";
-    private static final String USER_FILE = "user.json";
+    private static final String RESUME_FILE = "Internship-builder\\resume.json";
+    private static final String USER_FILE = "Internship-builder\\user.json";
 
+    /**
+     * Loads a list of users from user.json file
+     * @return the list of users
+     */
     public static ArrayList<User> getUsers() {
         ArrayList<User> users = new ArrayList<User>();
 
@@ -26,7 +34,7 @@ public class DataLoader {
             FileReader reader = new FileReader(USER_FILE);
             JSONParser parser = new JSONParser();
             JSONArray userJSON = (JSONArray)new JSONParser().parse(reader);
-            for(int i=1; i<userJSON.size(); i++) {
+            for(int i=0; i<userJSON.size(); i++) {
                 JSONObject userJson = (JSONObject)userJSON.get(i);
                 UUID userUUID = UUID.fromString((String)userJson.get("id"));
                 String userType = (String)userJson.get("usertype");
@@ -56,6 +64,10 @@ public class DataLoader {
         return null;
     }
 
+    /**
+     * Loads a list of joblistings from 
+     * @return the list of joblistings
+     */
     public static ArrayList<JobListing> getJobListings() {
         ArrayList<JobListing> jobListings = new ArrayList<JobListing>();
 
@@ -92,6 +104,10 @@ public class DataLoader {
         return null;
     }
 
+    /**
+     * Loads a list of ratings from rating.json
+     * @return List of ratings
+     */
     public static ArrayList<Rating> getRatings() {
         ArrayList<Rating> ratings = new ArrayList<Rating>();
         UserList users = UserList.getInstance();
@@ -114,6 +130,10 @@ public class DataLoader {
         return null;
     }
     
+    /**
+     * loads a list of resumes from resume.json
+     * @return the list of resumes
+     */
     public static ArrayList<Resume> getResumes() {
         ArrayList<Resume> resumes = new ArrayList<Resume>();
         try {

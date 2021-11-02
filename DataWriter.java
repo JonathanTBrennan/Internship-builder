@@ -4,12 +4,20 @@ import java.io.IOException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+/**
+ * Written by team Portia Portia
+ * This class saves a list of joblistings, Ratings, resumes, and Users to a their respective json files
+ */
+
 public class DataWriter {
     private static final String JOBLISTING_FILE = "Internship-builder\\jobListing.json";
     private static final String RATING_FILE = "Internship-builder\\rating.json";
     private static final String RESUME_FILE = "Internship-builder\\resume.json";
     private static final String USER_FILE = "internship-builder\\user.json";
 
+    /**
+     * Saves a list of users to the user.json file
+     */
     public static void saveUsers() {
         UserList userList = UserList.getInstance();
         JSONArray userJSON = new JSONArray();
@@ -33,6 +41,9 @@ public class DataWriter {
         }
     }
 
+    /**
+     * Saves a list of job listings to jobListing.json
+     */
     public static void saveJobListing() {
         JobList jobList = JobList.getInstance();
         JSONArray jobListJSON = new JSONArray();
@@ -67,6 +78,9 @@ public class DataWriter {
         }
     }
 
+    /**
+     * Saves a list of ratings to rating.json
+     */
     public static void saveRating() {
         RatingList ratingList = RatingList.getInstance();
         ArrayList<Rating> ratings = ratingList.getRatings();
@@ -87,6 +101,9 @@ public class DataWriter {
         }
     }
 
+    /**
+     * Saves a list of Resumes to resume.json
+     */
     public static void saveResume() {
         ResumeList resumeList = ResumeList.getInstance();
         ArrayList<Resume> resumes = resumeList.getResumes();
