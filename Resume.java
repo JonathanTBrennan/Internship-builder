@@ -60,23 +60,38 @@ public class Resume {
 
     public void ResumeToText() {
         try {
-            FileWriter resumeWriter = new FileWriter("Internship-builder\\Resume.txt");
+            FileWriter resumeWriter = new FileWriter("Resume.txt");
             resumeWriter.write("Skills: ");
-            for (int i = 0; i<skills.size(); i++) {
+            for (int i = 0; i<skills.size()-1; i++) {
                 resumeWriter.write(skills.get(i));
+                resumeWriter.write(", ");
             }
-            resumeWriter.write("Education: ");
+            resumeWriter.write(skills.get(skills.size()-1));
+            resumeWriter.write("\n");
+            resumeWriter.write("\n");
+            resumeWriter.write("  -- Education --  ");
+            resumeWriter.write("\n");
             resumeWriter.write("University: " + education.getUniversity());
+            resumeWriter.write("\n");
             resumeWriter.write("Degree: " + education.getDegree());
+            resumeWriter.write("\n");
             resumeWriter.write("Graduation Date: " + education.getGradDate());
-            resumeWriter.write("Work Experience: ");
-            for (int j = 0; j<workExperience.size(); j++) {
+            resumeWriter.write("\n");
+            resumeWriter.write("\n");
+            resumeWriter.write("  -- Work Experience --  ");
+            resumeWriter.write("\n");
+            for (int j = 0; j<workExperience.size()-1; j++) {
                 Experience exp = workExperience.get(j);
-                resumeWriter.write("Company: " +exp.getCompany());
-                resumeWriter.write("Position: " + exp.getPosition());
+                resumeWriter.write("Company: " +exp.getPosition() + " at " + exp.getCompany() + " for " + exp.getDuration());
+                resumeWriter.write("\n");
                 resumeWriter.write("Description: " + exp.getDesciption());
-                resumeWriter.write("Duration: " + exp.getDuration());
+                resumeWriter.write("\n");
+                resumeWriter.write("\n");
             }
+            Experience exp = workExperience.get(workExperience.size()-1);
+            resumeWriter.write("Company: " +exp.getPosition() + " at " + exp.getCompany() + " for " + exp.getDuration());
+            resumeWriter.write("\n");
+            resumeWriter.write("Description: " + exp.getDesciption());
             resumeWriter.close();
         } catch (IOException e) {
             e.printStackTrace();

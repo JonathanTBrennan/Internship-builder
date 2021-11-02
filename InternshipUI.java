@@ -356,7 +356,6 @@ public class InternshipUI {
                 //scanner.nextLine();
                 System.out.println("");
                 //scanner.next();
-                
                 Experience exp = new Experience(companyName, position, description, duration);
                 resume.addWorkExperience(exp);
             }
@@ -371,7 +370,8 @@ public class InternshipUI {
             System.out.println("	1. View Job Listings");
             System.out.println("	2. Edit Resume");
             System.out.println("	3. Rate Employer");
-            System.out.println("	4. Log out");
+            System.out.println("        4. Print Resume");
+            System.out.println("	5. Log out");
             System.out.println("");
             System.out.println("Enter your selection: ");
             scanner.nextLine();
@@ -442,6 +442,9 @@ public class InternshipUI {
                 displayRateEmployer();
             }
             else if(selection == 4){
+                ResumeList.getInstance().getResume(user.getID()).ResumeToText();
+            }
+            else if(selection == 5){
                 displayMainMenu();
             }
             else {

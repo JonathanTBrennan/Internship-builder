@@ -20,8 +20,8 @@ public class DataLoader {
     // relative path to the file, based on the directory you currently have open
     private static final String JOBLISTING_FILE = "jobListing.json";
     private static final String RATING_FILE = "rating.json";
-    private static final String RESUME_FILE = "Internship-builder\\resume.json";
-    private static final String USER_FILE = "Internship-builder\\user.json";
+    private static final String RESUME_FILE = "resume.json";
+    private static final String USER_FILE = "user.json";
 
     /**
      * Loads a list of users from user.json file
