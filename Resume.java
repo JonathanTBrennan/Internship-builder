@@ -37,6 +37,10 @@ public class Resume {
         this.education = education;
     }
 
+    public void setStudentID(UUID ID) {
+        this.studentID = ID;
+    }
+    
     public UUID getStudentID() {
         return studentID;
     }

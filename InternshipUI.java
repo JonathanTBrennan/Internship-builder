@@ -45,6 +45,7 @@ public class InternshipUI {
                 UserList.getInstance().addUser(student);
                 resume = displayResumeBuilder(student, resume);
                 ResumeList.getInstance().addResume(resume);
+                displayStudentPortal(student);
             }
             else if(selection == 5){
                 Employer employer = new Employer();
@@ -290,7 +291,6 @@ public class InternshipUI {
             System.out.println("");
             System.out.println("First Name: ");
             theStudent.setFirstName(scanner.next());
-            System.out.println(theStudent.getFirstName());
             System.out.println("Last Name: ");
             theStudent.setLastName(scanner.next());
             System.out.println("Email Address: ");
@@ -305,6 +305,7 @@ public class InternshipUI {
     }
 
     private Resume displayResumeBuilder(User user, Resume resume){
+            resume.setStudentID(user.getID());
             System.out.println("");
             System.out.println("*********** Resume Builder ***********");
             System.out.println("");
@@ -333,7 +334,7 @@ public class InternshipUI {
             System.out.println("When did / will you graduate?");
             String newGradDate = scanner.nextLine();
             newEducation.setGradDate(newGradDate);
-            ResumeList.getInstance().getResume(user.getID()).setEducation(newEducation);
+            resume.setEducation(newEducation);
             System.out.println("");
             System.out.println("Past Work Experience ---");
             System.out.println("");
@@ -342,17 +343,20 @@ public class InternshipUI {
             System.out.println("");
             // for loop for how many times they choose
             for(int i = 0; i < numberOfJobs; i++){
+                scanner.nextLine();
                 System.out.println("Job #" + (i + 1));
                 System.out.println("Company Name: ");
-                String companyName = scanner.nextLine();
-                //System.out.println("Location of Job: ");
-                //String location = scanner.nextLine();
+                String companyName = scanner.next();
                 System.out.println("Position at Company: ");
-                String position = scanner.nextLine();
+                String position = scanner.next();
                 System.out.println("Job Description: ");
-                String description = scanner.nextLine();
+                String description = scanner.next();
                 System.out.println("Duration of Employment: ");
-                String duration = scanner.nextLine();
+                String duration = scanner.next();
+                //scanner.nextLine();
+                System.out.println("");
+                //scanner.next();
+                
                 Experience exp = new Experience(companyName, position, description, duration);
                 resume.addWorkExperience(exp);
             }
@@ -370,6 +374,7 @@ public class InternshipUI {
             System.out.println("	4. Log out");
             System.out.println("");
             System.out.println("Enter your selection: ");
+            scanner.nextLine();
             int selection = scanner.nextInt();
 
             if(selection == 1){
