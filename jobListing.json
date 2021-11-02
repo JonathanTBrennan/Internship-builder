@@ -6,7 +6,7 @@
     "length" : "3 months from June 2022 - August 2022",
     "position" : "Software Developer",
     "description" : "Create and update security software.",
-    "skills" : ["Java", "Python", "C"],
+    "skills" : ["Java", "Python", "C", "JavaScript"],
     "studentIDS" : ["11df8865-ad68-45a3-80a4-e3a212085dfb", "c6eafa8a-47b7-4b6a-beb5-98b2ecd3e79f"]
 },
 {
@@ -17,6 +17,6 @@
     "length" : "4 months from May 2022 - August 2022",
     "position" : "Multimedia Programmer",
     "description" : "Design, create and improve our website and apps.",
-    "skills" : ["HTML", "JAVA"],
+    "skills" : ["HTML", "JAVA", "JavaScript"],
     "studentIDS" : ["c6eafa8a-47b7-4b6a-beb5-98b2ecd3e79f"]
 }]

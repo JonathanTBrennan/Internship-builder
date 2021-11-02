@@ -24,7 +24,8 @@ public class DataWriter {
         for(int i=0; i<userList.getUsers().size(); i++) {
             JSONObject userDetails = new JSONObject();
             User user = userList.getUsers().get(i);
-            userDetails.put("userUUID", user.getID());
+            userDetails.put("id", user.getID());
+            userDetails.put("usertype", user.getUserType());
             userDetails.put("username", user.getUsername());
             userDetails.put("password", user.getPassword());
             userDetails.put("email", user.getEmail());
