@@ -39,6 +39,16 @@
 	"lastName" : "Francona"
 },
 {
+	"id":"11df8865-ad68-45a3-80a4-e3a212085abc",
+    "usertype" : 1,
+	"username": "johnB",
+	"password": "password123",
+	"email" : "johnb@gmail.com",
+    "phone" : "803-604-9342",
+	"firstName" : "John",
+	"lastName" : "Blanks"
+},
+{
 	"id" : "3e5aa886-cd3f-4fe8-b440-2a10f0e54b37",
     "usertype" : 2,
 	"username" : "Palmettorobots",

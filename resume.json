@@ -8,7 +8,7 @@
 	"position" : ["Intern as a software engineer in security"],
 	"jobdescription" : ["Collaborate with team members to improve security and investigate and solve breaches and create new ideas/methods for cybersecurity"],
 	"duration" : ["6 months from April 2021 through September 2021."]
-},
+}, 
 {
     "id" : "c6eafa8a-47b7-4b6a-beb5-98b2ecd3e79f",
     "skills" : ["Python", "Java", "C++", "html"],
@@ -19,4 +19,14 @@
 	"position" : ["Intern as a software engineer"],
 	"jobdescription" : ["Design, build, and improve network infrastructure and test out changes and report them"],
 	"duration" : ["4 months from May 2021 through August 2021."]
+},
+{
+    "id" : "11df8865-ad68-45a3-80a4-e3a212085abc",
+    "skills" : [""],
+    "university" : "",
+    "degree" : "",
+    "company" : [""],
+    "position" : [""],
+    "jobdescription" : [""],
+    "duration" : [""]
 }]
