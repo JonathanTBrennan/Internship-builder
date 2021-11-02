@@ -19,7 +19,8 @@ public class UserList extends DataLoader {
    * Constructor for the list of users
    */
   private UserList() {
-    users = new ArrayList<User>(DataLoader.getUsers());
+    users = new ArrayList<User>();
+    users = DataLoader.getUsers();
   }
 
   /**
