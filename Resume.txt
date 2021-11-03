@@ -1,10 +1,17 @@
-Skills: h
+John Blanks
+johnb@gmail.com
+803-604-9342
+
+Skills: s
 
   -- Education --  
-University: j
-Degree: j
-Graduation Date: j
+University: s
+Degree: s
+Graduation Date: s
 
   -- Work Experience --  
-Company: j at j for j
-Description: j
+Company: s at dsa for s
+Description: s
+
+Company: s at s for s
+Description: s
