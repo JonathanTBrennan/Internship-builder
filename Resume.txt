@@ -1,10 +1,14 @@
-Skills: h
+Bobby Bahama
+bobbybahama123@gmail.com
+803-837-1324
+
+Skills: Javascript, Java, C++, Ruby
 
   -- Education --  
-University: j
-Degree: j
-Graduation Date: j
+University: University of South Carolina
+Degree: Bachelors of Science in Computer Science
+Graduation Date: May 2023
 
   -- Work Experience --  
-Company: j at j for j
-Description: j
+Company: Intern as a software engineer in security at Google for 6 months from April 2021 through September 2021.
+Description: Collaborate with team members to improve security and investigate and solve breaches and create new ideas/methods for cybersecurity

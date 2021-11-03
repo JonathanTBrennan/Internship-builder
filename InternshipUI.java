@@ -529,7 +529,7 @@ public class InternshipUI {
                 ArrayList<Resume> resumes = DataLoader.getResumes();
                 for(int i = 0; i< resumes.size(); i++) {
                     if(resumes.get(i).getStudentID().equals(user.getID())) {
-                        resumes.get(i).ResumeToText();
+                        resumes.get(i).ResumeToText(user);
                     }
                 }
             }
