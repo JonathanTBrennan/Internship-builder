@@ -53,6 +53,9 @@ public class Resume {
      * @param experience being added
      */
     public void addWorkExperience(Experience experience) {
+        if(workExperience == null) {
+            workExperience = new ArrayList<Experience>();
+        }
         workExperience.add(experience);
     }
     

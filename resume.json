@@ -21,12 +21,12 @@
 	"duration" : ["4 months from May 2021 through August 2021."]
 },
 {
-    "id" : "11df8865-ad68-45a3-80a4-e3a212085abc",
-    "skills" : [""],
-    "university" : "",
-    "degree" : "",
-    "company" : [""],
-    "position" : [""],
-    "jobdescription" : [""],
-    "duration" : [""]
+    "id" : "594ecb96-ccc6-473c-ab46-c4f1fc549012",
+    "skills" : [],
+    "university" : null,
+    "degree" : null,
+    "company" : [],
+    "position" : [],
+    "jobdescription" : [],
+    "duration" : []
 }]

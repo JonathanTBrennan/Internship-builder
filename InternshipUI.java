@@ -465,57 +465,76 @@ public class InternshipUI {
                         resume = resumes.get(i);
                     }
                 }
-                System.out.println("");
-                System.out.println("What aspect of the resume would you like to edit?");
-                System.out.println("Type \"1\" for skills. Type \"2\" for work experience. Type \"3\" for education: ");
-                int choice2 = scanner.nextInt();
-                scanner.nextLine();
-                if(choice2 == 1){
+                boolean keepediting = true;
+                while (keepediting) {
                     System.out.println("");
-                    System.out.println("What skill would you like to add?");
-                    String newSkill = scanner.nextLine();
-                    resume.addSkill(newSkill);
+                    System.out.println("What aspect of the resume would you like to edit?");
+                    System.out.println("Type \"1\" for skills. Type \"2\" for work experience. Type \"3\" for education. Type \"0\" to stop editing: ");
+                    int choice2 = scanner.nextInt();
+                    scanner.nextLine();
+                    if(choice2 == 1){
+                        System.out.println("");
+                        System.out.println("What skill would you like to add?");
+                        String newSkill = scanner.nextLine();
+                        boolean contains = false;
+                        for(int i = 0; i < resume.getSkills().size(); i++) {
+                            if(resume.getSkills().get(i).equalsIgnoreCase(newSkill)) {
+                                contains = true;
+                            }
+                        }
+                        if(!contains) {
+                            resume.addSkill(newSkill);
+                        }
+                    }
+                    else if(choice2 == 2) {
+                        System.out.println("");
+                        System.out.println("What company did you work for?");
+                        Experience newExperience = new Experience();
+                        String newCompany = scanner.nextLine();
+                        newExperience.setCompany(newCompany);
+                        System.out.println("What position did you hold?");
+                        String newPosition = scanner.nextLine();
+                        newExperience.setPosition(newPosition);
+                        System.out.println("How would you describe this job?");
+                        String newDescription = scanner.nextLine();
+                        newExperience.setDescription(newDescription);
+                        System.out.println("How long did you hold this position?");
+                        String newDuration = scanner.nextLine();
+                        newExperience.setDuration(newDuration);
+                        resume.addWorkExperience(newExperience);
+                    }
+                    else if(choice2 == 3){
+                        System.out.println("");
+                        System.out.println("What university did you attend?");
+                        Education newEducation = new Education();
+                        String newUniversity = scanner.nextLine();
+                        newEducation.setUniversity(newUniversity);
+                        System.out.println("What degree did you recieve?");
+                        String newDegree = scanner.nextLine();
+                        newEducation.setDegree(newDegree);
+                        System.out.println("When did you graduate?");
+                        String newGradDate = scanner.nextLine();
+                        newEducation.setGradDate(newGradDate);
+                        resume.setEducation(newEducation);
+                    } else if(choice2 == 0) {
+                        keepediting = false;
+                    }
+                    else {
+                        System.out.println("Invalid input. Please try again");
+                    }
                 }
-                else if(choice2 == 2) {
-                    System.out.println("");
-                    System.out.println("What company did you work for?");
-                    Experience newExperience = new Experience();
-                    String newCompany = scanner.nextLine();
-                    newExperience.setCompany(newCompany);
-                    System.out.println("What position did you hold?");
-                    String newPosition = scanner.nextLine();
-                    newExperience.setCompany(newPosition);
-                    System.out.println("How would you describe this job?");
-                    String newDescription = scanner.nextLine();
-                    newExperience.setCompany(newDescription);
-                    System.out.println("How long did you hold this position?");
-                    String newDuration = scanner.nextLine();
-                    newExperience.setCompany(newDuration);
-                    resume.addWorkExperience(newExperience);
-                }
-                else if(choice2 == 3){
-                    System.out.println("");
-                    System.out.println("What university did you attend?");
-                    Education newEducation = new Education();
-                    String newUniversity = scanner.nextLine();
-                    newEducation.setUniversity(newUniversity);
-                    System.out.println("What degree did you recieve?");
-                    String newDegree = scanner.nextLine();
-                    newEducation.setDegree(newDegree);
-                    System.out.println("When did you graduate?");
-                    String newGradDate = scanner.nextLine();
-                    newEducation.setGradDate(newGradDate);
-                    resume.setEducation(newEducation);
-                }
-                else {
-                    System.out.println("Invalid input. Please try again");
-                }
+                DataWriter.saveResume(resumes);
             }
             else if(selection == 3){
                 //displayRateEmployer();
             }
             else if(selection == 4){
-                ResumeList.getInstance().getResume(user.getID()).ResumeToText();
+                ArrayList<Resume> resumes = DataLoader.getResumes();
+                for(int i = 0; i< resumes.size(); i++) {
+                    if(resumes.get(i).getStudentID().equals(user.getID())) {
+                        resumes.get(i).ResumeToText();
+                    }
+                }
             }
             else if(selection == 5){
                 displayMainMenu();
