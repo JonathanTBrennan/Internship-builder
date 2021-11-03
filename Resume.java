@@ -121,7 +121,7 @@ public class Resume {
     }
 
     /**
-     * Turns the resume's information into a readable, formatted text file
+     * Turns the resume's information into a readable, formatted text file.
      */
     public void ResumeToText() {
         try {
