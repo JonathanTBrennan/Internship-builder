@@ -120,12 +120,16 @@ public class Resume {
         return skillsBuilt;
     }
 
-    /**
-     * Turns the resume's information into a readable, formatted text file
-     */
-    public void ResumeToText() {
+    public void ResumeToText(User user) {
         try {
             FileWriter resumeWriter = new FileWriter("Resume.txt");
+            resumeWriter.write(user.getFirstName()+ " " +user.getLastName());
+            resumeWriter.write("\n");
+            resumeWriter.write(user.getEmail());
+            resumeWriter.write("\n");
+            resumeWriter.write(user.getPhone());
+            resumeWriter.write("\n");
+            resumeWriter.write("\n");
             resumeWriter.write("Skills: ");
             for (int i = 0; i<skills.size()-1; i++) {
                 resumeWriter.write(skills.get(i));
