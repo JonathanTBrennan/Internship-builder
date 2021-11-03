@@ -6,20 +6,26 @@
 import java.util.ArrayList;
 import java.util.UUID;
 
+/**
+ * Holds many of the methods used to run the overall program, called by the UI
+ */
 public class InternshipApplication {
     JobList jobListings;
     UserList userList;
     User user;
 
+    /**
+     * Base constructor for the application
+     */
     public InternshipApplication(){
         
     }
 
-    public ArrayList<JobListing> findJobs(boolean code, int codingFilter, boolean loc, String location, boolean rate, Rating rating){
-        ArrayList<JobListing> filteredList = new ArrayList<JobListing>();
-        filteredList = JobList.getInstance().getJobLists(code, codingFilter, loc, location, rate, rating);
-        return filteredList;
-    }
+    // public ArrayList<JobListing> findJobs(boolean code, int codingFilter, boolean loc, String location, boolean rate, Rating rating){
+    //     ArrayList<JobListing> filteredList = new ArrayList<JobListing>();
+    //     filteredList = JobList.getInstance().getJobLists(code, codingFilter, loc, location, rate, rating);
+    //     return filteredList;
+    // }
 
     /**
      * Creates an account based on information given by user

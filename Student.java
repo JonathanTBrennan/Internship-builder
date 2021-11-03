@@ -5,6 +5,10 @@
  */
 
 import java.util.UUID;
+
+/**
+ * Student version of a user
+ */
 public class Student extends User {
     private String username;
     private String password;
