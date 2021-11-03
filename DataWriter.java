@@ -139,14 +139,13 @@ public class DataWriter {
     /**
      * Saves a list of Resumes to resume.json
      */
-    public static void saveResume() {
+    public static void saveResume(ArrayList<Resume> resumes) {
         ResumeList resumeList = ResumeList.getInstance();
-        ArrayList<Resume> resumes = resumeList.getResumes();
         JSONArray resumeListJSON = new JSONArray();
         for(int i=0; i<resumes.size(); i++) {
             Resume resume = resumes.get(i);
             JSONObject resumeDetails = new JSONObject();
-            resumeDetails.put("id", resume.getStudentID());
+            resumeDetails.put("id", resume.getStudentID().toString());
             JSONArray skills = new JSONArray();
             for(int j=0; j<resume.getSkills().size(); j++) {
                 skills.add(resume.getSkills().get(j));
@@ -155,12 +154,26 @@ public class DataWriter {
             resumeDetails.put("university", resume.getEducation().getUniversity());
             resumeDetails.put("degree", resume.getEducation().getDegree());
             resumeDetails.put("graduationDate", resume.getEducation().getGradDate());
-            for(int k=0; k<resume.getWorkExperience().size(); k++) {
-                resumeDetails.put("company", resume.getWorkExperience().get(k).getCompany());
-                resumeDetails.put("position", resume.getWorkExperience().get(k).getPosition());
-                resumeDetails.put("jobdescription", resume.getWorkExperience().get(k).getDesciption());
-                resumeDetails.put("duration", resume.getWorkExperience().get(k).getDuration());
+            JSONArray company = new JSONArray();
+            for(int j=0; j<resume.getWorkExperience().size(); j++) {
+                company.add(resume.getWorkExperience().get(j).getCompany());
             }
+            resumeDetails.put("company", company);
+            JSONArray pos = new JSONArray();
+            for(int j=0; j<resume.getWorkExperience().size(); j++) {
+                pos.add(resume.getWorkExperience().get(j).getPosition());
+            }
+            resumeDetails.put("position", pos);
+            JSONArray desc = new JSONArray();
+            for(int j=0; j<resume.getWorkExperience().size(); j++) {
+                desc.add(resume.getWorkExperience().get(j).getDesciption());
+            }
+            resumeDetails.put("jobdescription", desc);
+            JSONArray duration = new JSONArray();
+            for(int j=0; j<resume.getWorkExperience().size(); j++) {
+                duration.add(resume.getWorkExperience().get(j).getDuration());
+            }
+            resumeDetails.put("duration", duration);
             resumeListJSON.add(resumeDetails);
         }
         try (FileWriter file = new FileWriter(RESUME_FILE)) {
