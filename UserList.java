@@ -35,10 +35,19 @@ public class UserList extends DataLoader {
     return userList;
   }
 
+  /**
+   * Adds a user to the list of users
+   * @param user being added
+   * @return whether or not the user was successfully added
+   */
   public boolean addUser(User user) {
     return UserList.getInstance().users.add(user);
   }
 
+  /**
+   * Gets the size of the user list
+   * @return the size of the user list
+   */
   public int listSize() {
     return users.size();
   }

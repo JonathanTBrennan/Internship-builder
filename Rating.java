@@ -4,12 +4,21 @@
  * @author Jonathan Brennan, LJ Todd, Patrick Burroughs, Tyler Madden
  */
 
+ /**
+  * Handles an instance of a rating of a user
+  */
 public class Rating {
     private int numRating;
     private String comment;
     private User user;
     private int ID;
 
+    /**
+     * Constructor for the variables of a rating
+     * @param numRating numerical value of the rating
+     * @param comment optional comment included in the rating
+     * @param user user being rated
+     */
     public Rating(int numRating, String comment, User user) {
         this.numRating = numRating;
         this.comment = comment;
@@ -17,10 +26,19 @@ public class Rating {
         this.ID = RatingList.getRatings().size();
     }
 
+    /**
+     * Empty constructor for a rating
+     */
     public Rating() {
 
     }
 
+    /**
+     * Edits an aspect of an active rating
+     * @param rating rating being edited
+     * @param numRating new numerical value
+     * @param comment new comment on the rating
+     */
     public void editRating(Rating rating, int numRating, String comment) {
         rating.setNumRating(numRating);
         rating.setComment(comment);

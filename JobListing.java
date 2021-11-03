@@ -178,6 +178,10 @@ public class JobListing {
         job.skills = skills;
     }
 
+    /**
+     * Concatenates the miscellaneous information about a job listing into one readable string
+     * @return the concatenated string that can display the information about a job listing
+     */
     public String toString() {
         String ret = "";
         ret+= "Title: " +title;

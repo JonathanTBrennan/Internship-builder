@@ -4,16 +4,27 @@ import java.util.UUID;
 
 import javax.lang.model.util.ElementScanner6;
 import javax.naming.spi.DirStateFactory.Result;
+
+/**
+ * UI that runs the entire program
+ */
 public class InternshipUI {
     private Scanner scanner = new Scanner(System.in);
     private InternshipApplication application;
-    private JobList jobList;
+
+    /**
+     * Main method that kickstarts the program
+     * @param args args
+     */
     public static void main(String[] args) {
         //System.out.println(UUID.randomUUID());
         InternshipUI driver = new InternshipUI();
         driver.displayMainMenu();
     }
 
+    /**
+     * Main menu for the UI
+     */
     private void displayMainMenu() {
         application = new InternshipApplication();
         while(true){
@@ -62,6 +73,10 @@ public class InternshipUI {
         }
     }
 
+    /**
+     * Login screen for the UI
+     * @param selectionType type of user that is logging in
+     */
     private void displayLogin(int selectionType){
         while(true){
             String username;
@@ -90,7 +105,7 @@ public class InternshipUI {
                     }
                 }
                 if(selectionType == 0){
-                    displayAdminPortal();
+                    //displayAdminPortal();
                 }
                 else if(selectionType == 1){
                     displayStudentPortal(user);
@@ -105,6 +120,11 @@ public class InternshipUI {
         }
     }
 
+    /**
+     * Account creator for an employer (fills in the information using prompts to user)
+     * @param theEmployer employer account being filled in with information
+     * @return employer's account with its basic information filled in
+     */
     private Employer displayEmployerAccountCreation(Employer theEmployer){
             theEmployer.setID();    
             System.out.println("**** Employer Account Creation ****");
@@ -126,6 +146,10 @@ public class InternshipUI {
         return theEmployer;        
     }
 
+    /**
+     * "Home screen" for a logged in employer
+     * @param user employer who is logged in
+     */
     private void displayEmployerPortal(User user){
         while(true){
             System.out.println("********* Employer Portal *********");
@@ -160,35 +184,39 @@ public class InternshipUI {
         }
     }
 
-    private void displayCreateJobPosting(){
-        while(true){
-            System.out.println("********* Job Posting *********");
-            System.out.println("");
-            System.out.println("Position: ");
-            System.out.println("Pay: ");
-            System.out.println("Length: ");
-            System.out.println("Job Description: ");
-            System.out.println("Recommended Skills -");
-            System.out.println("Enter Each Line by Line, Type \"0\" When finished: ");
+    // private void displayCreateJobPosting(){
+    //     while(true){
+    //         System.out.println("********* Job Posting *********");
+    //         System.out.println("");
+    //         System.out.println("Position: ");
+    //         System.out.println("Pay: ");
+    //         System.out.println("Length: ");
+    //         System.out.println("Job Description: ");
+    //         System.out.println("Recommended Skills -");
+    //         System.out.println("Enter Each Line by Line, Type \"0\" When finished: ");
             
-        }
-    }
+    //     }
+    // }
 
-    private void displayJobPostingPreview(){
-        while(true){
-            System.out.println("--- Posting Preview ---");
-            System.out.println("");
-            System.out.println("Position: ");
-            System.out.println("Pay: ");
-            System.out.println("Length: ");
-            System.out.println("Job Description: ");
-            System.out.println("Recommended Skills: ");
-            System.out.println("");
-            System.out.println("Type \"1\" to Post");
-            System.out.println("Type \"2\" to Edit");
-        }
-    }
+    // private void displayJobPostingPreview(){
+    //     while(true){
+    //         System.out.println("--- Posting Preview ---");
+    //         System.out.println("");
+    //         System.out.println("Position: ");
+    //         System.out.println("Pay: ");
+    //         System.out.println("Length: ");
+    //         System.out.println("Job Description: ");
+    //         System.out.println("Recommended Skills: ");
+    //         System.out.println("");
+    //         System.out.println("Type \"1\" to Post");
+    //         System.out.println("Type \"2\" to Edit");
+    //     }
+    // }
 
+    /**
+     * Method for allowing the employer to select view a job listing's applicants
+     * @param user employer looking through their applicants
+     */
     private void displayViewApplicants(User user){
         while(true){
             System.out.println("********* View Applicants *********");
@@ -249,38 +277,42 @@ public class InternshipUI {
         }
     }
 
-    private void displayFilterApplicants(){
-        while(true){
-            System.out.println("********* Filter Applicants *********");
-            System.out.println("What would you like to filter by?");
-            System.out.println("	1. Coding Languages");
-            System.out.println("	2. Length of Internship");
-            System.out.println("	3. Pay");
-            System.out.println("	4. Go back");
-            System.out.println("");
-            System.out.println("Enter Selection: ");
-        }
-    }
+    // private void displayFilterApplicants(){
+    //     while(true){
+    //         System.out.println("********* Filter Applicants *********");
+    //         System.out.println("What would you like to filter by?");
+    //         System.out.println("	1. Coding Languages");
+    //         System.out.println("	2. Length of Internship");
+    //         System.out.println("	3. Pay");
+    //         System.out.println("	4. Go back");
+    //         System.out.println("");
+    //         System.out.println("Enter Selection: ");
+    //     }
+    // }
 
-    private void displayFilterLanguage(){
-        while(true){
-            System.out.println("--- What Language would you like to filter by? ---");
-            System.out.println("");
-            System.out.println("Enter Language: ");
-            System.out.println("");
-            System.out.println("--- These Applicants have <Language> listed as a skill --- ");
-            System.out.println("<Applicants>");
-            System.out.println("");
-            System.out.println("Select Applicant: ");
-        }
-    }
+    // private void displayFilterLanguage(){
+    //     while(true){
+    //         System.out.println("--- What Language would you like to filter by? ---");
+    //         System.out.println("");
+    //         System.out.println("Enter Language: ");
+    //         System.out.println("");
+    //         System.out.println("--- These Applicants have <Language> listed as a skill --- ");
+    //         System.out.println("<Applicants>");
+    //         System.out.println("");
+    //         System.out.println("Select Applicant: ");
+    //     }
+    // }
 
-    private void displayFilterLength(){
-        while(true){
+    // private void displayFilterLength(){
+    //     while(true){
             
-        }
-    }
+    //     }
+    // }
 
+    /**
+     * Displays the information for a specific applicant once selected by an employer
+     * @param user applicant being viewed
+     */
     private void displayApplicant(User user){
         Resume userResume = new Resume();
         userResume = ResumeList.getInstance().getResume(user.getID());
@@ -321,30 +353,35 @@ public class InternshipUI {
         }
     }
 
-    private void displayRateStudent(){
-        while(true){
-            System.out.println("********* Rate a Student *********");
-            System.out.println("");
-            System.out.println("---Past Employees---");
-            //Display past employees
-            System.out.println("");
-            System.out.println("Enter your selection: ");
-            System.out.println("");
-            System.out.println("--- Rate UserName---");
-            System.out.println("");
-            System.out.println("On a scale of (1-10) How do you rate UserName: ");
-            System.out.println("Comments or Concerns: ");
-            System.out.println("");
-            System.out.println("--- Preview of Rating ---");
-            System.out.println("");
-            System.out.println("Rating (1-10): ");
-            System.out.println("Comments: ");
-            System.out.println("");
-            System.out.println("Enter \"1\" to submit. Enter \"2\" to go back: ");
+    // private void displayRateStudent(){
+    //     while(true){
+    //         System.out.println("********* Rate a Student *********");
+    //         System.out.println("");
+    //         System.out.println("---Past Employees---");
+    //         //Display past employees
+    //         System.out.println("");
+    //         System.out.println("Enter your selection: ");
+    //         System.out.println("");
+    //         System.out.println("--- Rate UserName---");
+    //         System.out.println("");
+    //         System.out.println("On a scale of (1-10) How do you rate UserName: ");
+    //         System.out.println("Comments or Concerns: ");
+    //         System.out.println("");
+    //         System.out.println("--- Preview of Rating ---");
+    //         System.out.println("");
+    //         System.out.println("Rating (1-10): ");
+    //         System.out.println("Comments: ");
+    //         System.out.println("");
+    //         System.out.println("Enter \"1\" to submit. Enter \"2\" to go back: ");
 
-        }
-    }
+    //     }
+    // }
 
+    /**
+     * Creates and fills in basic information for a student new to the program
+     * @param theStudent empty student account being made
+     * @return the student's account with its information entered
+     */
     private Student displayStudentAccountCreation(Student theStudent) {
             theStudent.setID();
             System.out.println("");
@@ -365,6 +402,12 @@ public class InternshipUI {
         return theStudent;
     }
 
+    /**
+     * After creating a student's account with information, this has them enter their resume information
+     * @param user student who is filling in their resume
+     * @param resume resume being filled in
+     * @return filled in resume
+     */
     private Resume displayResumeBuilder(User user, Resume resume){
             resume.setStudentID(user.getID());
             System.out.println("");
@@ -424,6 +467,10 @@ public class InternshipUI {
             return resume;
         }
 
+        /**
+         * "Home screen" for a logged in student
+         * @param user student who is logged in
+         */
     private void displayStudentPortal(User user){
         while(true){
             System.out.println("********* Student Portal *********");
@@ -445,7 +492,7 @@ public class InternshipUI {
                 System.out.println("Type \"1\" for all. Type \"2\" for filtered: ");
                 int choice = scanner.nextInt();
                 if(choice == 1){
-                    displayJobListingsStudentViewAll(user);
+                    //displayJobListingsStudentViewAll(user);
                 }
                 else if(choice == 2){
                     displayJobListingsStudentFiltered(user);
@@ -523,7 +570,7 @@ public class InternshipUI {
                 DataWriter.saveResume(resumes);
             }
             else if(selection == 3){
-                displayRateEmployer();
+                //displayRateEmployer();
             }
             else if(selection == 4){
                 ArrayList<Resume> resumes = DataLoader.getResumes();
@@ -542,36 +589,40 @@ public class InternshipUI {
         }
     }
 
-    private void displayJobListingsStudentViewAll(User user){
-        while(true){
-            System.out.println("--- Job Listings ---");
-            System.out.println("");
-            System.out.println("Display all listings numbered. Ex below");
-            System.out.println("	1. Software Engineering Intern: Microsoft");
-            System.out.println("");
-            System.out.println("Enter your selection: ");
+    // private void displayJobListingsStudentViewAll(User user){
+    //     while(true){
+    //         System.out.println("--- Job Listings ---");
+    //         System.out.println("");
+    //         System.out.println("Display all listings numbered. Ex below");
+    //         System.out.println("	1. Software Engineering Intern: Microsoft");
+    //         System.out.println("");
+    //         System.out.println("Enter your selection: ");
 
-        }
-    }
+    //     }
+    // }
 
-    private void displaySelectedJobListing(){
-        while(true){
-            System.out.println("--- Job Title Name ---");
-            System.out.println("");
-            System.out.println("Company: ");
-            System.out.println("Location: ");
-            System.out.println("Pay: ");
-            System.out.println("Duration: ");
-            System.out.println("Reccomended Skills: ");
-            System.out.println("Display The skills here");
-            System.out.println("Job Description: ");
-            System.out.println("");
-            System.out.println("Type \"1\" to submit an application");
-            System.out.println("Type \"2\" to go back");
-        }
+    // private void displaySelectedJobListing(){
+    //     while(true){
+    //         System.out.println("--- Job Title Name ---");
+    //         System.out.println("");
+    //         System.out.println("Company: ");
+    //         System.out.println("Location: ");
+    //         System.out.println("Pay: ");
+    //         System.out.println("Duration: ");
+    //         System.out.println("Reccomended Skills: ");
+    //         System.out.println("Display The skills here");
+    //         System.out.println("Job Description: ");
+    //         System.out.println("");
+    //         System.out.println("Type \"1\" to submit an application");
+    //         System.out.println("Type \"2\" to go back");
+    //     }
 
-    }
+    // }
 
+    /**
+     * Offers choices for filtering job listings to the user
+     * @param user student who is searching through the job listings
+     */
     private void displayJobListingsStudentFiltered(User user){
         while(true){
             System.out.println("--- Filter Listings --- ");
@@ -587,10 +638,10 @@ public class InternshipUI {
                 displayJobListingsStudentFilteredByLanguage(user);
             }
             else if(choice == 2){
-                displayJobListingsStudentFilteredByLocation();
+                //displayJobListingsStudentFilteredByLocation();
             }
             else if(choice == 3){
-                displayJobListingsStudentFilteredByRating();
+                //displayJobListingsStudentFilteredByRating();
             }
             else if(choice == 4){
                 break;
@@ -599,6 +650,10 @@ public class InternshipUI {
 
     }
 
+    /**
+     * Allows student to choose what coding language they would like jobs to require in their search for a job, then search by that filter
+     * @param user student who is searching for jobs
+     */
     private void displayJobListingsStudentFilteredByLanguage(User user){
         JobList jobs = JobList.getInstance();
         boolean tf = true;
@@ -666,71 +721,71 @@ public class InternshipUI {
         displayStudentPortal(user);
     }
 
-    private void displayJobListingsStudentFilteredByLocation(){
-        while(true){
-            System.out.println("--- Filter by location ---");
-            System.out.println("What location would you like to search for: ");
-            System.out.println("");
-            System.out.println("--- Filtered Listings ---");
-            System.out.println("");
-            System.out.println("<the listings>");
-            System.out.println("");
-            System.out.println("Enter your selection: ");
-        }
-    }
+    // private void displayJobListingsStudentFilteredByLocation(){
+    //     while(true){
+    //         System.out.println("--- Filter by location ---");
+    //         System.out.println("What location would you like to search for: ");
+    //         System.out.println("");
+    //         System.out.println("--- Filtered Listings ---");
+    //         System.out.println("");
+    //         System.out.println("<the listings>");
+    //         System.out.println("");
+    //         System.out.println("Enter your selection: ");
+    //     }
+    // }
 
-    private void displayJobListingsStudentFilteredByRating(){
-        while(true){
-            System.out.println("--- Filter by rating ---");
-            System.out.println("What rating would you like to search for: ");
-            System.out.println("");
-            System.out.println("--- Filtered Listings ---");
-            System.out.println("");
-            System.out.println("<the listings>");
-            System.out.println("");
-            System.out.println("Enter your selection: ");
-        }
-    }
+    // private void displayJobListingsStudentFilteredByRating(){
+    //     while(true){
+    //         System.out.println("--- Filter by rating ---");
+    //         System.out.println("What rating would you like to search for: ");
+    //         System.out.println("");
+    //         System.out.println("--- Filtered Listings ---");
+    //         System.out.println("");
+    //         System.out.println("<the listings>");
+    //         System.out.println("");
+    //         System.out.println("Enter your selection: ");
+    //     }
+    // }
 
-    private void displayRateEmployer(){
-        while(true){
-            System.out.println("********* Rate an Employer *********");
-            System.out.println("");
-            System.out.println("---Past Employers---");
-            System.out.println("<Insert past employers>");
-            System.out.println("");
-            System.out.println("Enter your selection: ");
-            System.out.println("");
-            Rating newRating = new Rating();
-                String newRatedEmployer = scanner.nextLine();
-                User newEmployer = new Employer();
-                for (int i = 0; i < UserList.getInstance().listSize(); i++) {
-                    if (newRatedEmployer == UserList.getInstance().getUsers().get(i).getEmail()) {
-                        newEmployer = UserList.getInstance().getUsers().get(i);
-                    }
-                }
-                newRating.setUser(newEmployer);
-            System.out.println("");
-            System.out.println("On a scale of (1-10) How do you rate <company>: ");
-            System.out.println("Comments or Concerns: ");
-            System.out.println("");
-            System.out.println("--- Preview of Rating --- ");
-            System.out.println("");
-            System.out.println("Rating (1-10): <User Rating>");
-            System.out.println("Comments or Concerns: <User input>");
-            System.out.println("");
-            System.out.println("Enter \"1\" to submit. Enter \"2\" to go back: ");
-        }        
-    }
+    // private void displayRateEmployer(){
+    //     while(true){
+    //         System.out.println("********* Rate an Employer *********");
+    //         System.out.println("");
+    //         System.out.println("---Past Employers---");
+    //         System.out.println("<Insert past employers>");
+    //         System.out.println("");
+    //         System.out.println("Enter your selection: ");
+    //         System.out.println("");
+    //         Rating newRating = new Rating();
+    //             String newRatedEmployer = scanner.nextLine();
+    //             User newEmployer = new Employer();
+    //             for (int i = 0; i < UserList.getInstance().listSize(); i++) {
+    //                 if (newRatedEmployer == UserList.getInstance().getUsers().get(i).getEmail()) {
+    //                     newEmployer = UserList.getInstance().getUsers().get(i);
+    //                 }
+    //             }
+    //             newRating.setUser(newEmployer);
+    //         System.out.println("");
+    //         System.out.println("On a scale of (1-10) How do you rate <company>: ");
+    //         System.out.println("Comments or Concerns: ");
+    //         System.out.println("");
+    //         System.out.println("--- Preview of Rating --- ");
+    //         System.out.println("");
+    //         System.out.println("Rating (1-10): <User Rating>");
+    //         System.out.println("Comments or Concerns: <User input>");
+    //         System.out.println("");
+    //         System.out.println("Enter \"1\" to submit. Enter \"2\" to go back: ");
+    //     }        
+    // }
 
-    private void displayAdminPortal(){
-        while(true){
-            System.out.println("********* Admin Portal *********");
-            System.out.println("");
-            System.out.println("	1. Edit Student Account / Resume");
-            System.out.println("	2. Edit Employer Job Listing");
-            System.out.println("	3. Log out");
-        }
+    // private void displayAdminPortal(){
+    //     while(true){
+    //         System.out.println("********* Admin Portal *********");
+    //         System.out.println("");
+    //         System.out.println("	1. Edit Student Account / Resume");
+    //         System.out.println("	2. Edit Employer Job Listing");
+    //         System.out.println("	3. Log out");
+    //     }
 
-    }
+    // }
 }

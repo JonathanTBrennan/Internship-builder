@@ -146,13 +146,28 @@ public class JobList extends DataLoader {
     }
   }
 
+  /**
+   * Getter for the list of all jobs
+   * @return the list of all jobs
+   */
   public ArrayList<JobListing> getJobLists() {
       return jobListings;
   }
 
+  /**
+   * Getter for a specific job listing
+   * @param i which job to get from the list of all jobs
+   * @return the job, once found
+   */
   public JobListing getJob(int i) {
       return jobListings.get(i);
   }
+
+  /**
+   * Adds an applicant to the list of applicants for a job listing
+   * @param i job listing to add the applicant to
+   * @param id of the student applying to the job listing
+   */
   public void addApplicant(int i, UUID id) {
       boolean contains = false;
       for(int j = 0; j<jobListings.get(i).getApplicants().size(); j++) {
