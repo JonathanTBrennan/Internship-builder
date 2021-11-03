@@ -1,16 +1,13 @@
 JohnBlanks
 johnb@gmail.com
 803-604-9342
-Skills: j
+Skills: Java
 
   -- Education --  
-University: j
-Degree: j
-Graduation Date: j
+University: UofSC
+Degree: Bach in CIS
+Graduation Date: May of 2023
 
   -- Work Experience --  
-Company: j at j for j
-Description: j
-
-Company: j at j for j
-Description: j
+Company: Intern at JP Morgan for a month
+Description: made code
