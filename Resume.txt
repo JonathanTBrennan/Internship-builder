@@ -1,4 +1,7 @@
-Skills: h
+JohnBlanks
+johnb@gmail.com
+803-604-9342
+Skills: j
 
   -- Education --  
 University: j
@@ -6,5 +9,8 @@ Degree: j
 Graduation Date: j
 
   -- Work Experience --  
+Company: j at j for j
+Description: j
+
 Company: j at j for j
 Description: j

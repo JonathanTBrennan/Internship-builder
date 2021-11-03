@@ -73,7 +73,17 @@ public class Resume {
     public void ResumeToText() {
         try {
             FileWriter resumeWriter = new FileWriter("Resume.txt");
-            resumeWriter.write("Skills: ");
+            ArrayList<User> users = DataLoader.getUsers();
+            User user  = null;
+            for(int i = 0; i<users.size(); i++) {
+                if(studentID.equals(users.get(i).getID())) {
+                    user = users.get(i);
+                }
+            }
+            resumeWriter.write(user.getFirstName() + user.getLastName());
+            resumeWriter.write("\n" +user.getEmail());
+            resumeWriter.write("\n" +user.getPhone());
+            resumeWriter.write("\nSkills: ");
             for (int i = 0; i<skills.size()-1; i++) {
                 resumeWriter.write(skills.get(i));
                 resumeWriter.write(", ");
