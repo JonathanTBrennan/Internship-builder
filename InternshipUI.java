@@ -11,12 +11,20 @@ import javax.naming.spi.DirStateFactory.Result;
 public class InternshipUI {
     private Scanner scanner = new Scanner(System.in);
     private InternshipApplication application;
+
+    /**
+     * Main method that kickstarts the program
+     * @param args args
+     */
     public static void main(String[] args) {
         //System.out.println(UUID.randomUUID());
         InternshipUI driver = new InternshipUI();
         driver.displayMainMenu();
     }
 
+    /**
+     * Main menu for the UI
+     */
     private void displayMainMenu() {
         application = new InternshipApplication();
         while(true){
@@ -65,6 +73,10 @@ public class InternshipUI {
         }
     }
 
+    /**
+     * Login screen for the UI
+     * @param selectionType type of user that is logging in
+     */
     private void displayLogin(int selectionType){
         while(true){
             String username;
@@ -108,6 +120,11 @@ public class InternshipUI {
         }
     }
 
+    /**
+     * Account creator for an employer (fills in the information using prompts to user)
+     * @param theEmployer employer account being filled in with information
+     * @return employer's account with its basic information filled in
+     */
     private Employer displayEmployerAccountCreation(Employer theEmployer){
             theEmployer.setID();    
             System.out.println("**** Employer Account Creation ****");
@@ -129,6 +146,10 @@ public class InternshipUI {
         return theEmployer;        
     }
 
+    /**
+     * "Home screen" for a logged in employer
+     * @param user employer who is logged in
+     */
     private void displayEmployerPortal(User user){
         while(true){
             System.out.println("********* Employer Portal *********");
@@ -192,6 +213,10 @@ public class InternshipUI {
     //     }
     // }
 
+    /**
+     * Method for allowing the employer to select view a job listing's applicants
+     * @param user employer looking through their applicants
+     */
     private void displayViewApplicants(User user){
         while(true){
             System.out.println("********* View Applicants *********");
@@ -284,6 +309,10 @@ public class InternshipUI {
     //     }
     // }
 
+    /**
+     * Displays the information for a specific applicant once selected by an employer
+     * @param user applicant being viewed
+     */
     private void displayApplicant(User user){
         Resume userResume = new Resume();
         userResume = ResumeList.getInstance().getResume(user.getID());
@@ -348,6 +377,11 @@ public class InternshipUI {
     //     }
     // }
 
+    /**
+     * Creates and fills in basic information for a student new to the program
+     * @param theStudent empty student account being made
+     * @return the student's account with its information entered
+     */
     private Student displayStudentAccountCreation(Student theStudent) {
             theStudent.setID();
             System.out.println("");
@@ -368,6 +402,12 @@ public class InternshipUI {
         return theStudent;
     }
 
+    /**
+     * After creating a student's account with information, this has them enter their resume information
+     * @param user student who is filling in their resume
+     * @param resume resume being filled in
+     * @return filled in resume
+     */
     private Resume displayResumeBuilder(User user, Resume resume){
             resume.setStudentID(user.getID());
             System.out.println("");
@@ -427,6 +467,10 @@ public class InternshipUI {
             return resume;
         }
 
+        /**
+         * "Home screen" for a logged in student
+         * @param user student who is logged in
+         */
     private void displayStudentPortal(User user){
         while(true){
             System.out.println("********* Student Portal *********");
@@ -575,6 +619,10 @@ public class InternshipUI {
 
     // }
 
+    /**
+     * Offers choices for filtering job listings to the user
+     * @param user student who is searching through the job listings
+     */
     private void displayJobListingsStudentFiltered(User user){
         while(true){
             System.out.println("--- Filter Listings --- ");
@@ -602,6 +650,10 @@ public class InternshipUI {
 
     }
 
+    /**
+     * Allows student to choose what coding language they would like jobs to require in their search for a job, then search by that filter
+     * @param user student who is searching for jobs
+     */
     private void displayJobListingsStudentFilteredByLanguage(User user){
         JobList jobs = JobList.getInstance();
         boolean tf = true;
