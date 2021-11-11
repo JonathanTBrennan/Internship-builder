@@ -69,6 +69,23 @@ public class UserList extends DataLoader {
   }
 
   /**
+   * JUNIT TESTING PURPOSES ONLY
+   * Getter for if there is a match for a specific user by username
+   * 
+   * @param keyword user to look for
+   * @return if there is a match
+   */
+  public boolean getUserByUsernameBool(String userName) {
+    users = DataLoader.getUsers();
+    for (int i = 0; i < users.size(); i++) {
+      if (users.get(i).getUsername().equals(userName)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /**
    * Getter for a specific user by UUID
    * 
    * @param ID user to look for
