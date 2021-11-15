@@ -11,6 +11,7 @@ public class DataLoaderTest {
     private UserList users = UserList.getInstance();
     private ArrayList<User> userList = users.getUsers();
 
+    @BeforeEach
     public void setup(){
         userList.clear();
         userList.add(new Student("TylerM", "password", "email@email.com", "Tyler", "Madden", 1, "5714991257", UUID.randomUUID()));
@@ -18,8 +19,28 @@ public class DataLoaderTest {
         DataWriter.saveUsers();        
     }
 
+    @AfterEach
     public void tearDown(){
         UserList.getInstance().getUsers().clear();
+        DataWriter.saveUsers();
+    }
 
+    @Test
+    void testGetUsersSize(){
+        userList = DataLoader.getUsers();
+        assertEquals(2, userList.size());
+    }
+
+    @Test
+    void testGetUsersSizeZero(){
+        UserList.getInstance().getUsers().clear();
+        DataWriter.saveUsers();
+        assertEquals(0, userList.size());
+    }
+
+    @Test
+    void testGetUserFirstUserName(){
+        userList = DataLoader.getUsers();
+        assertEquals("TylerM", userList.get(0).getUsername());
     }
 }
