@@ -1,3 +1,3 @@
-public classgtttttttttttttttttttttttttttttttttttttttttttttttttttttttttt JobListingTest {
+public class JobListingTest {
     
 }
