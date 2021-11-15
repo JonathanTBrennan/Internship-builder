@@ -14,8 +14,6 @@ public class DataLoaderTest {
     @BeforeEach
     public void setup(){
         userList.clear();
-        userList.add(new Student("TylerM", "password", "email@email.com", "Tyler", "Madden", 1, "5714991257", UUID.randomUUID()));
-        userList.add(new Employer("Employer777", "password", "email@bidness.com", "Joe", "Shmoe", 2, "911", UUID.randomUUID()));
         DataWriter.saveUsers();        
     }
 
@@ -27,7 +25,8 @@ public class DataLoaderTest {
 
     @Test
     void testGetUsersSize(){
-        userList = DataLoader.getUsers();
+        userList.add(new Student("TylerM", "password", "email@email.com", "Tyler", "Madden", 1, "5714991257", UUID.randomUUID()));
+        userList.add(new Employer("Employer777", "password", "email@bidness.com", "Joe", "Shmoe", 2, "911", UUID.randomUUID()));
         assertEquals(2, userList.size());
     }
 
@@ -40,7 +39,8 @@ public class DataLoaderTest {
 
     @Test
     void testGetUserFirstUserName(){
-        userList = DataLoader.getUsers();
+        userList.add(new Student("TylerM", "password", "email@email.com", "Tyler", "Madden", 1, "5714991257", UUID.randomUUID()));
+        userList.add(new Employer("Employer777", "password", "email@bidness.com", "Joe", "Shmoe", 2, "911", UUID.randomUUID()));
         assertEquals("TylerM", userList.get(0).getUsername());
     }
 }
