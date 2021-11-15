@@ -70,7 +70,7 @@ public class UserList extends DataLoader {
 
   /**
    * JUNIT TESTING PURPOSES ONLY
-   * Getter for if there is a match for a specific user by username
+   * Checks for if there is a match for a specific user by username
    * 
    * @param keyword user to look for
    * @return if there is a match
@@ -99,5 +99,22 @@ public class UserList extends DataLoader {
       }
     }
     return null;
+  }
+
+  /**
+   * TESTING PURPOSES ONLY
+   * Checks for if the sent ID is the same as a specific user's UUID
+   * 
+   * @param ID user to look for
+   * @return if it matches
+   */
+  public boolean getUserByIDBool(UUID ID) {
+    users = DataLoader.getUsers();
+    for (int i = 0; i < users.size(); i++) {
+      if (users.get(i).getID().equals(ID)) {
+        return true;
+      }
+    }
+    return false;
   }
 }
