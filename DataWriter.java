@@ -43,6 +43,32 @@ public class DataWriter {
     }
 
     /**
+     * Saves a list of users to the user.json file
+     */
+    public static void saveUsers(ArrayList<User> users) {
+        JSONArray userJSON = new JSONArray();
+        for(int i=0; i<users.size(); i++) {
+            JSONObject userDetails = new JSONObject();
+            User user = users.get(i);
+            userDetails.put("id", user.getID());
+            userDetails.put("usertype", user.getUserType());
+            userDetails.put("username", user.getUsername());
+            userDetails.put("password", user.getPassword());
+            userDetails.put("email", user.getEmail());
+            userDetails.put("phone", user.getPhone());
+            userDetails.put("firstName", user.getFirstName());
+            userDetails.put("lastName", user.getLastName());
+            userJSON.add(userDetails);
+        }
+        try (FileWriter file = new FileWriter(USER_FILE)) {
+            file.write(userJSON.toJSONString());
+            file.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
      * Saves a list of job listings to jobListing.json
      */
     public static void saveJobListing() {

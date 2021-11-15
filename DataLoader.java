@@ -60,7 +60,7 @@ public class DataLoader {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+        return users;
     }
 
     /**
