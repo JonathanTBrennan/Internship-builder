@@ -19,18 +19,18 @@ public class DataWriterTest {
         DataWriter.saveUsers(users);
         resumes.clear();
         DataWriter.saveResume(resumes);
-        JobList.getInstance().getJobLists().clear();
-        DataWriter.saveJobListing(JobList.getInstance());
+        jobs.clear();
+        DataWriter.saveJobListing(jobs);
     }
 
     @AfterEach
     public void tearDown() {
         users.clear();
         DataWriter.saveUsers(users);
-        ResumeList.getResumes().clear();
-        DataWriter.saveResume(ResumeList.getResumes());
-        JobList.getInstance().getJobLists().clear();
-        DataWriter.saveJobListing(JobList.getInstance());
+        resumes.clear();
+        DataWriter.saveResume(resumes);
+        jobs.clear();
+        DataWriter.saveJobListing(jobs);
     }
 
     @Test
@@ -55,13 +55,6 @@ public class DataWriterTest {
         users.add(new Employer("ebc", "cheese", "jtb18@email.sc.edu", "Jonathan", "Brennan", 1, "800-000-0000", UUID.randomUUID()));
         DataWriter.saveUsers(users);
         assertEquals("ebc", DataLoader.getUsers().get(4).getUsername());
-    }
-
-    @Test
-    public void testWritingEmptyUser() {
-        users.add(new Student("", "", "", "", "", 1, "", UUID.randomUUID()));
-        DataWriter.saveUsers(users);
-        assertEquals("", DataLoader.getUsers().get(0).getUsername());
     }
 
     @Test
@@ -137,5 +130,58 @@ public class DataWriterTest {
         resumes.add(res);
         DataWriter.saveResume(resumes);
         assertEquals("Google", DataLoader.getResumes().get(0).getWorkExperience().get(0).getCompany());
+    }
+
+    @Test
+    public void testWritingResumeTwoResumes() {
+        UUID id = UUID.randomUUID();
+        UUID id2 = UUID.randomUUID();
+        ArrayList<String> skills = new ArrayList<String>();
+        skills.add("Java");
+        skills.add("C++");
+        ArrayList<Experience> exp = new ArrayList<Experience>();
+        Experience xp = new Experience("Google", "Intern", "Coded", "6 months");
+        exp.add(xp);
+        Education edu = new Education("UofSC", "Comp Sci", "2024");
+        Resume res = new Resume(id, skills, exp, edu);
+        Resume res2 = new Resume(id2, skills, exp, edu);
+        resumes.add(res);
+        resumes.add(res2);
+        DataWriter.saveResume(resumes);
+        assertEquals(id2, DataLoader.getResumes().get(1).getStudentID());
+    }
+
+    @Test
+    public void testWritingZeroJobListing() {
+        jobs = DataLoader.getJobListings();
+        assertEquals(0, jobs.size());
+    }
+
+    @Test
+    public void testWritingOneJobListing() {
+        UUID id = UUID.randomUUID();
+        ArrayList<String> skills = new ArrayList<String>();
+        skills.add("Java");
+        ArrayList<UUID> stuIDs = new ArrayList<UUID>();
+        stuIDs.add(UUID.randomUUID());
+        JobListing job = new JobListing("Google", id, "California", 25, "3 months", "Intern", "Code", skills, null, stuIDs);
+        jobs.add(job);
+        DataWriter.saveJobListing(jobs);
+        assertEquals("Google", DataLoader.getJobListings().get(0).getTitle());
+    }
+
+    @Test
+    public void testWritingTwoJobListing() {
+        UUID id = UUID.randomUUID();
+        ArrayList<String> skills = new ArrayList<String>();
+        skills.add("Java");
+        ArrayList<UUID> stuIDs = new ArrayList<UUID>();
+        stuIDs.add(UUID.randomUUID());
+        JobListing job = new JobListing("Google", id, "California", 25, "3 months", "Intern", "Code", skills, null, stuIDs);
+        JobListing job2 = new JobListing("Apple", id, "California", 25, "3 months", "Intern", "Code", skills, null, stuIDs);
+        jobs.add(job);
+        jobs.add(job2);
+        DataWriter.saveJobListing(jobs);
+        assertEquals("Apple", DataLoader.getJobListings().get(1).getTitle());
     }
 }

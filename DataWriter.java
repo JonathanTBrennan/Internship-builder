@@ -105,10 +105,10 @@ public class DataWriter {
         }
     }
 
-    public static void saveJobListing(JobList jobList) {
+    public static void saveJobListing(ArrayList<JobListing> jobList) {
         JSONArray jobListJSON = new JSONArray();
-        for(int i=0; i<jobList.getJobLists().size(); i++) {
-            JobListing jobListing = jobList.getJob(i);
+        for(int i=0; i<jobList.size(); i++) {
+            JobListing jobListing = jobList.get(i);
             JSONObject jobDetails = new JSONObject();
             jobDetails.put("title", jobListing.getTitle());
             jobDetails.put("location", jobListing.getLocation());

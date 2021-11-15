@@ -712,7 +712,7 @@ public class InternshipUI {
                     jobs.addApplicant(i, user.getID());
                 }
             }
-            DataWriter.saveJobListing(jobs);
+            DataWriter.saveJobListing(jobs.getJobLists());
             System.out.println("Do you want to continue? (1 to continue)");
             if(scanner.nextInt() != 1) {
                 tf = false;
